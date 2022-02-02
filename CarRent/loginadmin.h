@@ -20,6 +20,6 @@ public:
 
 private:
     Ui::LoginAdmin *ui;
-    QSqlDatabase dbAdmin;
+    QSqlDatabase dbAdmin;          //database for admin accouts
 };
 #endif // LOGINADMIN_H
