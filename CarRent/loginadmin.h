@@ -2,6 +2,9 @@
 #define LOGINADMIN_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginAdmin; }
@@ -17,5 +20,6 @@ public:
 
 private:
     Ui::LoginAdmin *ui;
+    QSqlDatabase dbAdmin;
 };
 #endif // LOGINADMIN_H
