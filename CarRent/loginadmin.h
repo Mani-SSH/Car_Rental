@@ -1,0 +1,21 @@
+#ifndef LOGINADMIN_H
+#define LOGINADMIN_H
+
+#include <QMainWindow>
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class LoginAdmin; }
+QT_END_NAMESPACE
+
+class LoginAdmin : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    LoginAdmin(QWidget *parent = nullptr);
+    ~LoginAdmin();
+
+private:
+    Ui::LoginAdmin *ui;
+};
+#endif // LOGINADMIN_H
