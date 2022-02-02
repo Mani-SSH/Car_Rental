@@ -6,6 +6,8 @@ LoginAdmin::LoginAdmin(QWidget *parent)
     , ui(new Ui::LoginAdmin)
 {
     ui->setupUi(this);
+
+    dbAdmin = QSqlDatabase::addDatabase("QSQLITE");
 }
 
 LoginAdmin::~LoginAdmin()
