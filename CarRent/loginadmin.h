@@ -17,11 +17,11 @@ class LoginAdmin : public QMainWindow
 public:
     LoginAdmin(QWidget *parent = nullptr);
     ~LoginAdmin();
-    void createdbAdminFile();
-    bool dbAdminFileStatus();
+    void createdbFile();
+    bool dbFileStatus();
 
 private:
     Ui::LoginAdmin *ui;
-    QSqlDatabase dbAdmin;          //database for admin accouts
+    QSqlDatabase db;          //database for admin accouts
 };
 #endif // LOGINADMIN_H
