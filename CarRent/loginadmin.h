@@ -17,6 +17,8 @@ class LoginAdmin : public QMainWindow
 public:
     LoginAdmin(QWidget *parent = nullptr);
     ~LoginAdmin();
+    void createdbAdminFile();
+    bool dbAdminFileStatus();
 
 private:
     Ui::LoginAdmin *ui;
