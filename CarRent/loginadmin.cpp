@@ -15,9 +15,9 @@ LoginAdmin::LoginAdmin(QWidget *parent)
 
     /*remove this later (only for debugging)*/
     if (!dbAdmin.open()){
-        QMessageBox::information(this, "Connected", "Connection to Database established");
-    }else{
         QMessageBox::critical(this, "Error", "Cannot connect to Database");
+    }else{
+        QMessageBox::information(this, "Connected", "Connection to Database established");
     }
 
 
