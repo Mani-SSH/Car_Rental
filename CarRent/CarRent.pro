@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     account.cpp \
     main.cpp \
-    loginadmin.cpp
+    loginadmin.cpp \
+    sql.cpp
 
 HEADERS += \
     account.h \
-    loginadmin.h
+    loginadmin.h \
+    sql.h
 
 FORMS += \
     loginadmin.ui
