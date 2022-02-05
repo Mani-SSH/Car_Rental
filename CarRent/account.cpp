@@ -1,4 +1,5 @@
 #include "account.h"
+#include "sql.h"
 
 account::account()
 {
@@ -11,3 +12,4 @@ account::account(QString x, QString y)
     username = x;
     password = y;
 }
+

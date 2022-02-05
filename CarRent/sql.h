@@ -4,14 +4,17 @@
 #include <QtSql>
 #include <QtDebug>
 #include <QFileInfo>
+#include <QDir>
+#include <QDebug>
 
 class sql
 {
 public:
-    sql();
     QSqlDatabase db;
     void createdbFile();
-
+    bool connectionOpen();
+    void connectionClose();
+    int getTotalAccounts();
 };
 
 #endif // SQL_H
