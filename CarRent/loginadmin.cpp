@@ -74,3 +74,34 @@ void LoginAdmin::on_checkBox_showPassword_stateChanged(int arg1)
     }
 }
 
+
+void LoginAdmin::on_pushButton_login_clicked()
+{
+    QString username = ui->lineEdit_username->text();
+    QString password = ui->lineEdit_password->text();
+    int count = 0;
+    QSqlQuery qry;
+    qry.exec("SELECT * FROM accounts WHERE username='"+username+"'");
+    qDebug()<<"Query executed";
+    while(qry.next())
+    {
+        count++;
+    }
+    if (count == 1){
+        count = 0;
+        qry.exec("SELECT * FROM accounts WHERE username='"+username+"' AND password='"+password+"'");
+        while(qry.next())
+        {
+            count++;
+        }
+        if (count == 1){
+            QMessageBox::information(this, "SUCCESS", "Access granted");
+            account thisUser(username, password);
+        }else{
+            QMessageBox::critical(this, "FAILURE", "Emotional damage");
+        }
+    }else{
+        ui->label_hintUsername->setText("Username not found");
+    }
+}
+

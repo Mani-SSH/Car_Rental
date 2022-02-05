@@ -23,6 +23,8 @@ public:
 private slots:
     void on_checkBox_showPassword_stateChanged(int arg1);
 
+    void on_pushButton_login_clicked();
+
 private:
     Ui::LoginAdmin *ui;
 };
