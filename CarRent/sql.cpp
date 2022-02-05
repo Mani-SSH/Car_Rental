@@ -1,6 +1,8 @@
 #include "sql.h"
 
-/*initializes database*/
+/**
+ * @brief intializes the carrent.db file with tables and default values
+ */
 void sql::createdbFile()
 {
     QSqlQuery query;
@@ -9,6 +11,16 @@ void sql::createdbFile()
     query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 0)");
 }
 
+
+/**
+ * @brief connects to the database, returns true if connection is successful, else returns false
+ * @return bool
+ *
+ * checks if the directory which stores the carrent.db file exists
+ * if not, makes one and opens the database
+ * if yes, just opens the database
+ * if some error occurs, returns false, else returns true
+ */
 bool sql::connectionOpen()
 {
     QDir dir("C:/Databases");     //directory for database
@@ -38,12 +50,21 @@ bool sql::connectionOpen()
 }
 
 
+/**
+ * @brief gives total number of accounts in the database
+ * @return int count
+ *
+ * selects all the rows in the table accounts in the database
+ * counts all of them and then returns the value
+ */
 int sql::getTotalAccounts()
 {
-    int count = 0;
+    int count = 0;       //represents number of account
     QSqlQuery qry;
+    /*select all the rows in the table, accounts*/
     if(qry.exec("SELECT * FROM accounts")){
         qDebug()<<"Total number of accounts received";
+        /*count all the rows*/
         while(qry.next())
         {
             count++;
@@ -52,8 +73,6 @@ int sql::getTotalAccounts()
     }else{
         qDebug()<<"Error: Total number of accounts could not ber received";
     }
-
-
     return count;
 }
 
