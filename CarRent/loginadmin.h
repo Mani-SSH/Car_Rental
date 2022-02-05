@@ -2,6 +2,7 @@
 #define LOGINADMIN_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QDebug>
 #include "sql.h"
 

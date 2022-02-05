@@ -44,7 +44,6 @@ public:
             LoginAdmin->setObjectName(QString::fromUtf8("LoginAdmin"));
         LoginAdmin->resize(600, 700);
         QFont font;
-        font.setFamilies({QString::fromUtf8("Gotham")});
         LoginAdmin->setFont(font);
         centralwidget = new QWidget(LoginAdmin);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -55,7 +54,6 @@ public:
         lineEdit_username->setObjectName(QString::fromUtf8("lineEdit_username"));
         lineEdit_username->setGeometry(QRect(20, 140, 311, 41));
         QFont font1;
-        font1.setFamilies({QString::fromUtf8("Gotham")});
         font1.setPointSize(10);
         font1.setBold(true);
         font1.setStrikeOut(false);
@@ -66,7 +64,6 @@ public:
         lineEdit_password->setObjectName(QString::fromUtf8("lineEdit_password"));
         lineEdit_password->setGeometry(QRect(20, 230, 311, 41));
         QFont font2;
-        font2.setFamilies({QString::fromUtf8("Gotham")});
         font2.setPointSize(10);
         font2.setBold(true);
         lineEdit_password->setFont(font2);
@@ -75,14 +72,12 @@ public:
         checkBox_showPassword->setObjectName(QString::fromUtf8("checkBox_showPassword"));
         checkBox_showPassword->setGeometry(QRect(30, 280, 131, 21));
         QFont font3;
-        font3.setFamilies({QString::fromUtf8("Gotham")});
         font3.setPointSize(8);
         checkBox_showPassword->setFont(font3);
         label_hintUsername = new QLabel(groupBox_Login);
         label_hintUsername->setObjectName(QString::fromUtf8("label_hintUsername"));
         label_hintUsername->setGeometry(QRect(20, 190, 151, 20));
         QFont font4;
-        font4.setFamilies({QString::fromUtf8("Gotham")});
         font4.setPointSize(7);
         label_hintUsername->setFont(font4);
         label_hintPassword = new QLabel(groupBox_Login);
@@ -200,7 +195,6 @@ public:
 #endif
         pushButton_login->setPalette(palette);
         QFont font5;
-        font5.setFamilies({QString::fromUtf8("Gotham")});
         font5.setPointSize(11);
         font5.setBold(true);
         pushButton_login->setFont(font5);
@@ -208,7 +202,6 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 60, 331, 41));
         QFont font6;
-        font6.setFamilies({QString::fromUtf8("Gotham")});
         font6.setPointSize(16);
         label->setFont(font6);
         label->setAlignment(Qt::AlignCenter);
@@ -234,8 +227,8 @@ public:
         lineEdit_username->setPlaceholderText(QCoreApplication::translate("LoginAdmin", "Username", nullptr));
         lineEdit_password->setPlaceholderText(QCoreApplication::translate("LoginAdmin", "Password", nullptr));
         checkBox_showPassword->setText(QCoreApplication::translate("LoginAdmin", "Show Password", nullptr));
-        label_hintUsername->setText(QCoreApplication::translate("LoginAdmin", "Hint", nullptr));
-        label_hintPassword->setText(QCoreApplication::translate("LoginAdmin", "Hint", nullptr));
+        label_hintUsername->setText(QString());
+        label_hintPassword->setText(QString());
         pushButton_login->setText(QCoreApplication::translate("LoginAdmin", "LOGIN", nullptr));
         label->setText(QCoreApplication::translate("LoginAdmin", "ADMIN LOGIN", nullptr));
     } // retranslateUi

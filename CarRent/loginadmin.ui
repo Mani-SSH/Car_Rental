@@ -11,9 +11,7 @@
    </rect>
   </property>
   <property name="font">
-   <font>
-    <family>Gotham</family>
-   </font>
+   <font/>
   </property>
   <property name="windowTitle">
    <string>LoginAdmin</string>
@@ -42,7 +40,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>10</pointsize>
        <bold>true</bold>
        <strikeout>false</strikeout>
@@ -67,7 +64,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
@@ -90,7 +86,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>8</pointsize>
       </font>
      </property>
@@ -109,12 +104,11 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>7</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Hint</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_hintPassword">
@@ -128,12 +122,11 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>7</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Hint</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_login">
@@ -724,7 +717,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>11</pointsize>
        <bold>true</bold>
       </font>
@@ -744,7 +736,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>16</pointsize>
       </font>
      </property>
