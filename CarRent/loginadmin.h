@@ -20,6 +20,9 @@ public:
     ~LoginAdmin();
     void hintLoginDetails();
 
+private slots:
+    void on_checkBox_showPassword_stateChanged(int arg1);
+
 private:
     Ui::LoginAdmin *ui;
 };

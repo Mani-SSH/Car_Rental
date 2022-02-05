@@ -51,4 +51,26 @@ void LoginAdmin::hintLoginDetails()
 }
 
 
+/**
+ * @brief shows password if checkBox_showPassword is checked
+ * @param arg1
+ *
+ * parameter arg1 is 0 if check box is unchecked
+ * parameter arg1 is 1 if check box is partially checked
+ * parameter arg1 is 2 if check box is checked
+ * shows password if arg1 is 2
+ * hides password if arg1 is 0
+ */
+void LoginAdmin::on_checkBox_showPassword_stateChanged(int arg1)
+{
+    switch(arg1)
+    {
+    case 0:
+        ui->lineEdit_password->setEchoMode(QLineEdit::Password);
+        break;
+    case 2:
+        ui->lineEdit_password->setEchoMode(QLineEdit::Normal);
+        break;
+    }
+}
 
