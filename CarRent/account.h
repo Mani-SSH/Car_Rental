@@ -7,10 +7,11 @@
 class account
 {
     QString password;
+    int key;
 public:
     QString username;
     account();
-    account(QString x, QString y);
+    account(QString x, QString y, int z);
 };
 
 #endif // ACCOUNT_H

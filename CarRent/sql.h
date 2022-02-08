@@ -2,7 +2,6 @@
 #define SQL_H
 
 #include <QtSql>
-#include <QtDebug>
 #include <QFileInfo>
 #include <QDir>
 #include <QDebug>
@@ -14,7 +13,10 @@ public:
     void createdbFile();
     bool connectionOpen();
     void connectionClose();
-    int getTotalAccounts();
+    int importTotalAccounts();
+    bool usernameExists(QString x);
+    void importEncryptedPassword(QString x, QString &y, int &z);
+    int importKey();
 };
 
 #endif // SQL_H

@@ -10,7 +10,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class LoginAdmin; }
 QT_END_NAMESPACE
 
-class LoginAdmin : public QMainWindow, public sql
+class LoginAdmin : public QMainWindow
 {
     Q_OBJECT
 

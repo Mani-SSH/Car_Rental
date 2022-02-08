@@ -57,7 +57,7 @@ bool sql::connectionOpen()
  * selects all the rows in the table accounts in the database
  * counts all of them and then returns the value
  */
-int sql::getTotalAccounts()
+int sql::importTotalAccounts()
 {
     int count = 0;       //represents number of account
     QSqlQuery qry;
@@ -69,10 +69,56 @@ int sql::getTotalAccounts()
         {
             count++;
         }
-        qDebug()<<count;
+        qDebug()<<"Accounts found: "<<count;
     }else{
         qDebug()<<"Error: Total number of accounts could not ber received";
     }
     return count;
 }
 
+
+/**
+ * @brief checks if username exits on the database
+ * @param x
+ * @return bool
+ *
+ * counts all the rows with username same as parameter, x
+ * if count is equal to one, returns true
+ * else, returns false
+ */
+bool sql::usernameExists(QString x)
+{
+    int count = 0;       //number of entries with username same as x
+
+    /*select all rows with username same as x and count them*/
+    QSqlQuery qry;
+    qry.exec("SELECT * FROM accounts WHERE username='"+x+"'");
+    while(qry.next())
+    {
+        count++;
+    }
+
+    /*if only one account with username same as x is found, return true ,else return false*/
+    if (count == 1){
+        qDebug()<<"Username"<<x<<"found.";
+        return true;
+    }else{
+        qDebug()<<"Username"<<x<<"not found";
+        return false;
+    }
+}
+
+
+void sql::importEncryptedPassword(QString x, QString &y, int &z)
+{
+    QSqlQuery qry;
+    qry.exec("SELECT * FROM accounts WHERE username='"+x+"'");
+    while (qry.next())
+    {
+        y = qry.value(1).toString();
+        z = qry.value(2).toInt();
+        qDebug()<<"Encrypted password and key received...";
+        qDebug()<<"Encrypted password:"<<y;
+        qDebug()<<"Key:"<<z;
+    }
+}
