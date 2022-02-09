@@ -14,8 +14,8 @@ public:
     bool connectionOpen();
     void connectionClose();
     int importTotalAccounts();
-    bool usernameExists(QString x);
-    void importEncryptedPassword(QString x, QString &y, int &z);
+    bool usernameExists(QString username);
+    void importAccountDetails(QString username, QString &password, int &key);
     int importKey();
 };
 

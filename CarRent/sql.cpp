@@ -82,17 +82,17 @@ int sql::importTotalAccounts()
  * @param x
  * @return bool
  *
- * counts all the rows with username same as parameter, x
+ * counts all the rows with username same as parameter
  * if count is equal to one, returns true
  * else, returns false
  */
-bool sql::usernameExists(QString x)
+bool sql::usernameExists(QString username)
 {
     int count = 0;       //number of entries with username same as x
 
     /*select all rows with username same as x and count them*/
     QSqlQuery qry;
-    qry.exec("SELECT * FROM accounts WHERE username='"+x+"'");
+    qry.exec("SELECT * FROM accounts WHERE username='"+username+"'");
     while(qry.next())
     {
         count++;
@@ -100,25 +100,38 @@ bool sql::usernameExists(QString x)
 
     /*if only one account with username same as x is found, return true ,else return false*/
     if (count == 1){
-        qDebug()<<"Username"<<x<<"found.";
+        qDebug()<<"Username"<<username<<"found.";
         return true;
     }else{
-        qDebug()<<"Username"<<x<<"not found";
+        qDebug()<<"Username"<<username<<"not found";
         return false;
     }
 }
 
 
-void sql::importEncryptedPassword(QString x, QString &y, int &z)
+/**
+ * @brief stores the password in 2nd parameter and key in 3rd parameter of the username in 1st parameter
+ * @param x
+ * @param y
+ * @param z
+ *
+ * selects all elements of table accounts where username is same as x
+ * stores value of 2nd column(password) i.e. in position 1 in table accounts in y which is passed by reference
+ * stores value of 3rd column(password) i.e. in position 2 in table accounts in z which is also passed by reference
+ */
+void sql::importAccountDetails(QString username, QString &password, int &key)
 {
+    /*select all elements of table accounts where username matches*/
     QSqlQuery qry;
-    qry.exec("SELECT * FROM accounts WHERE username='"+x+"'");
+    qry.exec("SELECT * FROM accounts WHERE username='"+username+"'");
     while (qry.next())
     {
-        y = qry.value(1).toString();
-        z = qry.value(2).toInt();
+        /*store value of 2nd column(password) i.e. in position 1 in table accounts in password*/
+        password = qry.value(1).toString();
+        /*store value of 3rd column(key) i.e. in position 2 in table accounts in key*/
+        key = qry.value(2).toInt();
         qDebug()<<"Encrypted password and key received...";
-        qDebug()<<"Encrypted password:"<<y;
-        qDebug()<<"Key:"<<z;
+        qDebug()<<"Encrypted password:"<<password;
+        qDebug()<<"Key:"<<key;
     }
 }

@@ -66,33 +66,48 @@ void LoginAdmin::on_checkBox_showPassword_stateChanged(int arg1)
     switch(arg1)
     {
     case 0:
+        /*hides password*/
         ui->lineEdit_password->setEchoMode(QLineEdit::Password);
         break;
     case 2:
+        /*shows password*/
         ui->lineEdit_password->setEchoMode(QLineEdit::Normal);
         break;
     }
 }
 
 /**
- * @brief incomplete
+ * @brief INCOMPLETE
  */
 void LoginAdmin::on_pushButton_login_clicked()
 {
+    /*get username and password entered by the user*/
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
+
+    /*if username entered by the user exists*/
     if (admin.usernameExists(username)){
+        /*create an account to import the encrypted password and key of the given username from the database and set the username*/
         account thisAccount;
         QString encryptedPassword;
         int key;
-        admin.importEncryptedPassword(username, encryptedPassword, key);
+        admin.importAccountDetails(username, encryptedPassword, key);
         thisAccount.username = username;
-        if (encryptedPassword == password){
+
+        /*if the decrypted password from the database and password entered by the user matches*/
+        if (thisAccount.decrypt(encryptedPassword, key) == password){
+            /*MANISH KO KAAM*/
+            /*check if it is logged in from the default user details*/
+            /*if yes, open a new pop up window to remove and add new user details*/
+            /*else set password and first and last name*/
+            thisAccount.setPassword(password);
             QMessageBox::information(this, "SUCCESS", "Access granted");
         }else{
+            /*if wrong password, get emotional damage for forgetting password*/
             QMessageBox::critical(this, "FAILURE", "Emotional damage");
         }
     }else{
+        /*if username does not exists show username not found*/
         ui->label_hintUsername->setText("Username not found");
     }
 }
