@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "sql.h"
+#include "account.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginAdmin; }
@@ -16,6 +17,8 @@ class LoginAdmin : public QMainWindow
 
 public:
     sql admin;
+    account thisAccount;
+    bool isLogged = false;
     LoginAdmin(QWidget *parent = nullptr);
     ~LoginAdmin();
     void hintLoginDetails();

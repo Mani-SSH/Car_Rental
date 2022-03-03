@@ -12,15 +12,18 @@ SOURCES += \
     account.cpp \
     main.cpp \
     loginadmin.cpp \
+    mainscreen.cpp \
     sql.cpp
 
 HEADERS += \
     account.h \
     loginadmin.h \
+    mainscreen.h \
     sql.h
 
 FORMS += \
-    loginadmin.ui
+    loginadmin.ui \
+    mainscreen.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

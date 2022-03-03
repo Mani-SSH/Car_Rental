@@ -50,6 +50,12 @@ bool sql::connectionOpen()
 }
 
 
+void sql::connectionClose()
+{
+    db.close();
+    db.removeDatabase(QSqlDatabase::defaultConnection);
+}
+
 /**
  * @brief gives total number of accounts in the database
  * @return int count
