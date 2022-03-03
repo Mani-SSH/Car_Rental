@@ -1,12 +1,24 @@
 #include "loginadmin.h"
 #include "ui_loginadmin.h"
 #include "account.h"
+#include <QPixmap>
 
 LoginAdmin::LoginAdmin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginAdmin)
 {
     ui->setupUi(this);
+
+    /*adding background image in admin login page*/
+    QPixmap bkgnd(":/resources/img/background.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Window, bkgnd);
+        this->setPalette(palette);
+
+    /*adding logo in admin login page*/
+        QPixmap pix(":/resources/img/logo.png");
+        ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
 
     /*connect to database*/
     if(admin.connectionOpen()){
@@ -108,7 +120,8 @@ void LoginAdmin::on_pushButton_login_clicked()
         }
     }else{
         /*if username does not exists show username not found*/
-        ui->label_hintUsername->setText("Username not found");
+        ui->label_hintUsername->setText("<font color='red'>Username not found");
+
     }
 }
 
