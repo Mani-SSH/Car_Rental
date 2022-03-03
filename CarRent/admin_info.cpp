@@ -44,3 +44,21 @@ void admin_info::on_pushButton_clicked()
 
 }
 
+
+void admin_info::on_checkBox_stateChanged(int arg1)
+{
+    switch(arg1)
+    {
+    case 0:
+        /*hides password*/
+        ui->lineEdit_password->setEchoMode(QLineEdit::Password);
+        ui->lineEdit_confirm_password->setEchoMode(QLineEdit::Password);
+        break;
+    case 2:
+        /*shows password*/
+        ui->lineEdit_password->setEchoMode(QLineEdit::Normal);
+        ui->lineEdit_confirm_password->setEchoMode(QLineEdit::Normal);
+        break;
+    }
+}
+
