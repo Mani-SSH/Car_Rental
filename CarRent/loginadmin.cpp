@@ -24,14 +24,14 @@ LoginAdmin::LoginAdmin(QWidget *parent)
       
     /*adding background image in admin login page*/
     QPixmap bkgnd(":/resources/img/background.jpg");
-        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-        QPalette palette;
-        palette.setBrush(QPalette::Window, bkgnd);
-        this->setPalette(palette);
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
 
     /*adding logo in admin login page*/
-        QPixmap pix(":/resources/img/logo.png");
-        ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
+    QPixmap pix(":/resources/img/logo.png");
+    ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
 }
 
 LoginAdmin::~LoginAdmin()
@@ -114,16 +114,16 @@ void LoginAdmin::on_pushButton_login_clicked()
             /*if yes, open a new pop up window to remove and add new user details*/
             /*else set password and first and last name*/
             thisAccount.setPassword(password);
-            QMessageBox::information(this, "SUCCESS", "Access granted");
 
+            /*close the login window and set isLoggedIn to true*/
             this->close();
-            isLogged = true;
+            isLoggedIn = true;
         }else{
-            /*if wrong password, get emotional damage for forgetting password*/
-            QMessageBox::critical(this, "FAILURE", "Emotional damage");
+            /*if wrong password, show password is incorrect*/
+            ui->label_hintPassword->setText("<font color='red'>Password is incorrect");
         }
     }else{
-        /*if username does not exists show username not found*/
+        /*if username does not exists, show username not found*/
         ui->label_hintUsername->setText("<font color='red'>Username not found");
 
     }

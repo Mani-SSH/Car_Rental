@@ -8,6 +8,7 @@ MainScreen::MainScreen(QWidget *parent) :
     ui(new Ui::MainScreen)
 {
     ui->setupUi(this);
+
     /*connect to database*/
     if(admin.db.isOpen()){
         qDebug()<<"Connected...";

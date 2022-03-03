@@ -20,11 +20,19 @@ void account::setPassword(QString password)
     this->password = password;
 }
 
+/**
+ * @brief returns password of the user
+ * @return QString
+ */
 QString account::getPassword()
 {
     return password;
 }
 
+/**
+ * @brief returns password
+ * @return
+ */
 int account::getKey()
 {
     return key;

@@ -9,7 +9,7 @@
 class sql
 {
 public:
-    QSqlDatabase db;
+    QSqlDatabase db;           //database
     void createdbFile();
     bool connectionOpen();
     void connectionClose();

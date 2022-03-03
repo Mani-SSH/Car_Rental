@@ -16,8 +16,8 @@ class LoginAdmin : public QMainWindow
     Q_OBJECT
 
 public:
-    account thisAccount;
-    bool isLogged = false;
+    account thisAccount;       //account entered by the user
+    bool isLoggedIn = false;   //are account details are correct? (initially set to false)
     LoginAdmin(QWidget *parent = nullptr);
     ~LoginAdmin();
     void hintLoginDetails();

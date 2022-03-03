@@ -13,10 +13,13 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LoginAdmin w;
 
+    /*open login window*/
     w.show();
     a.exec();
 
-    if (w.isLogged){
+    /*if login details are correct*/
+    if (w.isLoggedIn){
+        /*open main screen and copy the login details entered by the user*/
         MainScreen m;
         m.user = w.thisAccount;
         m.show();
