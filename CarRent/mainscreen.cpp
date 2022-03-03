@@ -24,3 +24,6 @@ MainScreen::~MainScreen()
 {
     delete ui;
 }
+
+
+
