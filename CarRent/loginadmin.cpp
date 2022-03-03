@@ -3,22 +3,13 @@
 #include "account.h"
 #include <QPixmap>
 
+extern sql admin;
+
 LoginAdmin::LoginAdmin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginAdmin)
 {
     ui->setupUi(this);
-
-    /*adding background image in admin login page*/
-    QPixmap bkgnd(":/resources/img/background.jpg");
-        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-        QPalette palette;
-        palette.setBrush(QPalette::Window, bkgnd);
-        this->setPalette(palette);
-
-    /*adding logo in admin login page*/
-        QPixmap pix(":/resources/img/logo.png");
-        ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
 
     /*connect to database*/
     if(admin.connectionOpen()){
@@ -30,6 +21,17 @@ LoginAdmin::LoginAdmin(QWidget *parent)
         QMessageBox::critical(this, "Error", "Cannot connect to the database.");
         QCoreApplication::exit();
     }
+      
+    /*adding background image in admin login page*/
+    QPixmap bkgnd(":/resources/img/background.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Window, bkgnd);
+        this->setPalette(palette);
+
+    /*adding logo in admin login page*/
+        QPixmap pix(":/resources/img/logo.png");
+        ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
 }
 
 LoginAdmin::~LoginAdmin()
@@ -100,7 +102,6 @@ void LoginAdmin::on_pushButton_login_clicked()
     /*if username entered by the user exists*/
     if (admin.usernameExists(username)){
         /*create an account to import the encrypted password and key of the given username from the database and set the username*/
-        account thisAccount;
         QString encryptedPassword;
         int key;
         admin.importAccountDetails(username, encryptedPassword, key);
@@ -114,6 +115,9 @@ void LoginAdmin::on_pushButton_login_clicked()
             /*else set password and first and last name*/
             thisAccount.setPassword(password);
             QMessageBox::information(this, "SUCCESS", "Access granted");
+
+            this->close();
+            isLogged = true;
         }else{
             /*if wrong password, get emotional damage for forgetting password*/
             QMessageBox::critical(this, "FAILURE", "Emotional damage");

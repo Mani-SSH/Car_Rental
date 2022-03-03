@@ -20,6 +20,15 @@ void account::setPassword(QString password)
     this->password = password;
 }
 
+QString account::getPassword()
+{
+    return password;
+}
+
+int account::getKey()
+{
+    return key;
+}
 
 /**
  * @brief encrypts password with key with ceasar cipher
