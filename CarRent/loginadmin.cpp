@@ -1,12 +1,24 @@
 #include "loginadmin.h"
 #include "ui_loginadmin.h"
 #include "account.h"
+#include <QPixmap>
 
 LoginAdmin::LoginAdmin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginAdmin)
 {
     ui->setupUi(this);
+
+    /*adding background image in admin login page*/
+    QPixmap bkgnd(":/resources/img/background.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Window, bkgnd);
+        this->setPalette(palette);
+
+    /*adding logo in admin login page*/
+        QPixmap pix(":/resources/img/logo.png");
+        ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
 
     /*connect to database*/
     if(admin.connectionOpen()){
@@ -96,19 +108,25 @@ void LoginAdmin::on_pushButton_login_clicked()
 
         /*if the decrypted password from the database and password entered by the user matches*/
         if (thisAccount.decrypt(encryptedPassword, key) == password){
-            /*MANISH KO KAAM*/
+
+            thisAccount.setPassword(password);
+
             /*check if it is logged in from the default user details*/
             /*if yes, open a new pop up window to remove and add new user details*/
             /*else set password and first and last name*/
-            thisAccount.setPassword(password);
-            QMessageBox::information(this, "SUCCESS", "Access granted");
+
+            this -> hide();
+            admin_info Admin_info;
+            Admin_info.setModal(true);
+            Admin_info.exec();
         }else{
-            /*if wrong password, get emotional damage for forgetting password*/
-            QMessageBox::critical(this, "FAILURE", "Emotional damage");
+            /*if wrong password, give an error message*/
+            ui->label_hintPassword->setText("<font color='red' > Incorrect Password");
         }
     }else{
         /*if username does not exists show username not found*/
-        ui->label_hintUsername->setText("Username not found");
+        ui->label_hintUsername->setText("<font color='red'>Username not found");
+
     }
 }
 

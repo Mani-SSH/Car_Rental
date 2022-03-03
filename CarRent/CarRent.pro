@@ -10,19 +10,25 @@ CONFIG += c++11
 
 SOURCES += \
     account.cpp \
+    admin_info.cpp \
     main.cpp \
     loginadmin.cpp \
     sql.cpp
 
 HEADERS += \
     account.h \
+    admin_info.h \
     loginadmin.h \
     sql.h
 
 FORMS += \
+    admin_info.ui \
     loginadmin.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc

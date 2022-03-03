@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "sql.h"
+#include "admin_info.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginAdmin; }
