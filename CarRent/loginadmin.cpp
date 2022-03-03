@@ -1,12 +1,13 @@
 #include "loginadmin.h"
 #include "ui_loginadmin.h"
 
+extern sql admin;
+
 LoginAdmin::LoginAdmin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginAdmin)
 {
     ui->setupUi(this);
-
     /*connect to database*/
     if(admin.connectionOpen()){
         qDebug()<<"Connected...";

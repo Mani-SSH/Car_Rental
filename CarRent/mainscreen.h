@@ -2,6 +2,7 @@
 #define MAINSCREEN_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include "account.h"
 #include "sql.h"
 
@@ -14,7 +15,6 @@ class MainScreen : public QMainWindow
     Q_OBJECT
 
 public:
-    sql database;
     account user;
     explicit MainScreen(QWidget *parent = nullptr);
     ~MainScreen();

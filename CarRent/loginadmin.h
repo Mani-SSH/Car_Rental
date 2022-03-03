@@ -16,7 +16,6 @@ class LoginAdmin : public QMainWindow
     Q_OBJECT
 
 public:
-    sql admin;
     account thisAccount;
     bool isLogged = false;
     LoginAdmin(QWidget *parent = nullptr);
