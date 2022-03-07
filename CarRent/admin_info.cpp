@@ -2,12 +2,14 @@
 #include "ui_admin_info.h"
 #include "account.h"
 
+extern sql admin;
+
 admin_info::admin_info(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::admin_info)
 {
     ui->setupUi(this);
-    if(admin_data.connectionOpen()){
+    if(admin.db.isOpen()){
         qDebug()<<"Connected...";
 
     }else{
@@ -31,7 +33,7 @@ void admin_info::on_pushButton_clicked()
     QString confirm_password = ui->lineEdit_confirm_password->text();
 
     // checks existing username in database.
-    if (admin_data.usernameExists(username))
+    if (admin.usernameExists(username))
     {
         ui->label_username_check->setText("invalid username");
     }

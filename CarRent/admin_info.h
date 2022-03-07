@@ -15,7 +15,6 @@ class admin_info : public QDialog
     Q_OBJECT
 
 public:
-    sql admin_data;
     explicit admin_info(QWidget *parent = nullptr);
     ~admin_info();
 

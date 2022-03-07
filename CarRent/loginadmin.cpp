@@ -32,17 +32,6 @@ LoginAdmin::LoginAdmin(QWidget *parent)
         QMessageBox::critical(this, "Error", "Cannot connect to the database.");
         QCoreApplication::exit();
     }
-      
-    /*adding background image in admin login page*/
-    QPixmap bkgnd(":/resources/img/background.jpg");
-        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-        QPalette palette;
-        palette.setBrush(QPalette::Window, bkgnd);
-        this->setPalette(palette);
-
-    /*adding logo in admin login page*/
-        QPixmap pix(":/resources/img/logo.png");
-        ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
 }
 
 LoginAdmin::~LoginAdmin()
