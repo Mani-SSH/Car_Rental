@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1366</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,28 +23,55 @@
       <height>551</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QTabWidget" name="tabWidget">
-       <property name="tabPosition">
-        <enum>QTabWidget::North</enum>
-       </property>
-       <property name="currentIndex">
-        <number>1</number>
-       </property>
-       <widget class="QWidget" name="tab">
-        <attribute name="title">
-         <string>Home</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="tab_2">
-        <attribute name="title">
-         <string>Customers</string>
-        </attribute>
-       </widget>
-      </widget>
-     </item>
-    </layout>
+    <layout class="QGridLayout" name="gridLayout"/>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1361</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::West</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Home</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Customers</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>640</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -52,26 +79,10 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>25</height>
+     <width>1366</width>
+     <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuAdd">
-    <property name="title">
-     <string>Add</string>
-    </property>
-    <addaction name="actionAdd_car"/>
-    <addaction name="actionAdd_Customer"/>
-   </widget>
-   <widget class="QMenu" name="menuAdmin">
-    <property name="title">
-     <string>Admin</string>
-    </property>
-    <addaction name="actionLogout"/>
-    <addaction name="actionCreate_New_Account"/>
-   </widget>
-   <addaction name="menuAdd"/>
-   <addaction name="menuAdmin"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAdd_car">
