@@ -6,6 +6,7 @@
 #include <QDebug>
 #include "sql.h"
 #include "account.h"
+#include "admin_info.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginAdmin; }
