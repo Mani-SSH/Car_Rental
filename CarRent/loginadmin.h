@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "sql.h"
+#include "account.h"
 #include "admin_info.h"
 
 QT_BEGIN_NAMESPACE
@@ -16,7 +17,8 @@ class LoginAdmin : public QMainWindow
     Q_OBJECT
 
 public:
-    sql admin;
+    account thisAccount;
+    bool isLogged = false;
     LoginAdmin(QWidget *parent = nullptr);
     ~LoginAdmin();
     void hintLoginDetails();

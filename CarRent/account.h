@@ -16,6 +16,8 @@ public:
     QString encrypt(QString password, int key);
     QString decrypt(QString encryptedPassword, int key);
     void setPassword(QString password);
+    QString getPassword();
+    int getKey();
 };
 
 #endif // ACCOUNT_H
