@@ -29,6 +29,7 @@ MainScreen::~MainScreen()
  * @brief when text is edited on the line edit where the rate is entered, checks if the entered rate is valid
  * @param arg1
  *
+ * arg1 is the string entered in the lineEdit_rate
  * initially sets isValid as true which represents the rate entered is valid
  * loops to check each character of the string entered by the user
  * if the string is not valid (is not a digit), isValid is changed to false and the loop is broken
@@ -72,5 +73,6 @@ void MainScreen::on_pushButton_addCar_clicked()
     ThisCar.Model = ui->lineEdit_model->text();
     ThisCar.Rate = ui->lineEdit_rate->text().toInt();
     ThisCar.isAvailable = true;
+    admin.exportCarDetails(ThisCar);
 }
 
