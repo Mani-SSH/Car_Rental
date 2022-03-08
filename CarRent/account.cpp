@@ -52,7 +52,7 @@ QString account::encrypt(QString password, int key){
     std::string pass = password.toStdString();
 
     /*loop for 0 to length of password*/
-    for (int i = 0; i <= password.length(); i++){
+    for (int i = 0; i < password.length(); i++){
         /*if the character is not null*/
         if (pass[i] != '\0'){
             /*if the character is a lowercase letter*/
@@ -119,7 +119,7 @@ QString account::decrypt(QString encryptedPassword, int key)
     std::string pass = encryptedPassword.toStdString();
 
     /*loop for 0 to length of password*/
-    for (int i = 0; i <= encryptedPassword.length(); i++){
+    for (int i = 0; i < encryptedPassword.length(); i++){
         /*if the character is not null*/
         if (pass[i] != '\0'){
             /*if the character is a lowercase letter*/

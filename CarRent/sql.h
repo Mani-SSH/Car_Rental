@@ -6,6 +6,8 @@
 #include <QDir>
 #include <QDebug>
 
+#include "car.h"
+
 class sql
 {
 public:
@@ -17,6 +19,7 @@ public:
     bool usernameExists(QString username);
     void importAccountDetails(QString username, QString &password, int &key);
     int importKey();
+    void exportCarDetails(Car x);
 };
 
 #endif // SQL_H

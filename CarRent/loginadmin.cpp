@@ -12,14 +12,20 @@ LoginAdmin::LoginAdmin(QWidget *parent)
     ui->setupUi(this);
 
     /*connect to database*/
-    if(admin.connectionOpen()){
+    if(admin.db.isOpen()){
+        /*if already opened*/
         qDebug()<<"Connected...";
         hintLoginDetails();
     }else{
-        /*display error if cannot connect to the database*/
-        qDebug()<<"Cannot connect to database";
-        QMessageBox::critical(this, "Error", "Cannot connect to the database.");
-        QCoreApplication::exit();
+        if(admin.connectionOpen()){
+            qDebug()<<"Connected...";
+            hintLoginDetails();
+        }else{
+            /*display error if cannot connect to the database*/
+            qDebug()<<"Cannot connect to database";
+            QMessageBox::critical(this, "Error", "Cannot connect to the database.");
+            QCoreApplication::exit();
+        }
     }
       
     /*adding background image in admin login page*/

@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     account.cpp \
+    car.cpp \
     main.cpp \
     loginadmin.cpp \
     mainscreen.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     account.h \
+    car.h \
     loginadmin.h \
     mainscreen.h \
     sql.h

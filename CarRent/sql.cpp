@@ -7,7 +7,8 @@ void sql::createdbFile()
 {
     QSqlQuery query;
     /*create a table 'accounts' in the database with column username(primary key), password and key and inserts default account info*/
-    query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, key INT)");
+    query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(10) NOT NULL, key INT NOT NULL)");
+    query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, DateRented TEXT, DateToReturn TEXT)");
     query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 0)");
 }
 
@@ -140,4 +141,10 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
         qDebug()<<"Encrypted password:"<<password;
         qDebug()<<"Key:"<<key;
     }
+}
+
+void sql::exportCarDetails(Car x)
+{
+    QSqlQuery qry;
+    qry.exec("");
 }
