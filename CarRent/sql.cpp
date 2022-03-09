@@ -162,7 +162,7 @@ void sql::deleteDefault()
     QSqlQuery qry;
     // needed for case
     qry.exec("DELETE FROM accounts WHERE key = 0");
-
+}
 /**
  * @brief exports data of Car x from the program to the database
  * @param x
