@@ -157,3 +157,9 @@ QString account::decrypt(QString encryptedPassword, int key)
     }
     return QString::fromStdString(pass);
 }
+
+void account::keyGenerator(void)
+{
+    qint32 key_admin = QRandomGenerator::global()->bounded(1,26);
+    key = int (key_admin);
+}

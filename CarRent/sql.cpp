@@ -7,8 +7,8 @@ void sql::createdbFile()
 {
     QSqlQuery query;
     /*create a table 'accounts' in the database with column username(primary key), password and key and inserts default account info*/
-    query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, key INT)");
-    query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 0)");
+    query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, key INT)");
+    query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 'default' , 'account' , 0)");
 }
 
 
@@ -140,4 +140,18 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
         qDebug()<<"Encrypted password:"<<password;
         qDebug()<<"Key:"<<key;
     }
+}
+
+void sql::exportAccount(account dummy)
+{
+    QString key = QString::number(dummy.getKey());
+    QSqlQuery qry;
+    qry.exec("INSERT INTO accounts VALUES('"+dummy.username+"','"+dummy.getPassword()+"','"+dummy.f_name+"', '"+dummy.l_name+"','"+key+"')");
+    qDebug() << dummy.username << " " << dummy.getPassword() << " " <<key;
+}
+
+void sql::deleteDefault()
+{
+    QSqlQuery qry;
+    qry.exec("DELETE FROM accounts WHERE key = 0");
 }

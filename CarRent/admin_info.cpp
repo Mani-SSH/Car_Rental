@@ -28,12 +28,14 @@ admin_info::~admin_info()
 
 void admin_info::on_pushButton_clicked()
 {
-    QString username = ui->lineEdit_username->text();
+    admin_account.keyGenerator();
+    admin_account.f_name = ui->lineEdit_fname->text();
+    admin_account.l_name = ui->lineEdit_Lname->text();
+    admin_account.username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
     QString confirm_password = ui->lineEdit_confirm_password->text();
-
     // checks existing username in database.
-    if (admin.usernameExists(username))
+    if (admin.usernameExists(admin_account.username))
     {
         ui->label_username_check->setText("invalid username");
     }
@@ -43,6 +45,15 @@ void admin_info::on_pushButton_clicked()
     {
         ui->label_password_check->setText("password doesn't match");
     }
+    else
+    {
+        int key;
+        key = admin_account.getKey();
+        password = admin_account.encrypt(password,key);
+        admin_account.setPassword(password);
+    }
+    admin.exportAccount(admin_account);
+    admin.deleteDefault();
 
 }
 
