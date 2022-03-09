@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+
 #include "account.h"
 #include "sql.h"
+#include "car.h"
 
 namespace Ui {
 class MainScreen;
@@ -18,6 +20,11 @@ public:
     account user;
     explicit MainScreen(QWidget *parent = nullptr);
     ~MainScreen();
+
+private slots:
+    void on_lineEdit_rate_textEdited(const QString &arg1);
+
+    void on_pushButton_addCar_clicked();
 
 private:
     Ui::MainScreen *ui;

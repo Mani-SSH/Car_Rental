@@ -7,10 +7,12 @@
 #include <QDebug>
 #include "account.h"
 
+#include "car.h"
+
 class sql
 {
 public:
-    QSqlDatabase db;
+    QSqlDatabase db;           //database
     void createdbFile();
     bool connectionOpen();
     void connectionClose();
@@ -20,6 +22,8 @@ public:
     int importKey();
     void exportAccount(account dummy);
     void deleteDefault();
+    void exportCarDetails(Car x);
+
 };
 
 #endif // SQL_H

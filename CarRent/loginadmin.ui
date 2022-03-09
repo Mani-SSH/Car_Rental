@@ -10,6 +10,12 @@
     <height>700</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>600</width>
+    <height>700</height>
+   </size>
+  </property>
   <property name="font">
    <font/>
   </property>
@@ -796,7 +802,6 @@ border-radius:10;</string>
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>24</pointsize>
        <bold>true</bold>
       </font>

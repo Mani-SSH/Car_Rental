@@ -8,8 +8,8 @@
 class account
 {
 private:
-    QString password;
-    int key;
+    QString password;   //password of the user
+    int key;            //encryption and decryption key
 public:
     QString username;
     QString f_name;
