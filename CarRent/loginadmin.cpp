@@ -120,19 +120,41 @@ void LoginAdmin::on_pushButton_login_clicked()
             /*if yes, open a new pop up window to remove and add new user details*/
             /*else set password and first and last name*/
             thisAccount.setPassword(password);
-          
-           this->hide();
 
-            admin_info Admin_info;
-            Admin_info.setModal(true);
-            Admin_info.exec();
-          
-            this->close();
-            isLoggedIn = true;
+            /*hide the current ui*/
+            this->hide();
+
+            /*if the account is default account (is the only account with key = 0)*/
+            if(key == 0){
+                /*open dialog to add new account*/
+                admin_info Admin_info;
+                Admin_info.setModal(true);
+                Admin_info.exec();
+
+                /*check if new account has been added*/
+                if(Admin_info.isAccountAdded){
+                    /*copy account information*/
+                    thisAccount = Admin_info.admin_account;
+
+                    /*delete default account*/
+                    admin.deleteDefault();
+
+                    /*close the current window and set isLoggedIn as true*/
+                    this->close();
+                    isLoggedIn = true;
+                }else{
+                    /*if new account is not added then open login*/
+                    this->show();
+                }
+            }else{
+                /*close the current window and set isLoggedIn as true*/
+                this->close();
+                isLoggedIn = true;
+            }
         }else{
 
           /*if wrong password, give an error message*/
-            ui->label_hintPassword->setText("<font color='red' > Incorrect Password");
+            ui->label_hintPassword->setText("<font color='red'>Incorrect Password");
 
         }
     }else{

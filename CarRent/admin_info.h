@@ -16,6 +16,7 @@ class admin_info : public QDialog
     Q_OBJECT
 
 public:
+    bool isAccountAdded = false;
     account admin_account;
     explicit admin_info(QWidget *parent = nullptr);
     ~admin_info();

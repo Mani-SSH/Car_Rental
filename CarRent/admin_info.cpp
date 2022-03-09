@@ -51,10 +51,10 @@ void admin_info::on_pushButton_clicked()
         key = admin_account.getKey();
         password = admin_account.encrypt(password,key);
         admin_account.setPassword(password);
+        isAccountAdded = true;
+        admin.exportAccount(admin_account);
+        this->close();
     }
-    admin.exportAccount(admin_account);
-    admin.deleteDefault();
-
 }
 
 

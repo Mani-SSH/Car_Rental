@@ -23,7 +23,7 @@ public:
     void exportAccount(account dummy);
     void deleteDefault();
     void exportCarDetails(Car x);
-
+    bool isDefaultAccount();
 };
 
 #endif // SQL_H

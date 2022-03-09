@@ -149,14 +149,20 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
     }
 }
 
+/**
+ * @brief exports the account information into database
+ * @param dummy
+ */
 void sql::exportAccount(account dummy)
 {
-    QString key = QString::number(dummy.getKey());
     QSqlQuery qry;
-    qry.exec("INSERT INTO accounts VALUES('"+dummy.username+"','"+dummy.getPassword()+"','"+dummy.f_name+"', '"+dummy.l_name+"','"+key+"')");
-    qDebug() << dummy.username << " " << dummy.getPassword() << " " <<key;
+    qry.exec("INSERT INTO accounts VALUES('"+dummy.username+"','"+dummy.getPassword()+"','"+dummy.f_name+"', '"+dummy.l_name+"',"+QString::number(dummy.getKey())+")");
+    qDebug() << dummy.username << " " << dummy.getPassword() << " " <<dummy.getKey();
 }
 
+/**
+ * @brief deletes default account from the database
+ */
 void sql::deleteDefault()
 {
     QSqlQuery qry;
