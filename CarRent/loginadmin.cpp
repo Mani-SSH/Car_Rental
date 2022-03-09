@@ -65,9 +65,13 @@ void LoginAdmin::hintLoginDetails()
         QMessageBox::critical(this, "Error", "Database is corrupted");
         QCoreApplication::exit();
     }else if(x == 1){
-        /*if there is only one account in the table accounts in the database, hint the user default login details*/
-        ui->label_hintUsername->setText("Hint: useradmin");
-        ui->label_hintPassword->setText("Hint: password");
+        /*if there is only one account in the table accounts in the database*/
+        /*check if the account is default*/
+        if(admin.isDefaultAccount()){
+            /*if it is default account, hint username and password*/
+            ui->label_hintUsername->setText("Hint: useradmin");
+            ui->label_hintPassword->setText("Hint: password");
+        }
     }
 }
 
@@ -124,8 +128,8 @@ void LoginAdmin::on_pushButton_login_clicked()
             /*hide the current ui*/
             this->hide();
 
-            /*if the account is default account (is the only account with key = 0)*/
-            if(key == 0){
+            /*if the account is default account*/
+            if(admin.isDefaultAccount()){
                 /*open dialog to add new account*/
                 admin_info Admin_info;
                 Admin_info.setModal(true);

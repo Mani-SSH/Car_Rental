@@ -180,5 +180,21 @@ void sql::exportCarDetails(Car x)
     /*run a sql query to insert members of car x into database*/
     QSqlQuery qry;
     qry.exec("INSERT INTO cars (PlateNumber, Brand, Model, Rate, isAvailable) VALUES ('"+x.PlateNum+"', '"+x.Brand+"', '"+x.Model+"', "+QString::number(x.Rate)+", "+QString::number(x.isAvailable)+")");
+}
 
+bool sql::isDefaultAccount()
+{
+    QSqlQuery qry;
+    int count = 0;
+    qry.exec("SELECT * FROM accounts WHERE username = 'useradmin' AND key = 0");
+    while(qry.next())
+    {
+        count++;
+    }
+
+    if (count == 1){
+        return true;
+    }else{
+        return false;
+    }
 }
