@@ -1,0 +1,10 @@
+debug/account.o
+debug/admin_info.o
+debug/main.o
+debug/loginadmin.o
+debug/mainscreen.o
+debug/sql.o
+debug/qrc_Resources.o
+debug/moc_admin_info.o
+debug/moc_loginadmin.o
+debug/moc_mainscreen.o
