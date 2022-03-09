@@ -7,9 +7,12 @@ void sql::createdbFile()
 {
     QSqlQuery query;
     /*create a table 'accounts' in the database with column username(primary key), password and key and inserts default account info*/
-    query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(10) NOT NULL, key INT NOT NULL)");
+
+    query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, key INT)");
+    query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 'default' , 'account' , 0)");
     query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, DateRented TEXT, DateToReturn TEXT)");
-    query.exec("INSERT INTO accounts VALUES ('useradmin', 'password', 0)");
+    
+
 }
 
 
@@ -146,6 +149,20 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
     }
 }
 
+void sql::exportAccount(account dummy)
+{
+    QString key = QString::number(dummy.getKey());
+    QSqlQuery qry;
+    qry.exec("INSERT INTO accounts VALUES('"+dummy.username+"','"+dummy.getPassword()+"','"+dummy.f_name+"', '"+dummy.l_name+"','"+key+"')");
+    qDebug() << dummy.username << " " << dummy.getPassword() << " " <<key;
+}
+
+void sql::deleteDefault()
+{
+    QSqlQuery qry;
+    // needed for case
+    qry.exec("DELETE FROM accounts WHERE key = 0");
+
 /**
  * @brief exports data of Car x from the program to the database
  * @param x
@@ -157,4 +174,5 @@ void sql::exportCarDetails(Car x)
     /*run a sql query to insert members of car x into database*/
     QSqlQuery qry;
     qry.exec("INSERT INTO cars (PlateNumber, Brand, Model, Rate, isAvailable) VALUES ('"+x.PlateNum+"', '"+x.Brand+"', '"+x.Model+"', "+QString::number(x.Rate)+", "+QString::number(x.isAvailable)+")");
+
 }

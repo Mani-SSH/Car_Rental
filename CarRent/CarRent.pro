@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     account.cpp \
+    admin_info.cpp \
     car.cpp \
     main.cpp \
     loginadmin.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     account.h \
+    admin_info.h \
     car.h \
     loginadmin.h \
     mainscreen.h \
@@ -25,6 +27,7 @@ HEADERS += \
 
 FORMS += \
     loginadmin.ui \
+    admin_info.ui \
     mainscreen.ui
 
 # Default rules for deployment.

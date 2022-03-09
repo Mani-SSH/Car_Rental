@@ -5,6 +5,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QDebug>
+#include "account.h"
 
 #include "car.h"
 
@@ -19,7 +20,10 @@ public:
     bool usernameExists(QString username);
     void importAccountDetails(QString username, QString &password, int &key);
     int importKey();
+    void exportAccount(account dummy);
+    void deleteDefault();
     void exportCarDetails(Car x);
+
 };
 
 #endif // SQL_H
