@@ -12,6 +12,7 @@ SOURCES += \
     account.cpp \
     admin_info.cpp \
     car.cpp \
+    change_admin.cpp \
     main.cpp \
     loginadmin.cpp \
     mainscreen.cpp \
@@ -21,11 +22,13 @@ HEADERS += \
     account.h \
     admin_info.h \
     car.h \
+    change_admin.h \
     loginadmin.h \
     mainscreen.h \
     sql.h
 
 FORMS += \
+    change_admin.ui \
     loginadmin.ui \
     admin_info.ui \
     mainscreen.ui

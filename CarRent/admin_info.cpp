@@ -19,6 +19,18 @@ admin_info::admin_info(QWidget *parent) :
         QMessageBox::critical(this, "Error", "Cannot connect to the database.");
         QCoreApplication::exit();
     }
+
+    /*adding background image in admin_info page*/
+    QPixmap bkgnd(":/resources/img/admin_info-01.jpg");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
+
+    /*adding logo in admin login page*/
+    QPixmap pix(":/resources/img/admin_icon.png");
+    ui->label_adminIcon->setPixmap(pix.scaled(50,50,Qt::KeepAspectRatio));
+
 }
 
 admin_info::~admin_info()
@@ -37,13 +49,13 @@ void admin_info::on_pushButton_clicked()
     // checks existing username in database.
     if (admin.usernameExists(admin_account.username))
     {
-        ui->label_username_check->setText("invalid username");
+        ui->label_username_check->setText("<font color='red'>invalid username");
     }
 
     // confirms the password
     if (confirm_password != password)
     {
-        ui->label_password_check->setText("password doesn't match");
+        ui->label_password_check->setText("<font color='red'>password doesn't match");
     }
     else
     {

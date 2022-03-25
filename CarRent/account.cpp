@@ -134,7 +134,7 @@ QString account::decrypt(QString encryptedPassword, int key)
                 }
             }
             /*if the character is a upper letter*/
-            if (pass[i] >= 'A'&& pass[i] <= 'Z'){
+            if (pass[i] >= 'A' && pass[i] <= 'Z'){
                 /*subtract key from character to change it*/
                 pass[i] -= key;
 

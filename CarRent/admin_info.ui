@@ -28,54 +28,88 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>350</y>
-      <width>80</width>
-      <height>51</height>
+      <x>180</x>
+      <y>370</y>
+      <width>111</width>
+      <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(97, 211, 30);
+color: rgb(255, 255, 255);
+border-radius:&quot;10&quot;;</string>
+    </property>
     <property name="text">
-     <string>ADD</string>
+     <string>Add</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_fname">
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>100</y>
-      <width>251</width>
-      <height>20</height>
+      <y>120</y>
+      <width>261</width>
+      <height>25</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_Lname">
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>140</y>
-      <width>251</width>
-      <height>20</height>
+      <y>170</y>
+      <width>261</width>
+      <height>25</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_username">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>190</y>
-      <width>113</width>
-      <height>20</height>
+      <x>150</x>
+      <y>220</y>
+      <width>261</width>
+      <height>25</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_password">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>230</y>
-      <width>113</width>
-      <height>20</height>
+      <x>150</x>
+      <y>270</y>
+      <width>261</width>
+      <height>25</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
@@ -87,11 +121,17 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>270</y>
-      <width>113</width>
-      <height>20</height>
+      <x>200</x>
+      <y>319</y>
+      <width>211</width>
+      <height>25</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
@@ -101,7 +141,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>100</y>
+      <y>120</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -119,7 +159,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>140</y>
+      <y>170</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -136,8 +176,8 @@
    <widget class="QLabel" name="label_username">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>190</y>
+      <x>50</x>
+      <y>220</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -154,8 +194,8 @@
    <widget class="QLabel" name="label_password">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>230</y>
+      <x>50</x>
+      <y>270</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -172,9 +212,9 @@
    <widget class="QLabel" name="label_confirm_password">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>270</y>
-      <width>141</width>
+      <x>50</x>
+      <y>320</y>
+      <width>151</width>
       <height>20</height>
      </rect>
     </property>
@@ -190,16 +230,21 @@
    <widget class="QLabel" name="label_ADD_USER">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>10</y>
-      <width>111</width>
-      <height>41</height>
+      <x>170</x>
+      <y>60</y>
+      <width>151</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>18</pointsize>
+      <pointsize>19</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(97, 211, 30);</string>
     </property>
     <property name="text">
      <string>ADD USER</string>
@@ -208,8 +253,8 @@
    <widget class="QLabel" name="label_username_check">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>190</y>
+      <x>220</x>
+      <y>200</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -221,8 +266,8 @@
    <widget class="QLabel" name="label_password_check">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>270</y>
+      <x>220</x>
+      <y>300</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -234,14 +279,27 @@
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>300</y>
+      <x>310</x>
+      <y>350</y>
       <width>111</width>
       <height>18</height>
      </rect>
     </property>
     <property name="text">
      <string>Show password</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_adminIcon">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>20</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

@@ -38,7 +38,7 @@ LoginAdmin::LoginAdmin(QWidget *parent)
 
     /*adding logo in admin login page*/
     QPixmap pix(":/resources/img/logo.png");
-    ui->label_logo->setPixmap(pix.scaled(130,50,Qt::KeepAspectRatio));
+    ui->label_logo->setPixmap(pix.scaled(130,50,Qt::IgnoreAspectRatio));
 }
 
 LoginAdmin::~LoginAdmin()

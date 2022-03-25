@@ -7,6 +7,7 @@
 #include "account.h"
 #include "sql.h"
 #include "car.h"
+#include "change_admin.h"
 
 namespace Ui {
 class MainScreen;

@@ -5,5 +5,5 @@ Car::Car()
     PlateNum = NULL;
     Brand = NULL;
     Model = NULL;
-    Rate = NULL;
+    Rate = 0;
 }

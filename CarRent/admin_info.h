@@ -6,6 +6,7 @@
 #include <QDebug>
 #include "sql.h"
 #include "account.h"
+#include <QPixmap>
 
 namespace Ui {
 class admin_info;
