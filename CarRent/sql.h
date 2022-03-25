@@ -24,6 +24,7 @@ public:
     void deleteDefault();
     void exportCarDetails(Car x);
     bool isDefaultAccount();
+    QSqlQueryModel* importTablecars();
 };
 
 #endif // SQL_H

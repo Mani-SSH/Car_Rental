@@ -199,3 +199,10 @@ bool sql::isDefaultAccount()
         return false;
     }
 }
+
+ QSqlQueryModel* sql::importTablecars()
+ {
+     static QSqlQueryModel model;
+     model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars");
+     return &model;
+ }

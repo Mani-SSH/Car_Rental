@@ -9,15 +9,18 @@ MainScreen::MainScreen(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    /*connect to database*/
+    /*check if connected to database*/
     if(admin.db.isOpen()){
         qDebug()<<"Connected...";
     }else{
-        /*display error if cannot connect to the database*/
+        /*display error if is not connect to the database*/
         qDebug()<<"Cannot connect to database";
         QMessageBox::critical(this, "Error", "Cannot connect to the database.");
         QCoreApplication::exit();
     }
+
+    /*initialize table of cars*/
+    ui->tableView_Cars->setModel(admin.importTablecars());
 }
 
 MainScreen::~MainScreen()
@@ -74,5 +77,6 @@ void MainScreen::on_pushButton_addCar_clicked()
     ThisCar.Rate = ui->lineEdit_rate->text().toInt();
     ThisCar.isAvailable = true;
     admin.exportCarDetails(ThisCar);
+    QMessageBox::information(this, "Data added", "Car has been added to the database.");
 }
 
