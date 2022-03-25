@@ -163,6 +163,7 @@ QString account::decrypt(QString encryptedPassword, int key)
             break;
         }
     }
+    qDebug()<<"Decrypted Key:"<<QString::fromStdString(pass);
     return QString::fromStdString(pass);
 }
 

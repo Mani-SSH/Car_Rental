@@ -141,6 +141,7 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
     {
         /*store value of 2nd column(password) i.e. in position 1 in table accounts in password*/
         password = qry.value(1).toString();
+
         /*store value of 3rd column(key) i.e. in position 2 in table accounts in key*/
         key = qry.value(4).toInt();
         qDebug()<<"Encrypted password and key received...";
