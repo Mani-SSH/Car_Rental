@@ -80,3 +80,13 @@ void MainScreen::on_pushButton_addCar_clicked()
     QMessageBox::information(this, "Data added", "Car has been added to the database.");
 }
 
+
+void MainScreen::on_pushButton_admin_clicked()
+{
+
+    /*open dialog to admin window*/
+    change_admin Change_admin;
+    Change_admin.setModal(true);
+    Change_admin.exec();
+}
+

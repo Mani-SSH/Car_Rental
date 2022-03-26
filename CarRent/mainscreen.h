@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_addCar_clicked();
 
+    void on_pushButton_admin_clicked();
+
 private:
     Ui::MainScreen *ui;
 };
