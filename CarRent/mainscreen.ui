@@ -63,20 +63,20 @@
        </rect>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string/>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QGroupBox" name="groupBox_filterCar">
       <property name="geometry">
        <rect>
         <x>290</x>
-        <y>10</y>
-        <width>711</width>
-        <height>601</height>
+        <y>60</y>
+        <width>701</width>
+        <height>551</height>
        </rect>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string/>
       </property>
       <widget class="QWidget" name="gridLayoutWidget_3">
        <property name="geometry">
@@ -98,14 +98,158 @@
       <property name="geometry">
        <rect>
         <x>1010</x>
-        <y>10</y>
+        <y>60</y>
         <width>311</width>
-        <height>601</height>
+        <height>551</height>
        </rect>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string/>
       </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>0</y>
+        <width>1031</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="lineEdit_carSearch">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>551</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Enter Plate Number of Car</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carSearch">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>20</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carFilter">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>20</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Filter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>810</x>
+         <y>10</y>
+         <width>63</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_status">
+       <property name="geometry">
+        <rect>
+         <x>810</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Available</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rented</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>920</x>
+         <y>10</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Price range</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>920</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>All</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>&lt; 1000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1000 - 2000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2000+</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carReload">
+       <property name="geometry">
+        <rect>
+         <x>730</x>
+         <y>20</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reload</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_Customers">

@@ -20,7 +20,7 @@ MainScreen::MainScreen(QWidget *parent) :
     }
 
     /*initialize table of cars*/
-    ui->tableView_Cars->setModel(admin.importTablecars());
+    ui->tableView_Cars->setModel(admin.filterTablecars(1, INT_MAX));
 }
 
 MainScreen::~MainScreen()
@@ -68,15 +68,56 @@ void MainScreen::on_lineEdit_rate_textEdited(const QString &arg1)
 }
 
 
+/**
+ * @brief if add button is clicked in add->car, adds the car details to the database taken from the user
+ */
 void MainScreen::on_pushButton_addCar_clicked()
 {
+    /*make an object of class Car and take data from user taken from the database*/
     Car ThisCar;
     ThisCar.PlateNum = ui->lineEdit_plateNum->text();
     ThisCar.Brand = ui->lineEdit_brand->text();
     ThisCar.Model = ui->lineEdit_model->text();
     ThisCar.Rate = ui->lineEdit_rate->text().toInt();
     ThisCar.isAvailable = true;
+
+    /*export the data to the database and inform the user*/
     admin.exportCarDetails(ThisCar);
     QMessageBox::information(this, "Data added", "Car has been added to the database.");
+
+    /*reload table of cars*/
+    ui->tableView_Cars->setModel(admin.filterTablecars(1, INT_MAX));
+}
+
+
+/**
+ * @brief shows data of the car clicked on the table and prepares the rent form
+ * @param index
+ *
+ * INCOMPLETE
+ */
+void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
+{
+    QString val = ui->tableView_Cars->model()->data(index).toString();
+
+}
+
+/**
+ * @brief searches the car with help of plate number entered by user in lineEdit_carSearch
+ *
+ * stores the plate number entered by the user in platenumber
+ * gets an QSqlQueryModel with searchTablecars() and set the model in tableView_Cars
+ */
+void MainScreen::on_pushButton_carSearch_clicked()
+{
+    QString platenumber = ui->lineEdit_carSearch->text();
+    ui->tableView_Cars->setModel(admin.searchTablecars(platenumber));
+}
+
+
+void MainScreen::on_pushButton_carReload_clicked()
+{
+    /*reload table of cars*/
+    ui->tableView_Cars->setModel(admin.filterTablecars(1, INT_MAX));
 }
 
