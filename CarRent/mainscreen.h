@@ -33,6 +33,8 @@ private slots:
 
     void on_pushButton_carReload_clicked();
 
+    void on_pushButton_carFilter_clicked();
+
 private:
     Ui::MainScreen *ui;
 };

@@ -24,7 +24,7 @@ public:
     void deleteDefault();
     void exportCarDetails(Car x);
     bool isDefaultAccount();
-    QSqlQueryModel* filterTablecars(int isAvailable, int range);
+    QSqlQueryModel* filterTablecars(bool isAvailable, int lowerRange,int upperRange);
     QSqlQueryModel* searchTablecars(QString PlateNum);
     Car importCar(QString val);
 };

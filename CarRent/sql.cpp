@@ -53,6 +53,7 @@ bool sql::connectionOpen()
     }
 }
 
+
 /**
  * @brief closes connection to database
  */
@@ -62,6 +63,7 @@ void sql::connectionClose()
     db.close();
     db.removeDatabase(QSqlDatabase::defaultConnection);
 }
+
 
 /**
  * @brief gives total number of accounts in the database
@@ -150,6 +152,7 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
     }
 }
 
+
 /**
  * @brief exports the account information into database
  * @param dummy
@@ -161,6 +164,7 @@ void sql::exportAccount(account dummy)
     qDebug() << dummy.username << " " << dummy.getPassword() << " " <<dummy.getKey();
 }
 
+
 /**
  * @brief deletes default account from the database
  */
@@ -170,6 +174,7 @@ void sql::deleteDefault()
     // needed for case
     qry.exec("DELETE FROM accounts WHERE key = 0");
 }
+
 
 /**
  * @brief exports data of Car x from the program to the database
@@ -183,6 +188,7 @@ void sql::exportCarDetails(Car x)
     QSqlQuery qry;
     qry.exec("INSERT INTO cars (PlateNumber, Brand, Model, Rate, isAvailable) VALUES ('"+x.PlateNum+"', '"+x.Brand+"', '"+x.Model+"', "+QString::number(x.Rate)+", "+QString::number(x.isAvailable)+")");
 }
+
 
 /**
  * @brief checks if only account in the database is the default account
@@ -207,23 +213,31 @@ bool sql::isDefaultAccount()
     }
 }
 
+
 /**
-  * @brief imports the table cars from the database
+  * @brief imports the table cars based on the filters taken as parameters from the database
+  * @param isAvailable
+  * @param lowerRange
+  * @param upperRange
   * @return address of the model of the sql query
   */
- QSqlQueryModel* sql::filterTablecars(int isAvailable, int range)
+ QSqlQueryModel* sql::filterTablecars(bool isAvailable, int lowerRange,int upperRange)
  {
      /*make a static QSqlQueryModel to return its address*/
      static QSqlQueryModel model;
 
-     /*query to select only the PlateNumber, Brand, Model and Rate of the cars*/
-     model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE isAvailable = "+QString::number(isAvailable)+" AND Rate < "+QString::number(range)+"");
+     /*query to select only the PlateNumber, Brand, Model and Rate of the cars where parameters match*/
+     model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE isAvailable = "+QString::number(isAvailable)+" AND Rate >= "+QString::number(lowerRange)+" AND Rate < "+QString::number(upperRange)+"");
 
      /*returns the address of the model*/
      return &model;
  }
 
-
+ /**
+  * @brief imports the table cars based on the PlateNum searched from the database
+  * @param PlateNum
+  * @return address of the model of the sql query
+  */
  QSqlQueryModel* sql::searchTablecars(QString PlateNum)
  {
      static QSqlQueryModel model;
