@@ -53,6 +53,7 @@ bool sql::connectionOpen()
     }
 }
 
+
 /**
  * @brief closes connection to database
  */
@@ -62,6 +63,7 @@ void sql::connectionClose()
     db.close();
     db.removeDatabase(QSqlDatabase::defaultConnection);
 }
+
 
 /**
  * @brief gives total number of accounts in the database
@@ -150,6 +152,7 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
     }
 }
 
+
 /**
  * @brief exports the account information into database
  * @param dummy
@@ -161,6 +164,7 @@ void sql::exportAccount(account dummy)
     qDebug() << dummy.username << " " << dummy.getPassword() << " " <<dummy.getKey();
 }
 
+
 /**
  * @brief deletes default account from the database
  */
@@ -170,6 +174,8 @@ void sql::deleteDefault()
     // needed for case
     qry.exec("DELETE FROM accounts WHERE key = 0");
 }
+
+
 /**
  * @brief exports data of Car x from the program to the database
  * @param x
@@ -183,8 +189,14 @@ void sql::exportCarDetails(Car x)
     qry.exec("INSERT INTO cars (PlateNumber, Brand, Model, Rate, isAvailable) VALUES ('"+x.PlateNum+"', '"+x.Brand+"', '"+x.Model+"', "+QString::number(x.Rate)+", "+QString::number(x.isAvailable)+")");
 }
 
+
+/**
+ * @brief checks if only account in the database is the default account
+ * @return true if the account matches the details of the default account else false
+ */
 bool sql::isDefaultAccount()
 {
+    /*run a sql query to increase count if default account is found*/
     QSqlQuery qry;
     int count = 0;
     qry.exec("SELECT * FROM accounts WHERE username = 'useradmin' AND key = 0");
@@ -193,6 +205,7 @@ bool sql::isDefaultAccount()
         count++;
     }
 
+    /*return true if count is increased*/
     if (count == 1){
         return true;
     }else{
@@ -200,9 +213,45 @@ bool sql::isDefaultAccount()
     }
 }
 
- QSqlQueryModel* sql::importTablecars()
+
+/**
+  * @brief imports the table cars based on the filters taken as parameters from the database
+  * @param isAvailable
+  * @param lowerRange
+  * @param upperRange
+  * @return address of the model of the sql query
+  */
+ QSqlQueryModel* sql::filterTablecars(bool isAvailable, int lowerRange,int upperRange)
  {
+     /*make a static QSqlQueryModel to return its address*/
      static QSqlQueryModel model;
-     model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars");
+
+     /*query to select only the PlateNumber, Brand, Model and Rate of the cars where parameters match*/
+     model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE isAvailable = "+QString::number(isAvailable)+" AND Rate >= "+QString::number(lowerRange)+" AND Rate < "+QString::number(upperRange)+"");
+
+     /*returns the address of the model*/
      return &model;
  }
+
+ /**
+  * @brief imports the table cars based on the PlateNum searched from the database
+  * @param PlateNum
+  * @return address of the model of the sql query
+  */
+ QSqlQueryModel* sql::searchTablecars(QString PlateNum)
+ {
+     static QSqlQueryModel model;
+
+     model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE PlateNumber = '"+PlateNum+"'");
+
+     return &model;
+ }
+
+/**
+ Car sql::importCar(QString val)
+ {
+     Car x;
+     QSqlQuery qry;
+     qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+val+"'");
+ }
+ */

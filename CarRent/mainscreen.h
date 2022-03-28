@@ -27,6 +27,14 @@ private slots:
 
     void on_pushButton_addCar_clicked();
 
+    void on_tableView_Cars_activated(const QModelIndex &index);
+
+    void on_pushButton_carSearch_clicked();
+
+    void on_pushButton_carReload_clicked();
+
+    void on_pushButton_carFilter_clicked();
+
     void on_pushButton_admin_clicked();
 
 private:
