@@ -194,3 +194,13 @@ void MainScreen::on_pushButton_carFilter_clicked()
     ui->tableView_Cars->setModel(admin.filterTablecars(isAvailable, lowerRange, upperRange));
 }
 
+
+void MainScreen::on_pushButton_admin_clicked()
+{
+
+    /*open dialog to admin window*/
+    change_admin Change_admin;
+    Change_admin.setModal(true);
+    Change_admin.exec();
+}
+
