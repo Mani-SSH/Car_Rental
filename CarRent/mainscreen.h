@@ -37,6 +37,8 @@ private slots:
 
     void on_pushButton_admin_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainScreen *ui;
 };
