@@ -23,6 +23,7 @@ HEADERS += \
     admin_info.h \
     car.h \
     change_admin.h \
+    costumer.h \
     loginadmin.h \
     mainscreen.h \
     sql.h
