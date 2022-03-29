@@ -124,7 +124,7 @@
         <rect>
          <x>10</x>
          <y>20</y>
-         <width>551</width>
+         <width>511</width>
          <height>31</height>
         </rect>
        </property>
@@ -138,9 +138,9 @@
       <widget class="QPushButton" name="pushButton_carSearch">
        <property name="geometry">
         <rect>
-         <x>570</x>
+         <x>530</x>
          <y>20</y>
-         <width>71</width>
+         <width>51</width>
          <height>31</height>
         </rect>
        </property>
@@ -151,9 +151,9 @@
       <widget class="QPushButton" name="pushButton_carFilter">
        <property name="geometry">
         <rect>
-         <x>650</x>
+         <x>590</x>
          <y>20</y>
-         <width>71</width>
+         <width>51</width>
          <height>31</height>
         </rect>
        </property>
@@ -164,7 +164,7 @@
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>810</x>
+         <x>710</x>
          <y>10</y>
          <width>63</width>
          <height>20</height>
@@ -177,7 +177,7 @@
       <widget class="QComboBox" name="comboBox_status">
        <property name="geometry">
         <rect>
-         <x>810</x>
+         <x>710</x>
          <y>30</y>
          <width>101</width>
          <height>21</height>
@@ -197,7 +197,7 @@
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>920</x>
+         <x>820</x>
          <y>10</y>
          <width>91</width>
          <height>21</height>
@@ -210,7 +210,7 @@
       <widget class="QComboBox" name="comboBox_range">
        <property name="geometry">
         <rect>
-         <x>920</x>
+         <x>820</x>
          <y>30</y>
          <width>101</width>
          <height>21</height>
@@ -240,15 +240,48 @@
       <widget class="QPushButton" name="pushButton_carReload">
        <property name="geometry">
         <rect>
-         <x>730</x>
+         <x>650</x>
          <y>20</y>
-         <width>71</width>
+         <width>51</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
         <string>Reload</string>
        </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>930</x>
+         <y>10</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sort By Price</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_sortCar">
+       <property name="geometry">
+        <rect>
+         <x>930</x>
+         <y>30</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Descending</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ascending</string>
+        </property>
+       </item>
       </widget>
      </widget>
     </widget>
@@ -628,7 +661,7 @@
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>17</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
