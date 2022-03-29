@@ -11,7 +11,8 @@ void sql::createdbFile()
     query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, key INT)");
     query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 'default' , 'account' , 0)");
     query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, DateRented TEXT, DateToReturn TEXT)");
-    
+    query.exec("CREATE TABLE IF NOT EXISTS costumers (phone_no INT NOT NULL PRIMARY KEY, f_name VARCHAR(20) NOT NULL, l_name VARCHAR(20)) NOT NULL, age INT NOT NULL, Address VARCHAR(20) NOT NULL,Lisence_Number VARCHAR(12) NOT NULL) ");
+
 
 }
 
@@ -255,3 +256,9 @@ bool sql::isDefaultAccount()
      qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+val+"'");
  }
  */
+
+ void sql::exportCostumer(Costumer x)
+ {
+     QSqlQuery qry;
+     qry.exec("INSERT INTO costumers (phone_no,f_name,l_name,age,Address,Lisence_Number)VALUES('"+QString::number(x.phone_no)+"','"+x.C_fname+"','"+x.C_lname+"','"+QString::number(x.age)+"','"+x.Address+"','"+x.lisence_no+"')");
+ }

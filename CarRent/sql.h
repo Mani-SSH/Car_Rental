@@ -6,8 +6,8 @@
 #include <QDir>
 #include <QDebug>
 #include "account.h"
-
 #include "car.h"
+#include "costumer.h"
 
 class sql
 {
@@ -27,6 +27,7 @@ public:
     QSqlQueryModel* filterTablecars(bool isAvailable, int lowerRange,int upperRange);
     QSqlQueryModel* searchTablecars(QString PlateNum);
     Car importCar(QString val);
+    void exportCostumer(Costumer x);
 };
 
 #endif // SQL_H

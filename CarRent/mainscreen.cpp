@@ -1,5 +1,7 @@
 #include "mainscreen.h"
 #include "ui_mainscreen.h"
+#include "costumer.h"
+#include "car.h"
 
 extern sql admin;
 
@@ -202,5 +204,18 @@ void MainScreen::on_pushButton_admin_clicked()
     change_admin Change_admin;
     Change_admin.setModal(true);
     Change_admin.exec();
+}
+
+
+void MainScreen::on_pushButton_clicked()
+{
+    Costumer Thiscostumer;
+    Thiscostumer.C_fname = ui->lineEdit_fname->text();
+    Thiscostumer.C_lname = ui->lineEdit_lname->text();
+    Thiscostumer.phone_no = ui->lineEdit_phone_no->text().toInt();
+    Thiscostumer.lisence_no = ui->lineEdit_Lisence_no->text();
+    Thiscostumer.age = ui->lineEdit_Age->text().toInt();
+    admin.exportCostumer(Thiscostumer);
+    QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
 }
 

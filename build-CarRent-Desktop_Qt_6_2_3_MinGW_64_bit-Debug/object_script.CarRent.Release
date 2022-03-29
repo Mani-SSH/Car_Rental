@@ -1,0 +1,13 @@
+release/account.o
+release/admin_info.o
+release/car.o
+release/change_admin.o
+release/main.o
+release/loginadmin.o
+release/mainscreen.o
+release/sql.o
+release/qrc_Resources.o
+release/moc_admin_info.o
+release/moc_change_admin.o
+release/moc_loginadmin.o
+release/moc_mainscreen.o
