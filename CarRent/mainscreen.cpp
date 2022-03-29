@@ -20,7 +20,7 @@ MainScreen::MainScreen(QWidget *parent) :
     }
 
     /*initialize table of cars*/
-    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX));
+    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
 }
 
 
@@ -88,12 +88,30 @@ void MainScreen::on_pushButton_addCar_clicked()
     ThisCar.Rate = ui->lineEdit_rate->text().toInt();
     ThisCar.isAvailable = true;
 
-    /*export the data to the database and inform the user*/
-    admin.exportCarDetails(ThisCar);
-    QMessageBox::information(this, "Data added", "Car has been added to the database.");
+    /*if the lineEdits are empty*/
+    if(ThisCar.PlateNum == "" || ThisCar.Brand == "" || ThisCar.Model == "" || ThisCar.Rate == 0){
+        /*display error message*/
+        QMessageBox::critical(this, "Error", "Please enter all the required informataion.");
+    }else{
+        /*check if the car with given plate number exists*/
+        if (admin.carExists(ThisCar.PlateNum)){
+            /*give a error message*/
+            QMessageBox::critical(this, "Error", "The car with the given plate number already exists.");
+        }else{
+            /*export the data to the database and inform the user*/
+            admin.exportCarDetails(ThisCar);
+            QMessageBox::information(this, "Data added", "Car has been added to the database.");
 
-    /*reload table of cars*/
-    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX));
+            /*clear the add cars form*/
+            ui->lineEdit_plateNum->setText("");
+            ui->lineEdit_brand->setText("");
+            ui->lineEdit_model->setText("");
+            ui->lineEdit_rate->setText("");
+
+            /*reload table of cars*/
+            ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
+        }
+    }
 }
 
 
@@ -129,7 +147,7 @@ void MainScreen::on_pushButton_carSearch_clicked()
 void MainScreen::on_pushButton_carReload_clicked()
 {
     /*reload table of cars*/
-    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX));
+    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
 }
 
 
@@ -146,15 +164,21 @@ void MainScreen::on_pushButton_carReload_clicked()
  * currentIndex() is 2 when the combo box is set on "1000 - 2000" option
  * currentIndex() is 3 when the combo box is set on "2000+" option
  *
+ * in comboBox_sortCar,
+ * currentIndex() is 0 when the combo box is set on "Descending" option
+ * currentIndex() is 1 when the combo box is set on "Ascending" option
+ *
  * isAvailable stores the value based on combobox_status
  * lowerRange & upperRange stores the values based on combobox_range
+ * isAscending stores the value based on comboBox_sortCar
  *
- * loads the table with help of values stored in isAvailable, lowerRange and upperRange
+ * loads the table with help of values stored in isAvailable, lowerRange, upperRange and isAscending
  */
 void MainScreen::on_pushButton_carFilter_clicked()
 {
     bool isAvailable = true;                  //status of cars
     int lowerRange = 0, upperRange = INT_MAX; //price range of cars
+    bool isAscendingOrder = false;
 
     /*if comboBox_status is set on "Available" option*/
     if(ui->comboBox_status->currentIndex() == 0){
@@ -190,8 +214,15 @@ void MainScreen::on_pushButton_carFilter_clicked()
         break;
     }
 
+    /*if comboBox_sortCar is set on "Desending" option*/
+    if(ui->comboBox_sortCar->currentIndex() == 0){
+        isAscendingOrder = false;
+    }else{
+        isAscendingOrder = true;
+    }
+
     /*load table of cars*/
-    ui->tableView_Cars->setModel(admin.filterTablecars(isAvailable, lowerRange, upperRange));
+    ui->tableView_Cars->setModel(admin.filterTablecars(isAvailable, lowerRange, upperRange, isAscendingOrder));
 }
 
 

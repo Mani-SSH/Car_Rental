@@ -221,13 +221,17 @@ bool sql::isDefaultAccount()
   * @param upperRange
   * @return address of the model of the sql query
   */
- QSqlQueryModel* sql::filterTablecars(bool isAvailable, int lowerRange,int upperRange)
+ QSqlQueryModel* sql::filterTablecars(bool isAvailable, int lowerRange,int upperRange, bool isAscendingOrder)
  {
      /*make a static QSqlQueryModel to return its address*/
      static QSqlQueryModel model;
 
-     /*query to select only the PlateNumber, Brand, Model and Rate of the cars where parameters match*/
-     model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE isAvailable = "+QString::number(isAvailable)+" AND Rate >= "+QString::number(lowerRange)+" AND Rate < "+QString::number(upperRange)+"");
+     if(isAscendingOrder){
+        /*query to select only the PlateNumber, Brand, Model and Rate of the cars where parameters match*/
+        model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE isAvailable = "+QString::number(isAvailable)+" AND Rate >= "+QString::number(lowerRange)+" AND Rate < "+QString::number(upperRange)+" ORDER BY Rate ASC");
+     }else{
+         model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE isAvailable = "+QString::number(isAvailable)+" AND Rate >= "+QString::number(lowerRange)+" AND Rate < "+QString::number(upperRange)+" ORDER BY Rate DESC");
+     }
 
      /*returns the address of the model*/
      return &model;
@@ -255,3 +259,28 @@ bool sql::isDefaultAccount()
      qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+val+"'");
  }
  */
+
+
+ /**
+  * @brief checks if the car with the given plate number already exists
+  * @param PlateNum
+  * @return true if the car exists and false if doesn't
+  */
+ bool sql::carExists(QString PlateNum)
+ {
+     /*run a sql query to increase count if the car with given plate number is found*/
+     int count = 0;
+     QSqlQuery qry;
+     qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+PlateNum+"'");
+     while (qry.next())
+     {
+         count++;
+     }
+
+     /*return true if count is increased*/
+     if (count == 1){
+         return true;
+     }else{
+         return false;
+     }
+ }
