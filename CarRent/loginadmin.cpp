@@ -4,6 +4,7 @@
 #include <QPixmap>
 
 extern sql admin;
+extern bool isLoggedIn;
 
 LoginAdmin::LoginAdmin(QWidget *parent)
     : QMainWindow(parent)

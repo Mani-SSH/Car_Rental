@@ -283,6 +283,7 @@ bool sql::isDefaultAccount()
      }else{
          return false;
      }
+ }
 
  void sql::exportCostumer(Costumer x)
  {

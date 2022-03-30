@@ -7,6 +7,7 @@
 #include <QDebug>
 
 sql admin;
+bool isLoggedIn = false;   //are account details are correct? (initially set to false)
 
 int main(int argc, char *argv[])
 {
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
     a.exec();
 
     /*if login details are correct*/
-    if (w.isLoggedIn){
+    if (isLoggedIn){
         /*open main screen and copy the login details entered by the user*/
         MainScreen m;
         m.user = w.thisAccount;
