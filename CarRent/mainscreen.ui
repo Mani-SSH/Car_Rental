@@ -47,7 +47,7 @@
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_Home">
      <attribute name="title">
@@ -256,218 +256,6 @@
      <attribute name="title">
       <string>Customers</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_5">
-      <property name="geometry">
-       <rect>
-        <x>-10</x>
-        <y>0</y>
-        <width>1301</width>
-        <height>591</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-      <widget class="QLabel" name="label_Add_costumer">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>10</y>
-         <width>191</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>ADD COSTUMER</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_fname">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>145</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>First Name</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_lname">
-       <property name="geometry">
-        <rect>
-         <x>730</x>
-         <y>150</y>
-         <width>111</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Last Name</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_fname">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>170</y>
-         <width>271</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_lname">
-       <property name="geometry">
-        <rect>
-         <x>730</x>
-         <y>170</y>
-         <width>281</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_phone_no">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>240</y>
-         <width>271</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_Phone_no">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>220</y>
-         <width>131</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Phone Number</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_Address">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>280</y>
-         <width>111</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Address</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_Address">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>300</y>
-         <width>271</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_Age">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>350</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_Lisence_no">
-       <property name="geometry">
-        <rect>
-         <x>730</x>
-         <y>230</y>
-         <width>281</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_Age">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>330</y>
-         <width>37</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Age</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_lisence_no">
-       <property name="geometry">
-        <rect>
-         <x>730</x>
-         <y>210</y>
-         <width>151</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>License Number</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>980</x>
-         <y>530</y>
-         <width>80</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>ADD</string>
-       </property>
-      </widget>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_Add">
      <attribute name="title">
@@ -486,7 +274,7 @@
        <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget_2">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_addCar">
           <attribute name="title">
@@ -601,6 +389,290 @@
           <attribute name="title">
            <string>Customer</string>
           </attribute>
+          <widget class="QGroupBox" name="groupBox_costumer">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>1301</width>
+             <height>571</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_fname">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>65</y>
+              <width>131</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>First Name</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_lname">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>65</y>
+              <width>111</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Last Name</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_phone_no">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>120</y>
+              <width>151</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Phone Number</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_Lisence">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>160</y>
+              <width>181</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>License Number</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_Address">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>220</y>
+              <width>81</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Address</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_age">
+            <property name="geometry">
+             <rect>
+              <x>450</x>
+              <y>149</y>
+              <width>51</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Age</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_ADD_COSTUMER">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>10</y>
+              <width>191</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>18</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>ADD CUSTOMER</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_fname">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>90</y>
+              <width>221</width>
+              <height>20</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_lname">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>90</y>
+              <width>271</width>
+              <height>20</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_phone_no">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>140</y>
+              <width>221</width>
+              <height>20</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_lisence_no">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>190</y>
+              <width>221</width>
+              <height>20</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_address">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>240</y>
+              <width>221</width>
+              <height>20</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_age">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>150</y>
+              <width>113</width>
+              <height>20</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton">
+            <property name="geometry">
+             <rect>
+              <x>740</x>
+              <y>420</y>
+              <width>101</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>ADD Customer</string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="radioButton_Male">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>210</y>
+              <width>61</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Male</string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="radioButton_Female">
+            <property name="geometry">
+             <rect>
+              <x>510</x>
+              <y>240</y>
+              <width>91</width>
+              <height>18</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Female</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_7">
+            <property name="geometry">
+             <rect>
+              <x>440</x>
+              <y>210</y>
+              <width>61</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Gender</string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="radioButton_other">
+            <property name="geometry">
+             <rect>
+              <x>580</x>
+              <y>210</y>
+              <width>81</width>
+              <height>18</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Other</string>
+            </property>
+           </widget>
+          </widget>
          </widget>
         </widget>
        </item>

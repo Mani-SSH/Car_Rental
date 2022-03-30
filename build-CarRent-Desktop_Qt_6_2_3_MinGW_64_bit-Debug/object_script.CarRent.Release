@@ -2,6 +2,7 @@ release/account.o
 release/admin_info.o
 release/car.o
 release/change_admin.o
+release/costumer.o
 release/main.o
 release/loginadmin.o
 release/mainscreen.o

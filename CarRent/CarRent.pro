@@ -13,6 +13,7 @@ SOURCES += \
     admin_info.cpp \
     car.cpp \
     change_admin.cpp \
+    costumer.cpp \
     main.cpp \
     loginadmin.cpp \
     mainscreen.cpp \

@@ -2,6 +2,7 @@ debug/account.o
 debug/admin_info.o
 debug/car.o
 debug/change_admin.o
+debug/costumer.o
 debug/main.o
 debug/loginadmin.o
 debug/mainscreen.o
