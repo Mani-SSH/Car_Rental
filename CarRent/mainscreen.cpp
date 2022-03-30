@@ -243,9 +243,22 @@ void MainScreen::on_pushButton_clicked()
     Costumer Thiscostumer;
     Thiscostumer.C_fname = ui->lineEdit_fname->text();
     Thiscostumer.C_lname = ui->lineEdit_lname->text();
-    Thiscostumer.phone_no = ui->lineEdit_phone_no->text().toInt();
-    Thiscostumer.lisence_no = ui->lineEdit_Lisence_no->text();
-    Thiscostumer.age = ui->lineEdit_Age->text().toInt();
+    Thiscostumer.phone_no = ui->lineEdit_phone_no->text();
+    Thiscostumer.lisence_no = ui->lineEdit_lisence_no->text();
+    Thiscostumer.age = ui->lineEdit_age->text().toInt();
+    Thiscostumer.Address = ui->lineEdit_address->text();
+    if(ui->radioButton_Male->isChecked())
+    {
+        Thiscostumer.gender = 1;
+    }
+    if (ui->radioButton_Female->isChecked())
+    {
+        Thiscostumer.gender = 2;
+    }
+    if (ui->radioButton_other->isChecked())
+    {
+        Thiscostumer.gender = 0;
+    }
     admin.exportCostumer(Thiscostumer);
     QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
 }

@@ -54,6 +54,7 @@ SOURCES       = ..\CarRent\account.cpp \
 		..\CarRent\admin_info.cpp \
 		..\CarRent\car.cpp \
 		..\CarRent\change_admin.cpp \
+		..\CarRent\costumer.cpp \
 		..\CarRent\main.cpp \
 		..\CarRent\loginadmin.cpp \
 		..\CarRent\mainscreen.cpp \
@@ -66,6 +67,7 @@ OBJECTS       = release/account.o \
 		release/admin_info.o \
 		release/car.o \
 		release/change_admin.o \
+		release/costumer.o \
 		release/main.o \
 		release/loginadmin.o \
 		release/mainscreen.o \
@@ -87,6 +89,7 @@ DIST          =  ..\CarRent\account.h \
 		..\CarRent\admin_info.cpp \
 		..\CarRent\car.cpp \
 		..\CarRent\change_admin.cpp \
+		..\CarRent\costumer.cpp \
 		..\CarRent\main.cpp \
 		..\CarRent\loginadmin.cpp \
 		..\CarRent\mainscreen.cpp \
@@ -110,10 +113,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) CarRent.zip $(SOURCES) $(DIST) ..\CarRent\CarRent.pro C:\Qt\6.2.3\mingw_64\mkspecs\features\spec_pre.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\device_config.prf C:\Qt\6.2.3\mingw_64\mkspecs\common\sanitize.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\gcc-base.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\g++-base.conf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\6.2.3\mingw_64\mkspecs\common\windows-vulkan.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\g++-win32.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\windows-desktop.conf C:\Qt\6.2.3\mingw_64\mkspecs\qconfig.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_ext_freetype.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_ext_libpng.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_core.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_help.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssettings.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_linguist.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_network.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_tools_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\features\qt_functions.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qt_config.prf C:\Qt\6.2.3\mingw_64\mkspecs\win32-g++\qmake.conf C:\Qt\6.2.3\mingw_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\6.2.3\mingw_64\mkspecs\features\exclusive_builds.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\toolchain.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\default_pre.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\default_pre.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\resolve_config.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\default_post.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\build_pass.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qml_debug.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\entrypoint.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\precompile_header.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\warn_on.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qt.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\resources_functions.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\resources.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\moc.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\opengl.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\uic.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qmake_use.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\file_copies.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\windows.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\testcase_targets.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\exceptions.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\yacc.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\lex.prf ..\CarRent\CarRent.pro ..\CarRent\Resources.qrc C:\Qt\6.2.3\mingw_64\lib\Qt6Widgets.prl C:\Qt\6.2.3\mingw_64\lib\Qt6Gui.prl C:\Qt\6.2.3\mingw_64\lib\Qt6Sql.prl C:\Qt\6.2.3\mingw_64\lib\Qt6Core.prl C:\Qt\6.2.3\mingw_64\lib\Qt6EntryPoint.prl   ..\CarRent\Resources.qrc C:\Qt\6.2.3\mingw_64\mkspecs\features\data\dummy.cpp ..\CarRent\account.h ..\CarRent\admin_info.h ..\CarRent\car.h ..\CarRent\change_admin.h ..\CarRent\costumer.h ..\CarRent\loginadmin.h ..\CarRent\mainscreen.h ..\CarRent\sql.h  ..\CarRent\account.cpp ..\CarRent\admin_info.cpp ..\CarRent\car.cpp ..\CarRent\change_admin.cpp ..\CarRent\main.cpp ..\CarRent\loginadmin.cpp ..\CarRent\mainscreen.cpp ..\CarRent\sql.cpp ..\CarRent\change_admin.ui ..\CarRent\loginadmin.ui ..\CarRent\admin_info.ui ..\CarRent\mainscreen.ui    
+	$(ZIP) CarRent.zip $(SOURCES) $(DIST) ..\CarRent\CarRent.pro C:\Qt\6.2.3\mingw_64\mkspecs\features\spec_pre.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\device_config.prf C:\Qt\6.2.3\mingw_64\mkspecs\common\sanitize.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\gcc-base.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\g++-base.conf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\6.2.3\mingw_64\mkspecs\common\windows-vulkan.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\g++-win32.conf C:\Qt\6.2.3\mingw_64\mkspecs\common\windows-desktop.conf C:\Qt\6.2.3\mingw_64\mkspecs\qconfig.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_ext_freetype.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_ext_libpng.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_core.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_help.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssettings.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_linguist.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_network.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_tools_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\6.2.3\mingw_64\mkspecs\features\qt_functions.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qt_config.prf C:\Qt\6.2.3\mingw_64\mkspecs\win32-g++\qmake.conf C:\Qt\6.2.3\mingw_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\6.2.3\mingw_64\mkspecs\features\exclusive_builds.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\toolchain.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\default_pre.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\default_pre.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\resolve_config.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\default_post.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\build_pass.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qml_debug.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\entrypoint.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\precompile_header.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\warn_on.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qt.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\resources_functions.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\resources.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\moc.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\opengl.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\uic.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\qmake_use.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\file_copies.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\win32\windows.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\testcase_targets.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\exceptions.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\yacc.prf C:\Qt\6.2.3\mingw_64\mkspecs\features\lex.prf ..\CarRent\CarRent.pro ..\CarRent\Resources.qrc C:\Qt\6.2.3\mingw_64\lib\Qt6Widgets.prl C:\Qt\6.2.3\mingw_64\lib\Qt6Gui.prl C:\Qt\6.2.3\mingw_64\lib\Qt6Sql.prl C:\Qt\6.2.3\mingw_64\lib\Qt6Core.prl C:\Qt\6.2.3\mingw_64\lib\Qt6EntryPoint.prl   ..\CarRent\Resources.qrc C:\Qt\6.2.3\mingw_64\mkspecs\features\data\dummy.cpp ..\CarRent\account.h ..\CarRent\admin_info.h ..\CarRent\car.h ..\CarRent\change_admin.h ..\CarRent\costumer.h ..\CarRent\loginadmin.h ..\CarRent\mainscreen.h ..\CarRent\sql.h  ..\CarRent\account.cpp ..\CarRent\admin_info.cpp ..\CarRent\car.cpp ..\CarRent\change_admin.cpp ..\CarRent\costumer.cpp ..\CarRent\main.cpp ..\CarRent\loginadmin.cpp ..\CarRent\mainscreen.cpp ..\CarRent\sql.cpp ..\CarRent\change_admin.ui ..\CarRent\loginadmin.ui ..\CarRent\admin_info.ui ..\CarRent\mainscreen.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\account.o release\admin_info.o release\car.o release\change_admin.o release\main.o release\loginadmin.o release\mainscreen.o release\sql.o release\qrc_Resources.o release\moc_admin_info.o release\moc_change_admin.o release\moc_loginadmin.o release\moc_mainscreen.o
+	-$(DEL_FILE) release\account.o release\admin_info.o release\car.o release\change_admin.o release\costumer.o release\main.o release\loginadmin.o release\mainscreen.o release\sql.o release\qrc_Resources.o release\moc_admin_info.o release\moc_change_admin.o release\moc_loginadmin.o release\moc_mainscreen.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -450,6 +453,7 @@ release/moc_admin_info.cpp: ../CarRent/admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/QPixmap \
 		release/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
@@ -757,6 +761,7 @@ release/moc_change_admin.cpp: ../CarRent/change_admin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		../CarRent/admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/QPixmap \
 		release/moc_predefs.h \
@@ -1064,6 +1069,7 @@ release/moc_loginadmin.cpp: ../CarRent/loginadmin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		../CarRent/admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/QPixmap \
@@ -1372,6 +1378,7 @@ release/moc_mainscreen.cpp: ../CarRent/mainscreen.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDir \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		../CarRent/change_admin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QDialog \
 		../CarRent/admin_info.h \
@@ -1709,7 +1716,8 @@ release/account.o: ../CarRent/account.cpp ../CarRent/account.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDir \
 		../CarRent/car.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\account.o ..\CarRent\account.cpp
 
 release/admin_info.o: ../CarRent/admin_info.cpp ../CarRent/admin_info.h \
@@ -2012,6 +2020,7 @@ release/admin_info.o: ../CarRent/admin_info.cpp ../CarRent/admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/QPixmap \
 		ui_admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QVariant \
@@ -2426,6 +2435,7 @@ release/change_admin.o: ../CarRent/change_admin.cpp ../CarRent/change_admin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		../CarRent/admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/QPixmap \
 		ui_change_admin.h \
@@ -2450,6 +2460,50 @@ release/change_admin.o: ../CarRent/change_admin.cpp ../CarRent/change_admin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\change_admin.o ..\CarRent\change_admin.cpp
+
+release/costumer.o: ../CarRent/costumer.cpp ../CarRent/costumer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QString \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstring.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qchar.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qglobal.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qconfig.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtcore-config.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qsysinfo.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qlogging.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qflags.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qatomic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qnumeric.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qversiontagging.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbytearray.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbytearrayview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringliteral.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qanystringview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qutf8stringview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringtokenizer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\costumer.o ..\CarRent\costumer.cpp
 
 release/main.o: ../CarRent/main.cpp ../CarRent/loginadmin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMainWindow \
@@ -2752,6 +2806,7 @@ release/main.o: ../CarRent/main.cpp ../CarRent/loginadmin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		../CarRent/admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/QPixmap \
@@ -3065,6 +3120,7 @@ release/loginadmin.o: ../CarRent/loginadmin.cpp ../CarRent/loginadmin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		../CarRent/admin_info.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/QPixmap \
@@ -3402,6 +3458,7 @@ release/mainscreen.o: ../CarRent/mainscreen.cpp ../CarRent/mainscreen.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDir \
 		../CarRent/car.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h \
 		../CarRent/change_admin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QDialog \
 		../CarRent/admin_info.h \
@@ -3746,7 +3803,8 @@ release/sql.o: ../CarRent/sql.cpp ../CarRent/sql.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QString \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QRandomGenerator \
 		../CarRent/car.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QDate \
+		../CarRent/costumer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\sql.o ..\CarRent\sql.cpp
 
 release/qrc_Resources.o: release/qrc_Resources.cpp 
