@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_login_clicked();
 
+    void on_pushButton_Exit_clicked();
+
 private:
     Ui::LoginAdmin *ui;
 };

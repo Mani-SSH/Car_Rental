@@ -819,7 +819,7 @@ border-radius:10;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pushButton_Exit">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -829,7 +829,7 @@ border-radius:10;</string>
       </rect>
      </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Exit</string>
      </property>
     </widget>
    </widget>
