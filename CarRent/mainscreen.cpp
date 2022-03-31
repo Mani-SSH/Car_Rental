@@ -21,8 +21,29 @@ MainScreen::MainScreen(QWidget *parent) :
         QCoreApplication::exit();
     }
 
+
+    /*adding background image color in main window*/
+    QPixmap bkgnd(":/resources/img/mainscreen.jpg");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
+
+
     /*initialize table of cars*/
     ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
+
+
+    //adding icons in search bars
+    QIcon search(":/resources/img/search.png");
+    ui->lineEdit_carSearch->addAction(search,QLineEdit::LeadingPosition);
+
+    /*adding photo in customer add page*/
+    QPixmap customerAdd(":/resources/img/addCustomer.png");
+    ui->label_addcusphoto->setPixmap(customerAdd);
+    ui->label_addcusphoto->setScaledContents(true);
+    ui->label_addcusphoto->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
 }
 
 

@@ -4,5 +4,10 @@
         <file>img/logo.png</file>
         <file>img/admin_info-01.jpg</file>
         <file>img/admin_icon.png</file>
+        <file>img/mainscreen.jpg</file>
+        <file>img/search.png</file>
+        <file>img/pass.png</file>
+        <file>img/user.png</file>
+        <file>img/addCustomer.png</file>
     </qresource>
 </RCC>
