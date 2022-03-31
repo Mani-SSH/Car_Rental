@@ -1,6 +1,7 @@
 #include "change_admin.h"
 #include "ui_change_admin.h"
 #include <QMessageBox>
+extern bool isLoggedIn;
 
 change_admin::change_admin(QWidget *parent) :
     QDialog(parent),
@@ -35,5 +36,12 @@ void change_admin::on_pushButton_addAccount_clicked()
         this->close();
     }
 
+}
+
+
+void change_admin::on_pushButton_logout_clicked()
+{
+    isLoggedIn = false;
+    this->close();
 }
 

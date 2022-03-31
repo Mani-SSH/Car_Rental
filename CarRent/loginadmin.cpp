@@ -4,6 +4,8 @@
 #include <QPixmap>
 
 extern sql admin;
+extern bool isLoggedIn;
+extern bool isClose;
 
 LoginAdmin::LoginAdmin(QWidget *parent)
     : QMainWindow(parent)
@@ -166,5 +168,12 @@ void LoginAdmin::on_pushButton_login_clicked()
         ui->label_hintUsername->setText("<font color='red'>Username not found");
 
     }
+}
+
+
+void LoginAdmin::on_pushButton_Exit_clicked()
+{
+    isClose = true;
+    this->close();
 }
 

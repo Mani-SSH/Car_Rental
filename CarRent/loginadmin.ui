@@ -159,7 +159,7 @@ border-radius:10;</string>
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>370</y>
+       <y>340</y>
        <width>291</width>
        <height>41</height>
       </rect>
@@ -819,6 +819,19 @@ border-radius:10;</string>
       <number>0</number>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_Exit">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>420</y>
+       <width>80</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label_logo">
     <property name="geometry">
@@ -840,7 +853,7 @@ border-radius:10;</string>
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

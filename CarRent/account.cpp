@@ -58,12 +58,13 @@ QString account::encrypt(QString password, int key){
             /*if the character is a lowercase letter*/
             if (pass[i] >= 'a' && pass[i] <= 'z'){
                 /*adding key to character to change it*/
+                pass[i] -= 26;
                 pass[i] += key;
 
                 /*if character is out of range of the lowercase letters*/
-                if (pass[i] > 122){
+                if (pass[i] < 97){
                     /*cycles back from 'a'*/
-                    pass[i] -= 26;
+                    pass[i] += 26;
                 }
             }
 

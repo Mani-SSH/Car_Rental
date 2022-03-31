@@ -50,22 +50,22 @@ void admin_info::on_pushButton_clicked()
     if (admin.usernameExists(admin_account.username))
     {
         ui->label_username_check->setText("<font color='red'>invalid username");
-    }
-
-    // confirms the password
-    if (confirm_password != password)
-    {
-        ui->label_password_check->setText("<font color='red'>password doesn't match");
-    }
-    else
-    {
-        int key;
-        key = admin_account.getKey();
-        password = admin_account.encrypt(password,key);
-        admin_account.setPassword(password);
-        isAccountAdded = true;
-        admin.exportAccount(admin_account);
-        this->close();
+    }else{
+        // confirms the password
+        if (confirm_password != password)
+        {
+            ui->label_password_check->setText("<font color='red'>password doesn't match");
+        }
+        else
+        {
+            int key;
+            key = admin_account.getKey();
+            password = admin_account.encrypt(password,key);
+            admin_account.setPassword(password);
+            isAccountAdded = true;
+            admin.exportAccount(admin_account);
+            this->close();
+        }
     }
 }
 

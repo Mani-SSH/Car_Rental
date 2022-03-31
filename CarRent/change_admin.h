@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_addAccount_clicked();
 
+    void on_pushButton_logout_clicked();
+
 private:
     Ui::change_admin *ui;
 };

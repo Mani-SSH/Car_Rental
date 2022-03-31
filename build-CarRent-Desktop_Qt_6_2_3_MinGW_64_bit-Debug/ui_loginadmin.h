@@ -35,6 +35,7 @@ public:
     QLabel *label_hintPassword;
     QPushButton *pushButton_login;
     QLabel *label;
+    QPushButton *pushButton_Exit;
     QLabel *label_logo;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -98,7 +99,7 @@ public:
         label_hintPassword->setFont(font4);
         pushButton_login = new QPushButton(groupBox_Login);
         pushButton_login->setObjectName(QString::fromUtf8("pushButton_login"));
-        pushButton_login->setGeometry(QRect(30, 370, 291, 41));
+        pushButton_login->setGeometry(QRect(30, 340, 291, 41));
         QPalette palette;
         QBrush brush(QColor(0, 0, 0, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -265,13 +266,16 @@ public:
         label->setStyleSheet(QString::fromUtf8("color: rgb(27, 102, 165);"));
         label->setAlignment(Qt::AlignCenter);
         label->setMargin(0);
+        pushButton_Exit = new QPushButton(groupBox_Login);
+        pushButton_Exit->setObjectName(QString::fromUtf8("pushButton_Exit"));
+        pushButton_Exit->setGeometry(QRect(240, 420, 80, 18));
         label_logo = new QLabel(centralwidget);
         label_logo->setObjectName(QString::fromUtf8("label_logo"));
         label_logo->setGeometry(QRect(0, 0, 130, 50));
         LoginAdmin->setCentralWidget(centralwidget);
         menubar = new QMenuBar(LoginAdmin);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 600, 21));
+        menubar->setGeometry(QRect(0, 0, 600, 17));
         LoginAdmin->setMenuBar(menubar);
         statusbar = new QStatusBar(LoginAdmin);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -293,6 +297,7 @@ public:
         label_hintPassword->setText(QString());
         pushButton_login->setText(QCoreApplication::translate("LoginAdmin", "LOGIN", nullptr));
         label->setText(QCoreApplication::translate("LoginAdmin", "ADMIN LOGIN", nullptr));
+        pushButton_Exit->setText(QCoreApplication::translate("LoginAdmin", "Exit", nullptr));
         label_logo->setText(QString());
     } // retranslateUi
 

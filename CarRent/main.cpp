@@ -7,23 +7,28 @@
 #include <QDebug>
 
 sql admin;
+bool isLoggedIn = false;   //are account details are correct? (initially set to false)
+bool isClose = false;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    LoginAdmin w;
+    while(!isClose)
+    {
+        LoginAdmin w;
 
-    /*open login window*/
-    w.show();
-    a.exec();
-
-    /*if login details are correct*/
-    if (w.isLoggedIn){
-        /*open main screen and copy the login details entered by the user*/
-        MainScreen m;
-        m.user = w.thisAccount;
-        m.show();
+        /*open login window*/
+        w.show();
         a.exec();
+
+        /*if login details are correct*/
+        if (isLoggedIn){
+            /*open main screen and copy the login details entered by the user*/
+            MainScreen m;
+            m.user = w.thisAccount;
+            m.show();
+            a.exec();
+        }
     }
     return 0;
 }

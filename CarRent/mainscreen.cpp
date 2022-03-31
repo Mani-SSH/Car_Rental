@@ -4,7 +4,7 @@
 #include "car.h"
 
 extern sql admin;
-
+extern bool isLoggedIn;
 MainScreen::MainScreen(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainScreen)
@@ -235,6 +235,9 @@ void MainScreen::on_pushButton_admin_clicked()
     change_admin Change_admin;
     Change_admin.setModal(true);
     Change_admin.exec();
+    if(!isLoggedIn){
+        this->close();
+    }
 }
 
 
