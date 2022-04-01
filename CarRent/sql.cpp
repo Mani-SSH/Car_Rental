@@ -294,10 +294,17 @@ bool sql::isDefaultAccount()
     }
  }
 
- QSqlQueryModel* sql ::searchTableCostumer(QString searchText)
+ QSqlQueryModel* sql ::searchTableCostumer(QString searchText, bool isPhone)
  {
      static QSqlQueryModel modal;
-     modal.setQuery("SELECT phone_no,f_name,l_name FROM costumers WHERE phone_no = '"+searchText+"'");
+     if (isPhone)
+        {
+            modal.setQuery("SELECT phone_no,f_name,l_name FROM costumers WHERE phone_no = '"+searchText+"'");
+        }
+     else
+     {
+         modal.setQuery("SELECT phone_no, f_name, l_name FROM costumers WHERE Lisence_Number = '"+searchText+"' ");
+     }
      return &modal;
  }
 

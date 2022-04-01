@@ -303,7 +303,7 @@ void MainScreen::on_pushButton_Search_clicked()
         isPhone = false;
     }
     thisCostumer = admin.importCostumer(searchText,isPhone);
-    ui->tableView_customer->setModel(admin.searchTableCostumer(searchText));
+    ui->tableView_customer->setModel(admin.searchTableCostumer(searchText,isPhone));
     ui->label_sql_fname->setText(thisCostumer.C_fname);
     ui->label_sql_lname->setText(thisCostumer.C_lname);
     ui->label_sql_age->setText(QString::number(thisCostumer.age));

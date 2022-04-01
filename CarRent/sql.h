@@ -29,7 +29,7 @@ public:
     Car importCar(QString val);
     bool carExists(QString PlateNum);
     void exportCostumer(Costumer x);
-    QSqlQueryModel* searchTableCostumer(QString searchText);
+    QSqlQueryModel* searchTableCostumer(QString searchText, bool isPhone);
     Costumer importCostumer(QString searchText, bool isPhone);
 };
 
