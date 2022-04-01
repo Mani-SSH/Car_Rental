@@ -29,6 +29,8 @@ public:
     Car importCar(QString val);
     bool carExists(QString PlateNum);
     void exportCostumer(Costumer x);
+    QSqlQueryModel* searchTableCostumer(QString searchText);
+    Costumer importCostumer(QString searchText, bool isPhone);
 };
 
 #endif // SQL_H

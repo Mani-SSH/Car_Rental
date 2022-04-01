@@ -15,7 +15,7 @@ public:
     QString Address;
     int age;
     QString phone_no;
-    int gender;
+    QString gender;
 
 
 };
