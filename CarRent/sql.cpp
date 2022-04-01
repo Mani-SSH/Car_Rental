@@ -288,8 +288,48 @@ bool sql::isDefaultAccount()
  void sql::exportCostumer(Costumer x)
  {
      QSqlQuery qry;
-    if( qry.exec("INSERT INTO costumers (phone_no, f_name, l_name, Age, Address, Lisence_Number, Gender) VALUES ('"+x.phone_no+"', '"+x.C_fname+"', '"+x.C_lname+"', '"+QString::number(x.age)+"', '"+x.Address+"', '"+x.lisence_no+"', '"+QString::number(x.gender)+"')"))
+    if( qry.exec("INSERT INTO costumers (phone_no, f_name, l_name, Age, Address, Lisence_Number, Gender) VALUES ('"+x.phone_no+"', '"+x.C_fname+"', '"+x.C_lname+"', '"+QString::number(x.age)+"', '"+x.Address+"', '"+x.lisence_no+"', '"+x.gender+"')"))
     {
         qDebug() << "value added";
     }
+ }
+
+ QSqlQueryModel* sql ::searchTableCostumer(QString searchText, bool isPhone)
+ {
+     static QSqlQueryModel modal;
+     if (isPhone)
+        {
+            modal.setQuery("SELECT phone_no,f_name,l_name FROM costumers WHERE phone_no = '"+searchText+"'");
+        }
+     else
+     {
+         modal.setQuery("SELECT phone_no, f_name, l_name FROM costumers WHERE Lisence_Number = '"+searchText+"' ");
+     }
+     return &modal;
+ }
+
+ Costumer sql :: importCostumer(QString searchText, bool isPhone)
+ {
+     Costumer dummy;
+     QSqlQuery qry;
+     if (isPhone)
+     {
+         qry.exec("SELECT * FROM costumers WHERE phone_no = '"+searchText+"'");
+     }
+     else
+     {
+         qry.exec("SELECT * FROM costumers WHERE Lisence_Number = '"+searchText+"'");
+     }
+
+     while (qry.next())
+     {
+         dummy.phone_no = qry.value(0).toString();
+         dummy.C_fname = qry.value(1).toString();
+         dummy.C_lname = qry.value(2).toString();
+         dummy.age = qry.value(3).toInt();
+         dummy.Address = qry.value(4).toString();
+         dummy.lisence_no = qry.value(5).toString();
+         dummy.gender = qry.value(6).toString();
+     }
+     return dummy;
  }

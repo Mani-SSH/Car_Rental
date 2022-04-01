@@ -265,7 +265,7 @@ void MainScreen::on_pushButton_admin_clicked()
 void MainScreen::on_pushButton_clicked()
 {
     Costumer Thiscostumer;
-    Thiscostumer.C_fname = ui->lineEdit_fname->text();
+    Thiscostumer.C_fname = ui->lineEdit_fnameh->text();
     Thiscostumer.C_lname = ui->lineEdit_lname->text();
     Thiscostumer.phone_no = ui->lineEdit_phone_no->text();
     Thiscostumer.lisence_no = ui->lineEdit_lisence_no->text();
@@ -273,17 +273,43 @@ void MainScreen::on_pushButton_clicked()
     Thiscostumer.Address = ui->lineEdit_address->text();
     if(ui->radioButton_Male->isChecked())
     {
-        Thiscostumer.gender = 1;
+        Thiscostumer.gender = "Male";
     }
     if (ui->radioButton_Female->isChecked())
     {
-        Thiscostumer.gender = 2;
+        Thiscostumer.gender = "Female";
     }
     if (ui->radioButton_other->isChecked())
     {
-        Thiscostumer.gender = 0;
+        Thiscostumer.gender = "Other";
     }
     admin.exportCostumer(Thiscostumer);
     QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
+}
+
+
+void MainScreen::on_pushButton_Search_clicked()
+{
+    QString searchText;
+    bool isPhone;
+    Costumer thisCostumer;
+    searchText = ui->lineEdit_searchbar->text();
+    if (ui->comboBox_costumer->currentIndex() == 0)
+    {
+        isPhone = true;
+    }
+    else
+    {
+        isPhone = false;
+    }
+    thisCostumer = admin.importCostumer(searchText,isPhone);
+    ui->tableView_customer->setModel(admin.searchTableCostumer(searchText,isPhone));
+    ui->label_sql_fname->setText(thisCostumer.C_fname);
+    ui->label_sql_lname->setText(thisCostumer.C_lname);
+    ui->label_sql_age->setText(QString::number(thisCostumer.age));
+    ui->label_sql_gender->setText(thisCostumer.gender);
+    ui->label_sql_phone->setText(thisCostumer.phone_no);
+    ui->label_sql_lisence->setText(thisCostumer.lisence_no);
+    ui->label_sql_address->setText(thisCostumer.Address);
 }
 
