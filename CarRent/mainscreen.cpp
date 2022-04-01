@@ -44,6 +44,12 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->label_addcusphoto->setScaledContents(true);
     ui->label_addcusphoto->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
+    /*adding photo in add image label*/
+    QPixmap dummyImg(":/resources/img/dummy car img.jpg");
+    ui->label_image->setPixmap(dummyImg);
+    ui->label_image->setScaledContents(true);
+    ui->label_image->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
 }
 
 
@@ -311,5 +317,30 @@ void MainScreen::on_pushButton_Search_clicked()
     ui->label_sql_phone->setText(thisCostumer.phone_no);
     ui->label_sql_lisence->setText(thisCostumer.lisence_no);
     ui->label_sql_address->setText(thisCostumer.Address);
+}
+
+/*this button requests user to add picture of the car to be added
+*here, when button is pushed, option to choose the file is prompt
+*the path is saved in "image"
+*/
+void MainScreen::on_pushButton_2_clicked()
+{
+    QString file_path=QFileDialog::getOpenFileName(this,tr("Choose"),"",tr("Images(*.png *.jpg *.jpeg *bmp"));
+    if(QString::compare(file_path,QString())!=0)
+    {
+        QImage image;
+        bool valid=image.load(file_path);
+
+        if (valid)
+        {
+            image=image.scaledToWidth(ui->label_image->width(), Qt::SmoothTransformation);
+            ui->label_image->setPixmap(QPixmap::fromImage(image));
+        }
+        else
+        {
+            //Error handling
+        }
+    }
+
 }
 

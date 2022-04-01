@@ -8,6 +8,7 @@
 #include "sql.h"
 #include "car.h"
 #include "change_admin.h"
+#include <QFileDialog>
 
 namespace Ui {
 class MainScreen;
@@ -40,6 +41,10 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_Search_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_addImage_clicked();
 
 private:
     Ui::MainScreen *ui;
