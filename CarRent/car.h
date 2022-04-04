@@ -15,6 +15,8 @@ public:
     QDate DateRented;
     QDate DateToReturn;
     QDate DateReturned;
+    QString PhotoPath;
+    QString phone_no;
     Car();
 };
 

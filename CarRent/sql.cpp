@@ -10,10 +10,9 @@ void sql::createdbFile()
 
     query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, key INT)");
     query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 'default' , 'account' , 0)");
-    query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, DateRented TEXT, DateToReturn TEXT)");
+    query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, PhotoPath VARCHAR(10))");
+    query.exec("CREATE TABLE IF NOT EXISTS rentedcars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, phone_no VARCHAR(10) NOT NULL FOREIGN KEY, DateRented TEXT NOT NULL, DateToReturn TEXT NOT NULL");
     query.exec("CREATE TABLE IF NOT EXISTS costumers (phone_no VARCHAR(10) NOT NULL PRIMARY KEY, f_name VARCHAR(20) NOT NULL, l_name VARCHAR(20) NOT NULL, Age INT NOT NULL, Address VARCHAR(20) NOT NULL, Lisence_Number VARCHAR(12) NOT NULL, Gender INT NOT NULL)");
-
-
 }
 
 
@@ -178,20 +177,6 @@ void sql::deleteDefault()
 
 
 /**
- * @brief exports data of Car x from the program to the database
- * @param x
- *
- * runs a sql query to insert members of car x into database
- */
-void sql::exportCarDetails(Car x)
-{
-    /*run a sql query to insert members of car x into database*/
-    QSqlQuery qry;
-    qry.exec("INSERT INTO cars (PlateNumber, Brand, Model, Rate, isAvailable) VALUES ('"+x.PlateNum+"', '"+x.Brand+"', '"+x.Model+"', "+QString::number(x.Rate)+", "+QString::number(x.isAvailable)+")");
-}
-
-
-/**
  * @brief checks if only account in the database is the default account
  * @return true if the account matches the details of the default account else false
  */
@@ -212,6 +197,20 @@ bool sql::isDefaultAccount()
     }else{
         return false;
     }
+}
+
+
+/**
+ * @brief exports data of Car x from the program to the database
+ * @param x
+ *
+ * runs a sql query to insert members of car x into database
+ */
+void sql::exportCarDetails(Car x)
+{
+    /*run a sql query to insert members of car x into database*/
+    QSqlQuery qry;
+    qry.exec("INSERT INTO cars (PlateNumber, Brand, Model, Rate, isAvailable, PhotoPath) VALUES ('"+x.PlateNum+"', '"+x.Brand+"', '"+x.Model+"', "+QString::number(x.Rate)+", "+QString::number(x.isAvailable)+", '"+x.PhotoPath+"')");
 }
 
 
@@ -283,6 +282,32 @@ bool sql::isDefaultAccount()
      }else{
          return false;
      }
+ }
+
+ Car sql::importCar(QString PlateNum)
+ {
+     Car ThisCar;
+     QSqlQuery qry;
+     qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+PlateNum+"'");
+     while (qry.next())
+     {
+         ThisCar.PlateNum = PlateNum;
+         ThisCar.Brand = qry.value(1).toString();
+         ThisCar.Model = qry.value(2).toString();
+         ThisCar.Rate = qry.value(3).toInt();
+         ThisCar.isAvailable = qry.value(4).toBool();
+         ThisCar.PhotoPath = qry.value(5).toString();
+     }
+     qry.exec("SELECT * FROM rentedcars WHERE PlateNumber = '"+PlateNum+"'");
+     while (qry.next())
+     {
+         if(ThisCar.isAvailable){
+             ThisCar.phone_no = qry.value(1).toString();
+             ThisCar.DateRented = QDate::fromString(qry.value(2).toString());
+             ThisCar.DateToReturn = QDate::fromString(qry.value(3).toString());
+         }
+     }
+     return ThisCar;
  }
 
  void sql::exportCostumer(Costumer x)

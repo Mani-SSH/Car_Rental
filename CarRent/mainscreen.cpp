@@ -118,26 +118,25 @@ void MainScreen::on_lineEdit_rate_textEdited(const QString &arg1)
  */
 void MainScreen::on_pushButton_addCar_clicked()
 {
-    /*make an object of class Car and take data from user taken from the database*/
-    Car ThisCar;
-    ThisCar.PlateNum = ui->lineEdit_plateNum->text();
-    ThisCar.Brand = ui->lineEdit_brand->text();
-    ThisCar.Model = ui->lineEdit_model->text();
-    ThisCar.Rate = ui->lineEdit_rate->text().toInt();
-    ThisCar.isAvailable = true;
+    /*take data from user*/
+    carToAdd.PlateNum = ui->lineEdit_plateNum->text();
+    carToAdd.Brand = ui->lineEdit_brand->text();
+    carToAdd.Model = ui->lineEdit_model->text();
+    carToAdd.Rate = ui->lineEdit_rate->text().toInt();
+    carToAdd.isAvailable = true;
 
     /*if the lineEdits are empty*/
-    if(ThisCar.PlateNum == "" || ThisCar.Brand == "" || ThisCar.Model == "" || ThisCar.Rate == 0){
+    if(carToAdd.PlateNum == "" || carToAdd.Brand == "" || carToAdd.Model == "" || carToAdd.Rate == 0){
         /*display error message*/
         QMessageBox::critical(this, "Error", "Please enter all the required informataion.");
     }else{
         /*check if the car with given plate number exists*/
-        if (admin.carExists(ThisCar.PlateNum)){
+        if (admin.carExists(carToAdd.PlateNum)){
             /*give a error message*/
             QMessageBox::critical(this, "Error", "The car with the given plate number already exists.");
         }else{
             /*export the data to the database and inform the user*/
-            admin.exportCarDetails(ThisCar);
+            admin.exportCarDetails(carToAdd);
             QMessageBox::information(this, "Data added", "Car has been added to the database.");
 
             /*clear the add cars form*/
@@ -145,6 +144,11 @@ void MainScreen::on_pushButton_addCar_clicked()
             ui->lineEdit_brand->setText("");
             ui->lineEdit_model->setText("");
             ui->lineEdit_rate->setText("");
+            /*adding photo in add image label*/
+            QPixmap dummyImg(":/resources/img/dummy car img.jpg");
+            ui->label_image->setPixmap(dummyImg);
+            ui->label_image->setScaledContents(true);
+            ui->label_image->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
             /*reload table of cars*/
             ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
@@ -152,6 +156,32 @@ void MainScreen::on_pushButton_addCar_clicked()
     }
 }
 
+
+/*this button requests user to add picture of the car to be added
+*here, when button is pushed, option to choose the file is prompt
+*the path is saved in "image"
+*/
+void MainScreen::on_pushButton_2_clicked()
+{
+    QString file_path = QFileDialog::getOpenFileName(this,tr("Choose"),"",tr("Images(*.png *.jpg *.jpeg *bmp"));
+    if(QString::compare(file_path,QString())!=0)
+    {
+        QImage image;
+        bool valid = image.load(file_path);
+
+        if (valid)
+        {
+            image = image.scaledToWidth(ui->label_image->width(), Qt::SmoothTransformation);
+            ui->label_image->setPixmap(QPixmap::fromImage(image));
+            carToAdd.PhotoPath = file_path;
+        }
+        else
+        {
+            //Error handling
+        }
+    }
+
+}
 
 /**
  * @brief shows data of the car clicked on the table and prepares the rent form
@@ -163,8 +193,43 @@ void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
 {
     QString val = ui->tableView_Cars->model()->data(index).toString();
 
+    if(admin.carExists(val)){
+        Car ThisCar = admin.importCar(val);
+        displayCar(ThisCar);
+
+    }
+
 }
 
+
+void MainScreen::displayCar(Car x)
+{
+    ui->label_showPlateNum->setText(x.PlateNum);
+    ui->label_showBrand->setText(x.Brand);
+    ui->label_showModel->setText(x.Model);
+    ui->label_showRate->setText(QString::number(x.Rate));
+    QImage image;
+    bool valid = image.load(x.PhotoPath);
+
+    if (valid)
+    {
+        image = image.scaledToWidth(ui->label_carPhoto->width(), Qt::SmoothTransformation);
+        ui->label_carPhoto->setPixmap(QPixmap::fromImage(image));
+        carToAdd.PhotoPath = x.PhotoPath;
+    }
+    else
+    {
+        //Error handling
+    }
+    if(x.isAvailable){
+        ui->label_showStatus->setText("<font color='green'>Available");
+    }else{
+        ui->label_showStatus->setText("<font color='red'>Rented");
+        ui->label_showCustomer->setText(x.phone_no);
+        ui->label_showDateRented->setText(x.DateRented.toString());
+        ui->label_showDateToReturn->setText(x.DateRented.toString());
+    }
+}
 
 /**
  * @brief searches the car with help of plate number entered by user in lineEdit_carSearch
@@ -328,28 +393,5 @@ void MainScreen::on_pushButton_Search_clicked()
     ui->label_sql_address->setText(thisCostumer.Address);
 }
 
-/*this button requests user to add picture of the car to be added
-*here, when button is pushed, option to choose the file is prompt
-*the path is saved in "image"
-*/
-void MainScreen::on_pushButton_2_clicked()
-{
-    QString file_path=QFileDialog::getOpenFileName(this,tr("Choose"),"",tr("Images(*.png *.jpg *.jpeg *bmp"));
-    if(QString::compare(file_path,QString())!=0)
-    {
-        QImage image;
-        bool valid=image.load(file_path);
 
-        if (valid)
-        {
-            image=image.scaledToWidth(ui->label_image->width(), Qt::SmoothTransformation);
-            ui->label_image->setPixmap(QPixmap::fromImage(image));
-        }
-        else
-        {
-            //Error handling
-        }
-    }
-
-}
 

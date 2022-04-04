@@ -20,7 +20,9 @@ class MainScreen : public QMainWindow
 
 public:
     account user;
+    Car carToAdd;
     explicit MainScreen(QWidget *parent = nullptr);
+    void displayCar(Car x);
     ~MainScreen();
 
 private slots:
