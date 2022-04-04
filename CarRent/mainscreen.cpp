@@ -83,6 +83,15 @@ void MainScreen::on_lineEdit_rate_textEdited(const QString &arg1)
             /*if not, change isValid to false and break the loop*/
             isValid = false;
             break;
+        }else{
+            try {
+                int x = arg1.toInt();
+                if (x > 9999999)
+                    throw (x);
+            }  catch (int x) {
+                isValid = false;
+                break;
+            }
         }
     }
 
