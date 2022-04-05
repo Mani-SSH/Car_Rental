@@ -153,11 +153,19 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
 }
 
 
-
+/**
+ * @brief imports first and last name of the account x from the database
+ * @param x
+ *
+ * uses an sql query to import the data
+ */
 void sql::importName(account &x)
 {
+    /*run query to select all from table accounts where username store in x matches*/
     QSqlQuery qry;
     qry.exec("SELECT * FROM accounts WHERE username = '"+x.username+"'");
+
+    /*import data of 3rd and 4th column i.e. the position 2 and 3*/
     while(qry.next())
     {
         x.f_name = qry.value(2).toString();

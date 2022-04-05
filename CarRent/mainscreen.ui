@@ -32,9 +32,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>20</y>
+      <y>0</y>
       <width>1361</width>
-      <height>601</height>
+      <height>621</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -61,9 +61,9 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
-        <width>261</width>
-        <height>601</height>
+        <y>0</y>
+        <width>271</width>
+        <height>611</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1557,8 +1557,8 @@ font: 500 12pt &quot;Gotham&quot;;</string>
    <widget class="QLabel" name="label_welcomeUser">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>0</y>
+      <x>850</x>
+      <y>630</y>
       <width>511</width>
       <height>21</height>
      </rect>

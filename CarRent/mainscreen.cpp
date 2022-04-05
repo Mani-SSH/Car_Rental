@@ -197,17 +197,27 @@ void MainScreen::on_pushButton_2_clicked()
  */
 void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
 {
+    /*take the string of the element double clicked in table*/
     QString val = ui->tableView_Cars->model()->data(index).toString();
 
+    /*if the element clicked on the table is the plate number of the car*/
     if(admin.carExists(val)){
+        /*import all the information of the car*/
         Car ThisCar = admin.importCar(val);
+
+        /*display them on the display section of the car tab*/
         displayCar(ThisCar);
 
     }
 
 }
 
-
+/**
+ * @brief display information of the car x on the display section of the car tab
+ * @param x
+ *
+ * uses labels in the display section to display data
+ */
 void MainScreen::displayCar(Car x)
 {
     ui->label_showPlateNum->setText(x.PlateNum);
