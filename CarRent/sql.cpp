@@ -153,6 +153,18 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
 }
 
 
+
+void sql::importName(account &x)
+{
+    QSqlQuery qry;
+    qry.exec("SELECT * FROM accounts WHERE username = '"+x.username+"'");
+    while(qry.next())
+    {
+        x.f_name = qry.value(2).toString();
+        x.l_name = qry.value(3).toString();
+    }
+}
+
 /**
  * @brief exports the account information into database
  * @param dummy

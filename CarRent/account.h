@@ -21,6 +21,7 @@ public:
     void setPassword(QString password);
     QString getPassword();
     int getKey();
+    void setKey(int key);
     void keyGenerator();
 };
 

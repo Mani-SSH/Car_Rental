@@ -5,6 +5,8 @@
 
 extern sql admin;
 extern bool isLoggedIn;
+extern account user;
+
 MainScreen::MainScreen(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainScreen)
@@ -21,6 +23,8 @@ MainScreen::MainScreen(QWidget *parent) :
         QCoreApplication::exit();
     }
 
+    /*welcome user*/
+    ui->label_welcomeUser->setText("Welcome! " + user.f_name + " " + user.l_name + ".");
 
     /*adding background image color in main window*/
     QPixmap bkgnd(":/resources/img/mainscreen.jpg");

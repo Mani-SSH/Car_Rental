@@ -19,7 +19,6 @@ class MainScreen : public QMainWindow
     Q_OBJECT
 
 public:
-    account user;
     Car carToAdd;
     explicit MainScreen(QWidget *parent = nullptr);
     void displayCar(Car x);

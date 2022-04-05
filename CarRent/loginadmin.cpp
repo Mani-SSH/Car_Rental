@@ -6,6 +6,7 @@
 extern sql admin;
 extern bool isLoggedIn;
 extern bool isClose;
+extern account user;
 
 LoginAdmin::LoginAdmin(QWidget *parent)
     : QMainWindow(parent)
@@ -124,14 +125,13 @@ void LoginAdmin::on_pushButton_login_clicked()
         QString encryptedPassword;
         int key;
         admin.importAccountDetails(username, encryptedPassword, key);
-        thisAccount.username = username;
+        user.username = username;
 
         /*if the decrypted password from the database and password entered by the user matches*/
-        if (thisAccount.decrypt(encryptedPassword, key) == password){
-            /*check if it is logged in from the default user details*/
-            /*if yes, open a new pop up window to remove and add new user details*/
-            /*else set password and first and last name*/
-            thisAccount.setPassword(password);
+        if (user.decrypt(encryptedPassword, key) == password){
+            /*set password and key*/
+            user.setPassword(password);
+            user.setKey(key);
 
             /*hide the current ui*/
             this->hide();
@@ -146,7 +146,7 @@ void LoginAdmin::on_pushButton_login_clicked()
                 /*check if new account has been added*/
                 if(Admin_info.isAccountAdded){
                     /*copy account information*/
-                    thisAccount = Admin_info.admin_account;
+                    user = Admin_info.admin_account;
 
                     /*delete default account*/
                     admin.deleteDefault();
@@ -159,7 +159,8 @@ void LoginAdmin::on_pushButton_login_clicked()
                     this->show();
                 }
             }else{
-                /*close the current window and set isLoggedIn as true*/
+                /*import name of the user and close the current window and set isLoggedIn as true*/
+                admin.importName(user);
                 this->close();
                 isLoggedIn = true;
             }

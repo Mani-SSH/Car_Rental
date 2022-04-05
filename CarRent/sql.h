@@ -20,6 +20,7 @@ public:
     bool usernameExists(QString username);
     void importAccountDetails(QString username, QString &password, int &key);
     int importKey();
+    void importName(account &x);
     void exportAccount(account dummy);
     void deleteDefault();
     bool isDefaultAccount();
