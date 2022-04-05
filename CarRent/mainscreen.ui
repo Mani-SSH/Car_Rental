@@ -51,7 +51,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_Home">
      <attribute name="title">
@@ -109,7 +109,6 @@ color: rgb(0, 0, 0);</string>
          <widget class="QTableView" name="tableView_Cars">
           <property name="font">
            <font>
-            <family>Gotham</family>
             <bold>false</bold>
            </font>
           </property>
@@ -431,6 +430,9 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
         <string>Enter Phone Number or Lisence Number</string>
        </property>
       </widget>
@@ -1364,7 +1366,7 @@ font: 500 12pt &quot;Gotham&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>
