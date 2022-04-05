@@ -6,4 +6,5 @@ Car::Car()
     Brand = NULL;
     Model = NULL;
     Rate = 0;
+    //PhotoPath = <Path of default car icon on resources>
 }

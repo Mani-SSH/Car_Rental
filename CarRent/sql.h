@@ -22,11 +22,11 @@ public:
     int importKey();
     void exportAccount(account dummy);
     void deleteDefault();
-    void exportCarDetails(Car x);
     bool isDefaultAccount();
     QSqlQueryModel* filterTablecars(bool isAvailable, int lowerRange,int upperRange, bool isAscendingOrder);
     QSqlQueryModel* searchTablecars(QString PlateNum);
-    Car importCar(QString val);
+    Car importCar(QString PlateNum);
+    void exportCarDetails(Car x);
     bool carExists(QString PlateNum);
     void exportCostumer(Costumer x);
     QSqlQueryModel* searchTableCostumer(QString searchText, bool isPhone);
