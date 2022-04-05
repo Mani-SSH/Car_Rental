@@ -29,6 +29,15 @@ int main(int argc, char *argv[])
             m.show();
             a.exec();
         }
+
+        try{
+            if (isLoggedIn){
+                throw isLoggedIn;
+            }
+        }catch (bool ){
+            isLoggedIn = false;
+        }
+
     }
     return 0;
 }
