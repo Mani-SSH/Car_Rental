@@ -625,6 +625,9 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
         <string>Enter Phone Number or Lisence Number</string>
        </property>
       </widget>

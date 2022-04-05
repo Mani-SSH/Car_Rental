@@ -32,6 +32,8 @@ MainScreen::MainScreen(QWidget *parent) :
 
     /*initialize table of cars*/
     ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
+    QString dummy = "";
+   // ui->tableView_customer->setModel(admin.importCostumer(dummy,false));
 
 
     //adding icons in search bars
