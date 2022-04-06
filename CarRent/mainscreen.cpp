@@ -419,7 +419,7 @@ void MainScreen::on_pushButton_carFilter_clicked()
 /**
  * @brief when rent button is clicked
  *
- * takes plate number and phone number from the user
+ * takes plate number, cost and phone number from the user
  * if the lineEdits were not empty, displays error message
  * if not, check if the car with the given plate number exists
  * if no, displays error message
@@ -433,7 +433,7 @@ void MainScreen::on_pushButton_carFilter_clicked()
  */
 void MainScreen::on_pushButton_rent_clicked()
 {
-    /**/
+    /*get values from the user*/
     QString PlateNum = ui->lineEdit_rentPlateNum->text();
     QString phone_no = ui->lineEdit_rentPhoneNum->text();
     int Cost = ui->lineEdit_rentCost->text().toInt();
@@ -463,12 +463,18 @@ void MainScreen::on_pushButton_rent_clicked()
                     ThisCar.DateToReturn = ui->dateEdit_rentReturnDate->date();
                     ThisCar.Cost = Cost;
 
-                    /*rent the car*/
-                    admin.rentCar(ThisCar);
+                    /*check if the customer has already rented a car*/
+                    if(admin.hasCustomerRented(phone_no)){
+                        /*display error message*/
+                        QMessageBox::critical(this, "Error", "The customer is currently holding a rented car.");
+                    }else{
+                        /*rent the car*/
+                        admin.rentCar(ThisCar);
 
-                    /*give a message to user*/
-                    QMessageBox::information(this, "Rented", "The car has been set as rented.");
-                    initializeHomeTab();
+                        /*give a message to user*/
+                        QMessageBox::information(this, "Rented", "The car has been set as rented.");
+                        initializeHomeTab();
+                    }
                 }else{
                     /*if not available, display error message*/
                     QMessageBox::critical(this, "Error", "The car with the given plate number is not available.");

@@ -424,3 +424,23 @@ void sql::rentCar(Car x)
          return false;
      }
  }
+
+
+ bool sql::hasCustomerRented(QString phone_no)
+ {
+     /*run a sql query to increase count if the car with given plate number is found*/
+      int count = 0;
+      QSqlQuery qry;
+      qry.exec("SELECT * FROM rentedcars WHERE phone_no = '"+phone_no+"'");
+      while (qry.next())
+      {
+          count++;
+      }
+
+      /*return true if count is increased*/
+      if (count == 1){
+          return true;
+      }else{
+          return false;
+      }
+ }

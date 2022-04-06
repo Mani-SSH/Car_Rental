@@ -13,6 +13,7 @@ class sql
 {
 public:
     QSqlDatabase db;           //database
+
     void createdbFile();
     bool connectionOpen();
     void connectionClose();
@@ -34,6 +35,7 @@ public:
     QSqlQueryModel* searchTableCostumer(QString searchText, bool isPhone);
     Costumer importCostumer(QString searchText, bool isPhone);
     bool costumerExists(QString phone_no);
+    bool hasCustomerRented(QString phone_no);
 };
 
 #endif // SQL_H
