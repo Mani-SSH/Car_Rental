@@ -6,9 +6,16 @@ Car::Car()
     Brand = NULL;
     Model = NULL;
     Rate = 0;
+    phone_no = NULL;
+    Cost = 0;
     //PhotoPath = <Path of default car icon on resources>
 }
 
+
+Car::Car(Car &x)
+{
+    *this = x;
+}
 
 int calculateDaysRented(QDate d1, QDate d2)
 {

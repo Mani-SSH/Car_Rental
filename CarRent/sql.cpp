@@ -11,7 +11,7 @@ void sql::createdbFile()
     query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, key INT)");
     query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 'default' , 'account' , 0)");
     query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, PhotoPath VARCHAR(10))");
-    query.exec("CREATE TABLE IF NOT EXISTS rentedcars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, phone_no VARCHAR(10) NOT NULL FOREIGN KEY, DateRented TEXT NOT NULL, DateToReturn TEXT NOT NULL");
+    query.exec("CREATE TABLE IF NOT EXISTS rentedcars (PlateNumber VARCHAR(10) NOT NULL, phone_no VARCHAR(10) NOT NULL, DateRented TEXT NOT NULL, DateToReturn TEXT NOT NULL, Cost INT NOT NULL)");
     query.exec("CREATE TABLE IF NOT EXISTS costumers (phone_no VARCHAR(10) NOT NULL PRIMARY KEY, f_name VARCHAR(20) NOT NULL, l_name VARCHAR(20) NOT NULL, Age INT NOT NULL, Address VARCHAR(20) NOT NULL, Lisence_Number VARCHAR(12) NOT NULL, Gender INT NOT NULL)");
 }
 
@@ -234,6 +234,15 @@ void sql::exportCarDetails(Car x)
 }
 
 
+
+void sql::rentCar(Car x)
+{
+    QSqlQuery qry;
+    qry.exec("UPDATE cars SET isAvailable = 0 WHERE PlateNumber = '"+x.PlateNum+"'");
+    qry.exec("INSERT INTO rentedcars (PlateNumber, phone_no, DateRented, DateToReturn, Cost) VALUES ('"+x.PlateNum+"', '"+x.phone_no+"', '"+x.DateRented.toString()+"', '"+x.DateToReturn.toString()+"', "+QString::number(x.Cost)+")");
+}
+
+
 /**
   * @brief imports the table cars based on the filters taken as parameters from the database
   * @param isAvailable
@@ -304,9 +313,21 @@ void sql::exportCarDetails(Car x)
      }
  }
 
+
+ /**
+  * @brief returns an object of class car with all the data from the database
+  * @param PlateNum of the car
+  * @return
+  *
+  * runs query to copy all the data from table car in the database where PlateNum matches
+  * if car is rented, run a query to get data of customer and dates when car was rented and to be returned
+  * returns the object where all data is stored
+  */
  Car sql::importCar(QString PlateNum)
  {
-     Car ThisCar;
+     Car ThisCar;    //an object of class car
+
+     /*run query to copy all the data from table car in the database where PlateNum matches*/
      QSqlQuery qry;
      qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+PlateNum+"'");
      while (qry.next())
@@ -318,13 +339,16 @@ void sql::exportCarDetails(Car x)
          ThisCar.isAvailable = qry.value(4).toBool();
          ThisCar.PhotoPath = qry.value(5).toString();
      }
-     qry.exec("SELECT * FROM rentedcars WHERE PlateNumber = '"+PlateNum+"'");
-     while (qry.next())
-     {
-         if(ThisCar.isAvailable){
-             ThisCar.phone_no = qry.value(1).toString();
-             ThisCar.DateRented = QDate::fromString(qry.value(2).toString());
-             ThisCar.DateToReturn = QDate::fromString(qry.value(3).toString());
+    qry.clear();
+     /*if car is rented, run a query to get data of customer and dates when car was rented and to be returned*/
+     if(!ThisCar.isAvailable){
+         qry.exec("SELECT * FROM rentedcars WHERE PlateNumber = '"+PlateNum+"'");
+         while (qry.next())
+         {
+
+                 ThisCar.phone_no = qry.value(1).toString();
+                 ThisCar.DateRented = QDate::fromString(qry.value(2).toString());
+                 ThisCar.DateToReturn = QDate::fromString(qry.value(3).toString());
          }
      }
      return ThisCar;
@@ -377,4 +401,26 @@ void sql::exportCarDetails(Car x)
          dummy.gender = qry.value(6).toString();
      }
      return dummy;
+ }
+
+
+
+
+ bool sql::costumerExists(QString phone_no)
+ {
+     /*run a sql query to increase count if the car with given plate number is found*/
+     int count = 0;
+     QSqlQuery qry;
+     qry.exec("SELECT * FROM costumers WHERE phone_no = '"+phone_no+"'");
+     while (qry.next())
+     {
+         count++;
+     }
+
+     /*return true if count is increased*/
+     if (count == 1){
+         return true;
+     }else{
+         return false;
+     }
  }

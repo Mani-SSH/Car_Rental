@@ -33,15 +33,10 @@ MainScreen::MainScreen(QWidget *parent) :
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
 
-    /*initialize rent car section in home tab*/
+    /*make dateEdit able to use Calendar Popup*/
     ui->dateEdit_rentDate->setCalendarPopup(true);
     ui->dateEdit_rentReturnDate->setCalendarPopup(true);
-    ui->dateEdit_rentDate->setDate(QDate::currentDate());
-    ui->dateEdit_rentReturnDate->setDate(QDate::currentDate().addDays(1));
-    ui->lineEdit_rentDays->setText(QString::number(calculateDaysRented(QDate::currentDate(), QDate::currentDate().addDays(1))));
 
-    /*initialize table of cars*/
-    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
     QString dummy = "";
    // ui->tableView_customer->setModel(admin.importCostumer(dummy,false));
 
@@ -62,15 +57,47 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->label_image->setScaledContents(true);
     ui->label_image->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
-    /*disable return and delete button in display section in home tab*/
-    ui->pushButton_carReturn->setEnabled(false);
-    ui->pushButton_carDelete->setEnabled(false);
+    /*initialize home tab*/
+    initializeHomeTab();
 }
 
 
 MainScreen::~MainScreen()
 {
     delete ui;
+}
+
+
+void MainScreen::initializeHomeTab()
+{
+    /*initialize table of cars*/
+    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
+
+    /*initialize lineEdits*/
+    ui->lineEdit_rentPhoneNum->setText("");
+    ui->lineEdit_rentPlateNum->setText("");
+    ui->lineEdit_rentCost->setText("0");
+
+    /*reset dateEdits*/
+    ui->dateEdit_rentDate->setDate(QDate::currentDate());
+    ui->dateEdit_rentReturnDate->setDate(QDate::currentDate().addDays(1));
+    ui->lineEdit_rentDays->setText(QString::number(calculateDaysRented(QDate::currentDate(), QDate::currentDate().addDays(1))));
+
+    /*disable return and delete button in display section in home tab*/
+    ui->pushButton_carReturn->setEnabled(false);
+    ui->pushButton_carDelete->setEnabled(false);
+
+    /*intialize labels*/
+    ui->label_showPlateNum->setText("");
+    ui->label_showBrand->setText("");
+    ui->label_showModel->setText("");
+    ui->label_showRate->setText("");
+    ui->label_showStatus->setText("");
+    ui->label_showCustomer->setText("");
+    ui->label_showDateRented->setText("");
+    ui->label_showDateToReturn->setText("");
+
+    /*show defalult car icon*/
 }
 
 
@@ -217,9 +244,31 @@ void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
         /*display them on the display section of the car tab*/
         displayCar(ThisCar);
 
+        /*initialize rent form*/
+        initializeRentCar(ThisCar);
+
+        showCost(ThisCar);
     }
 
 }
+
+
+/**
+ * @brief sets text for lineEdit_rentPlateNum as the plate number of car x
+ * @param x
+ */
+void MainScreen::initializeRentCar(Car x)
+{
+    ui->lineEdit_rentPlateNum->setText(x.PlateNum);
+}
+
+
+void MainScreen::showCost(Car x)
+{
+    int days = ui->lineEdit_rentDays->text().toInt();
+    ui->lineEdit_rentCost->setText(QString::number(days * x.Rate));
+}
+
 
 /**
  * @brief display information of the car x on the display section of the car tab
@@ -254,17 +303,17 @@ void MainScreen::displayCar(Car x)
         ui->label_showStatus->setText("<font color='green'>Available");
 
         /*enable return and delete button in display section in home tab*/
-        ui->pushButton_carReturn->setEnabled(true);
+        ui->pushButton_carReturn->setEnabled(false);
         ui->pushButton_carDelete->setEnabled(true);
     }else{
         /*show status rented and show customers phone number, rented date and date to return*/
         ui->label_showStatus->setText("<font color='red'>Rented");
         ui->label_showCustomer->setText(x.phone_no);
         ui->label_showDateRented->setText(x.DateRented.toString());
-        ui->label_showDateToReturn->setText(x.DateRented.toString());
+        ui->label_showDateToReturn->setText(x.DateToReturn.toString());
 
         /*disable return and delete button in display section in home tab*/
-        ui->pushButton_carReturn->setEnabled(false);
+        ui->pushButton_carReturn->setEnabled(true);
         ui->pushButton_carDelete->setEnabled(false);
     }
 }
@@ -368,6 +417,39 @@ void MainScreen::on_pushButton_carFilter_clicked()
 
 
 /**
+ * @brief INCOMPLETE
+ */
+void MainScreen::on_pushButton_rent_clicked()
+{
+    QString PlateNum = ui->lineEdit_rentPlateNum->text();
+    QString phone_no = ui->lineEdit_rentPhoneNum->text();
+    if(PlateNum == "" || phone_no == ""){
+        /*display error message*/
+        QMessageBox::critical(this, "Error", "Please enter all the required informataion.");
+    }else{
+        if(admin.carExists(PlateNum)){
+            if(admin.costumerExists(phone_no)){
+                Car ThisCar = admin.importCar(PlateNum);
+                ThisCar.phone_no = phone_no;
+                ThisCar.DateRented = ui->dateEdit_rentDate->date();
+                ThisCar.DateToReturn = ui->dateEdit_rentReturnDate->date();
+                admin.rentCar(ThisCar);
+                QMessageBox::information(this, "Rented", "The car has been set as rented.");
+                initializeHomeTab();
+            }else{
+                /*display error message*/
+                QMessageBox::critical(this, "Error", "The customer with the given phone number does not exist in the database.");
+            }
+        }else{
+            /*display error message*/
+            QMessageBox::critical(this, "Error", "The car with the given plate number does not exist.");
+        }
+    }
+}
+
+
+
+/**
  * @brief change the days rented in lineEdit_rentDays if the date in dateEdit_rentDate is changed
  * @param date, date in dateEdit_rentDate
  */
@@ -410,16 +492,45 @@ void MainScreen::on_dateEdit_rentReturnDate_dateChanged(const QDate &date)
 
 
 /**
- * @brief if lineEdit_rentDays is edited, changes the date on dateEdit_rentReturnDate
+ * @brief if lineEdit_rentDays is changed, changes the date on dateEdit_rentReturnDate
  * @param arg1, text in lineEdit_rentDays
  */
-void MainScreen::on_lineEdit_rentDays_textEdited(const QString &arg1)
+void MainScreen::on_lineEdit_rentDays_textChanged(const QString &arg1)
 {
     QDate date1 = ui->dateEdit_rentDate->date();   //date on dateEdit_rentDate
+    bool isValid = true;   //true if the entered rate is valid
 
-    /*change date on dateEdit_rentReturnDate by adding the number if days in lineEdit_rentDays*/
-    ui->dateEdit_rentReturnDate->setDate(date1.addDays(arg1.toInt()));
+    /*loop to check each character of the string*/
+    for(int i = 0; i < arg1.length(); i++)
+    {
+        /*check if the character is digit*/
+        if (!arg1[i].isDigit()){
+            /*if not, change isValid to false and break the loop*/
+            isValid = false;
+            break;
+        }else{
+            try {
+                int x = arg1.toInt();
+                if (x > 9999999)
+                    throw (x);
+            }  catch (int x) {
+                isValid = false;
+                break;
+            }
+        }
+    }
+
+    if(isValid){
+        /*change date on dateEdit_rentReturnDate by adding the number if days in lineEdit_rentDays*/
+        ui->dateEdit_rentReturnDate->setDate(date1.addDays(arg1.toInt()));
+        ui->pushButton_rent->setEnabled(true);
+        ui->label_warnDaysRented->setText("");
+    }else{
+        ui->pushButton_rent->setEnabled(false);
+        ui->label_warnDaysRented->setText("<font color = 'red'>Enter a valid date.");
+    }
 }
+
 
 
 void MainScreen::on_pushButton_admin_clicked()
@@ -485,6 +596,9 @@ void MainScreen::on_pushButton_Search_clicked()
     ui->label_sql_lisence->setText(thisCostumer.lisence_no);
     ui->label_sql_address->setText(thisCostumer.Address);
 }
+
+
+
 
 
 
