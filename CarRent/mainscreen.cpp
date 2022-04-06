@@ -417,31 +417,69 @@ void MainScreen::on_pushButton_carFilter_clicked()
 
 
 /**
- * @brief INCOMPLETE
+ * @brief when rent button is clicked
+ *
+ * takes plate number and phone number from the user
+ * if the lineEdits were not empty, displays error message
+ * if not, check if the car with the given plate number exists
+ * if no, displays error message
+ * if yes, check if the customer with the given phone number exists
+ * if no, displays error message
+ * if yes, imports data of the given in an object of class Car
+ * then, checks if the car is available to rent
+ * if no, display error message
+ * if yes, stores the given data in the object of class Car
+ * rents the car and gives a message to user
  */
 void MainScreen::on_pushButton_rent_clicked()
 {
+    /**/
     QString PlateNum = ui->lineEdit_rentPlateNum->text();
     QString phone_no = ui->lineEdit_rentPhoneNum->text();
-    if(PlateNum == "" || phone_no == ""){
-        /*display error message*/
+    int Cost = ui->lineEdit_rentCost->text().toInt();
+
+    /*check if the lineEdits were not empty*/
+    if(PlateNum == "" || phone_no == "" || Cost == 0){
+
+        /*if empty, display error message*/
         QMessageBox::critical(this, "Error", "Please enter all the required informataion.");
     }else{
+
+        /*check if the car with the given plate number exist*/
         if(admin.carExists(PlateNum)){
+
+            /*check if the customer with the given phone number exist*/
             if(admin.costumerExists(phone_no)){
+
+                /*import data of the given in an object of class Car*/
                 Car ThisCar = admin.importCar(PlateNum);
-                ThisCar.phone_no = phone_no;
-                ThisCar.DateRented = ui->dateEdit_rentDate->date();
-                ThisCar.DateToReturn = ui->dateEdit_rentReturnDate->date();
-                admin.rentCar(ThisCar);
-                QMessageBox::information(this, "Rented", "The car has been set as rented.");
-                initializeHomeTab();
+
+                /*check if the car is available to rent*/
+                if(ThisCar.isAvailable){
+
+                    /*store the given data in the object of class Car*/
+                    ThisCar.phone_no = phone_no;
+                    ThisCar.DateRented = ui->dateEdit_rentDate->date();
+                    ThisCar.DateToReturn = ui->dateEdit_rentReturnDate->date();
+                    ThisCar.Cost = Cost;
+
+                    /*rent the car*/
+                    admin.rentCar(ThisCar);
+
+                    /*give a message to user*/
+                    QMessageBox::information(this, "Rented", "The car has been set as rented.");
+                    initializeHomeTab();
+                }else{
+                    /*if not available, display error message*/
+                    QMessageBox::critical(this, "Error", "The car with the given plate number is not available.");
+                }
             }else{
-                /*display error message*/
+                /*if customer does not exists, display error message*/
                 QMessageBox::critical(this, "Error", "The customer with the given phone number does not exist in the database.");
             }
         }else{
-            /*display error message*/
+
+            /*if car does not exists, display error message*/
             QMessageBox::critical(this, "Error", "The car with the given plate number does not exist.");
         }
     }
