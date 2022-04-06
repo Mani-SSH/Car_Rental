@@ -239,15 +239,15 @@ void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
     /*if the element clicked on the table is the plate number of the car*/
     if(admin.carExists(val)){
         /*import all the information of the car*/
-        Car ThisCar = admin.importCar(val);
+        carClicked = admin.importCar(val);
 
         /*display them on the display section of the car tab*/
-        displayCar(ThisCar);
+        displayCar(carClicked);
 
         /*initialize rent form*/
-        initializeRentCar(ThisCar);
+        initializeRentCar(carClicked);
 
-        showCost(ThisCar);
+        showCost(carClicked);
     }
 
 }
@@ -491,6 +491,21 @@ void MainScreen::on_pushButton_rent_clicked()
     }
 }
 
+/**
+ * @brief INCOMPLETE
+ */
+void MainScreen::on_pushButton_carReturn_clicked()
+{
+    /*if the clicked car exists*/
+    if (admin.carExists(carClicked.PlateNum)){
+
+        /*if the clicked car is rented*/
+        if(!carClicked.isAvailable){
+            admin.returnCar(carClicked);
+            QMessageBox::information(this, "Car Returned", "The car has been returned.");
+        }
+    }
+}
 
 
 /**
@@ -640,9 +655,6 @@ void MainScreen::on_pushButton_Search_clicked()
     ui->label_sql_lisence->setText(thisCostumer.lisence_no);
     ui->label_sql_address->setText(thisCostumer.Address);
 }
-
-
-
 
 
 

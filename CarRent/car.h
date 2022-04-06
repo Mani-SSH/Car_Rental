@@ -19,7 +19,7 @@ public:
     QString phone_no;
     int Cost;
     Car();
-    Car(Car &x);
+    //Car(Car &x);
     friend int calculateDaysRented(QDate d1, QDate d2);
 };
 

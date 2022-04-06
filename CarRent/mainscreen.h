@@ -20,6 +20,8 @@ class MainScreen : public QMainWindow
 
 public:
     Car carToAdd;
+    Car carClicked;
+
     explicit MainScreen(QWidget *parent = nullptr);
     void displayCar(Car x);
     void initializeRentCar(Car x);
@@ -55,6 +57,8 @@ private slots:
     void on_pushButton_rent_clicked();
 
     void on_lineEdit_rentDays_textChanged(const QString &arg1);
+
+    void on_pushButton_carReturn_clicked();
 
 private:
     Ui::MainScreen *ui;

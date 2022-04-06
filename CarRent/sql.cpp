@@ -339,7 +339,7 @@ void sql::rentCar(Car x)
          ThisCar.isAvailable = qry.value(4).toBool();
          ThisCar.PhotoPath = qry.value(5).toString();
      }
-    qry.clear();
+     qry.clear();
      /*if car is rented, run a query to get data of customer and dates when car was rented and to be returned*/
      if(!ThisCar.isAvailable){
          qry.exec("SELECT * FROM rentedcars WHERE PlateNumber = '"+PlateNum+"'");
@@ -353,6 +353,15 @@ void sql::rentCar(Car x)
      }
      return ThisCar;
  }
+
+
+ void sql::returnCar(Car x)
+ {
+     QSqlQuery qry;
+     qry.exec("UPDATE cars SET isAvailable = 1 WHERE PlateNumber = '"+x.PlateNum+"'");
+     qry.exec("DELETE FROM rentedcars WHERE PlateNumber = '"+x.PlateNum+"'");
+ }
+
 
  void sql::exportCostumer(Costumer x)
  {

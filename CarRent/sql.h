@@ -30,6 +30,7 @@ public:
     Car importCar(QString PlateNum);
     void exportCarDetails(Car x);
     void rentCar(Car x);
+    void returnCar(Car x);
     bool carExists(QString PlateNum);
     void exportCostumer(Costumer x);
     QSqlQueryModel* searchTableCostumer(QString searchText, bool isPhone);
