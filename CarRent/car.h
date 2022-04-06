@@ -18,6 +18,9 @@ public:
     QString PhotoPath;
     QString phone_no;
     Car();
+    friend int calculateDaysRented(QDate d1, QDate d2);
 };
+
+int calculateDaysRented(QDate d1, QDate d2);
 
 #endif // CAR_H

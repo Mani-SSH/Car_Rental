@@ -45,6 +45,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_dateEdit_rentDate_dateChanged(const QDate &date);
+
+    void on_dateEdit_rentReturnDate_dateChanged(const QDate &date);
+
+    void on_lineEdit_rentDays_textEdited(const QString &arg1);
+
 private:
     Ui::MainScreen *ui;
 };

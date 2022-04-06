@@ -8,3 +8,9 @@ Car::Car()
     Rate = 0;
     //PhotoPath = <Path of default car icon on resources>
 }
+
+
+int calculateDaysRented(QDate d1, QDate d2)
+{
+    return d1.daysTo(d2);
+}

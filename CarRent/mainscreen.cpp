@@ -33,6 +33,12 @@ MainScreen::MainScreen(QWidget *parent) :
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
 
+    /*initialize rent car section in home tab*/
+    ui->dateEdit_rentDate->setCalendarPopup(true);
+    ui->dateEdit_rentReturnDate->setCalendarPopup(true);
+    ui->dateEdit_rentDate->setDate(QDate::currentDate());
+    ui->dateEdit_rentReturnDate->setDate(QDate::currentDate().addDays(1));
+    ui->lineEdit_rentDays->setText(QString::number(calculateDaysRented(QDate::currentDate(), QDate::currentDate().addDays(1))));
 
     /*initialize table of cars*/
     ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
@@ -56,6 +62,9 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->label_image->setScaledContents(true);
     ui->label_image->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
+    /*disable return and delete button in display section in home tab*/
+    ui->pushButton_carReturn->setEnabled(false);
+    ui->pushButton_carDelete->setEnabled(false);
 }
 
 
@@ -220,6 +229,7 @@ void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
  */
 void MainScreen::displayCar(Car x)
 {
+    /*set text in plate number, brand, model, rate and set image of the car */
     ui->label_showPlateNum->setText(x.PlateNum);
     ui->label_showBrand->setText(x.Brand);
     ui->label_showModel->setText(x.Model);
@@ -237,13 +247,25 @@ void MainScreen::displayCar(Car x)
     {
         //Error handling
     }
+
+    /*check if car is available for renting*/
     if(x.isAvailable){
+        /*show status available*/
         ui->label_showStatus->setText("<font color='green'>Available");
+
+        /*enable return and delete button in display section in home tab*/
+        ui->pushButton_carReturn->setEnabled(true);
+        ui->pushButton_carDelete->setEnabled(true);
     }else{
+        /*show status rented and show customers phone number, rented date and date to return*/
         ui->label_showStatus->setText("<font color='red'>Rented");
         ui->label_showCustomer->setText(x.phone_no);
         ui->label_showDateRented->setText(x.DateRented.toString());
         ui->label_showDateToReturn->setText(x.DateRented.toString());
+
+        /*disable return and delete button in display section in home tab*/
+        ui->pushButton_carReturn->setEnabled(false);
+        ui->pushButton_carDelete->setEnabled(false);
     }
 }
 
@@ -342,6 +364,61 @@ void MainScreen::on_pushButton_carFilter_clicked()
 
     /*load table of cars*/
     ui->tableView_Cars->setModel(admin.filterTablecars(isAvailable, lowerRange, upperRange, isAscendingOrder));
+}
+
+
+/**
+ * @brief change the days rented in lineEdit_rentDays if the date in dateEdit_rentDate is changed
+ * @param date, date in dateEdit_rentDate
+ */
+void MainScreen::on_dateEdit_rentDate_dateChanged(const QDate &date)
+{
+    /*get date in dateEdit_rentReturnDate*/
+    QDate date2 = ui->dateEdit_rentReturnDate->date();
+
+    /*set text in lineEdit_rentDays by calcultating difference in days*/
+    ui->lineEdit_rentDays->setText(QString::number(calculateDaysRented(date, date2)));
+}
+
+
+/**
+ * @brief change the days rented in lineEdit_rentDays if the date in dateEdit_rentReturnDate is changed
+ * @param date, date in dateEdit_rentReturnDate
+ *
+ * gets date from dateEdit_rentDate
+ * gets DaysRented from lineEdit_rentDays
+ * calculates newDaysRented from both dates in ui
+ * if DaysRented and new DaysRented are not equal, changes the days in lineEdit_rentDays
+ */
+void MainScreen::on_dateEdit_rentReturnDate_dateChanged(const QDate &date)
+{
+    /*get date in dateEdit_rentDate*/
+    QDate date1 = ui->dateEdit_rentDate->date();
+
+    /*get DaysRented from lineEdit_rentDays*/
+    int DaysRented = ui->lineEdit_rentDays->text().toInt();
+
+    /*calculate newDaysRented from both dates in ui*/
+    int newDaysRented = calculateDaysRented(date1, date);
+
+    /*check if DaysRented and new DaysRented are not equal*/
+    if (DaysRented != newDaysRented){
+        /*change the days in lineEdit_rentDays*/
+        ui->lineEdit_rentDays->setText(QString::number(newDaysRented));
+    }
+}
+
+
+/**
+ * @brief if lineEdit_rentDays is edited, changes the date on dateEdit_rentReturnDate
+ * @param arg1, text in lineEdit_rentDays
+ */
+void MainScreen::on_lineEdit_rentDays_textEdited(const QString &arg1)
+{
+    QDate date1 = ui->dateEdit_rentDate->date();   //date on dateEdit_rentDate
+
+    /*change date on dateEdit_rentReturnDate by adding the number if days in lineEdit_rentDays*/
+    ui->dateEdit_rentReturnDate->setDate(date1.addDays(arg1.toInt()));
 }
 
 
