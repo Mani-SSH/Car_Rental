@@ -70,6 +70,8 @@ MainScreen::~MainScreen()
 
 void MainScreen::initializeHomeTab()
 {
+    carClicked = Car();
+
     /*initialize table of cars*/
     ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
 
@@ -81,8 +83,14 @@ void MainScreen::initializeHomeTab()
     /*reset dateEdits*/
     ui->dateEdit_rentDate->setDate(QDate::currentDate());
     ui->dateEdit_rentReturnDate->setDate(QDate::currentDate().addDays(1));
-    ui->lineEdit_rentDays->setText(QString::number(calculateDaysRented(QDate::currentDate(), QDate::currentDate().addDays(1))));
+    ui->lineEdit_rentDays->setText(QString::number(Car::calculateDaysRented(QDate::currentDate(), QDate::currentDate().addDays(1))));
 
+    initializeCarDisplay();
+}
+
+
+void MainScreen::initializeCarDisplay()
+{
     /*disable return and delete button in display section in home tab*/
     ui->pushButton_carReturn->setEnabled(false);
     ui->pushButton_carDelete->setEnabled(false);
@@ -98,8 +106,8 @@ void MainScreen::initializeHomeTab()
     ui->label_showDateToReturn->setText("");
 
     /*show defalult car icon*/
-}
 
+}
 
 /**
  * @brief when text is edited on the line edit where the rate is entered, checks if the entered rate is valid
@@ -338,6 +346,9 @@ void MainScreen::on_pushButton_carReload_clicked()
 {
     /*reload table of cars*/
     ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
+    ui->comboBox_status->setCurrentIndex(0);
+    ui->comboBox_sortCar->setCurrentIndex(0);
+    ui->comboBox_range->setCurrentIndex(0);
 }
 
 
@@ -479,6 +490,10 @@ void MainScreen::on_pushButton_rent_clicked()
 
                             /*give a message to user*/
                             QMessageBox::information(this, "Rented", "The car has been set as rented.");
+
+                            /*display initial bill*/
+
+                            /*clear home tab*/
                             initializeHomeTab();
                         }else{
 
@@ -515,14 +530,21 @@ void MainScreen::on_pushButton_carReturn_clicked()
         if(!carClicked.isAvailable){
             carClicked.DateReturned = QDate::currentDate();
 
+            /*if deadline is crossed*/
             if(carClicked.DateReturned > carClicked.DateToReturn){
+                /*strike customer and return the car and give a message*/
                 admin.strikeCustomer(carClicked.phone_no);
                 admin.returnCar(carClicked);
                 QMessageBox::information(this, "Car Returned", "The car returned late. The customer has been striked.");
             }else{
+                /*return car and give message*/
                 admin.returnCar(carClicked);
                 QMessageBox::information(this, "Car Returned", "The car has been returned.");
             }
+            /*display final bill*/
+
+            /*clear home tab*/
+            initializeHomeTab();
         }
     }
 }
@@ -538,7 +560,7 @@ void MainScreen::on_dateEdit_rentDate_dateChanged(const QDate &date)
     QDate date2 = ui->dateEdit_rentReturnDate->date();
 
     /*set text in lineEdit_rentDays by calcultating difference in days*/
-    ui->lineEdit_rentDays->setText(QString::number(calculateDaysRented(date, date2)));
+    ui->lineEdit_rentDays->setText(QString::number(Car::calculateDaysRented(date, date2)));
 }
 
 
@@ -560,7 +582,7 @@ void MainScreen::on_dateEdit_rentReturnDate_dateChanged(const QDate &date)
     int DaysRented = ui->lineEdit_rentDays->text().toInt();
 
     /*calculate newDaysRented from both dates in ui*/
-    int newDaysRented = calculateDaysRented(date1, date);
+    int newDaysRented = Car::calculateDaysRented(date1, date);
 
     /*check if DaysRented and new DaysRented are not equal*/
     if (DaysRented != newDaysRented){
@@ -601,13 +623,15 @@ void MainScreen::on_lineEdit_rentDays_textChanged(const QString &arg1)
 
     if(isValid){
         /*change date on dateEdit_rentReturnDate by adding the number if days in lineEdit_rentDays*/
-        ui->dateEdit_rentReturnDate->setDate(date1.addDays(arg1.toInt()));
+        QDate date2 = date1.addDays(arg1.toInt());
+        ui->dateEdit_rentReturnDate->setDate(date2);
         ui->pushButton_rent->setEnabled(true);
         ui->label_warnDaysRented->setText("");
     }else{
         ui->pushButton_rent->setEnabled(false);
         ui->label_warnDaysRented->setText("<font color = 'red'>Enter a valid date.");
     }
+    showCost(carClicked);
 }
 
 

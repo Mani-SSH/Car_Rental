@@ -11,24 +11,14 @@ Car::Car()
     //PhotoPath = <Path of default car icon on resources>
 }
 
-/**
-Car::Car(Car &x)
-{
-    PlateNum = x.PlateNum;
-    Brand = x.Brand;
-    Model = x.Model;
-    Rate = x.Rate;
-    phone_no = x.phone_no;
-    Cost = x.Cost;
-    isAvailable = x.isAvailable;
-    PhotoPath = x.PhotoPath;
-    DateRented = x.DateRented;
-    DateReturned = x.DateReturned;
-    DateToReturn = x.DateToReturn;
-}
-*/
 
-int calculateDaysRented(QDate d1, QDate d2)
+int Car::calculateCost()
+{
+    return Rate * calculateDaysRented(DateRented, DateToReturn);
+}
+
+int Car::calculateDaysRented(QDate d1, QDate d2)
 {
     return d1.daysTo(d2);
 }
+

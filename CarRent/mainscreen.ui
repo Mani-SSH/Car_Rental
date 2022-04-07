@@ -183,7 +183,11 @@ color: rgb(0, 0, 0);</string>
          </widget>
         </item>
         <item row="11" column="0">
-         <widget class="QLineEdit" name="lineEdit_rentCost"/>
+         <widget class="QLineEdit" name="lineEdit_rentCost">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>

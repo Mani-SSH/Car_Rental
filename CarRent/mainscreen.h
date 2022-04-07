@@ -26,6 +26,7 @@ public:
     void displayCar(Car x);
     void initializeRentCar(Car x);
     void initializeHomeTab();
+    void initializeCarDisplay();
     void showCost(Car x);
     ~MainScreen();
 
