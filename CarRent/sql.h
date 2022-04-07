@@ -37,6 +37,7 @@ public:
     Costumer importCostumer(QString searchText, bool isPhone);
     bool costumerExists(QString phone_no);
     bool hasCustomerRented(QString phone_no);
+    void strikeCustomer(QString phone_no);
 };
 
 #endif // SQL_H

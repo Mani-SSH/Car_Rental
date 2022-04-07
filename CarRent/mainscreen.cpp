@@ -468,12 +468,23 @@ void MainScreen::on_pushButton_rent_clicked()
                         /*display error message*/
                         QMessageBox::critical(this, "Error", "The customer is currently holding a rented car.");
                     }else{
-                        /*rent the car*/
-                        admin.rentCar(ThisCar);
+                        Costumer x;
+                        x = admin.importCostumer(phone_no, true);
 
-                        /*give a message to user*/
-                        QMessageBox::information(this, "Rented", "The car has been set as rented.");
-                        initializeHomeTab();
+                        /*if the customer is striked less than 4 times*/
+                        if (x.strikes < 4){
+
+                            /*rent the car*/
+                            admin.rentCar(ThisCar);
+
+                            /*give a message to user*/
+                            QMessageBox::information(this, "Rented", "The car has been set as rented.");
+                            initializeHomeTab();
+                        }else{
+
+                            /*display error message*/
+                            QMessageBox::critical(this, "Error", "The customer is listed in the black list.");
+                        }
                     }
                 }else{
                     /*if not available, display error message*/
@@ -491,6 +502,7 @@ void MainScreen::on_pushButton_rent_clicked()
     }
 }
 
+
 /**
  * @brief INCOMPLETE
  */
@@ -501,8 +513,16 @@ void MainScreen::on_pushButton_carReturn_clicked()
 
         /*if the clicked car is rented*/
         if(!carClicked.isAvailable){
-            admin.returnCar(carClicked);
-            QMessageBox::information(this, "Car Returned", "The car has been returned.");
+            carClicked.DateReturned = QDate::currentDate();
+
+            if(carClicked.DateReturned > carClicked.DateToReturn){
+                admin.strikeCustomer(carClicked.phone_no);
+                admin.returnCar(carClicked);
+                QMessageBox::information(this, "Car Returned", "The car returned late. The customer has been striked.");
+            }else{
+                admin.returnCar(carClicked);
+                QMessageBox::information(this, "Car Returned", "The car has been returned.");
+            }
         }
     }
 }
