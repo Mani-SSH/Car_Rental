@@ -61,6 +61,8 @@ private slots:
 
     void on_pushButton_carReturn_clicked();
 
+    void on_pushButton_carDelete_clicked();
+
 private:
     Ui::MainScreen *ui;
 };

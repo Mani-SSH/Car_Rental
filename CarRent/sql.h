@@ -31,6 +31,7 @@ public:
     void exportCarDetails(Car x);
     void rentCar(Car x);
     void returnCar(Car x);
+    void deleteCar(Car x);
     bool carExists(QString PlateNum);
     void exportCostumer(Costumer x);
     QSqlQueryModel* searchTableCostumer(QString searchText, bool isPhone);

@@ -370,6 +370,13 @@ void sql::rentCar(Car x)
  }
 
 
+ void sql::deleteCar(Car x)
+ {
+     QSqlQuery qry;
+     qry.exec("DELETE FROM cars WHERE PlateNumber = '"+x.PlateNum+"'");
+ }
+
+
  void sql::exportCostumer(Costumer x)
  {
      QSqlQuery qry;

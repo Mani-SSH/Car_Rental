@@ -72,8 +72,8 @@ void MainScreen::initializeHomeTab()
 {
     carClicked = Car();
 
-    /*initialize table of cars*/
-    ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
+    /*reload search, filter and table*/
+    on_pushButton_carReload_clicked();
 
     /*initialize lineEdits*/
     ui->lineEdit_rentPhoneNum->setText("");
@@ -346,9 +346,13 @@ void MainScreen::on_pushButton_carReload_clicked()
 {
     /*reload table of cars*/
     ui->tableView_Cars->setModel(admin.filterTablecars(true, 0, INT_MAX, false));
+
+    /*reset combo box*/
     ui->comboBox_status->setCurrentIndex(0);
     ui->comboBox_sortCar->setCurrentIndex(0);
     ui->comboBox_range->setCurrentIndex(0);
+
+    ui->lineEdit_carSearch->setText("");
 }
 
 
@@ -701,4 +705,16 @@ void MainScreen::on_pushButton_Search_clicked()
 }
 
 
+
+
+void MainScreen::on_pushButton_carDelete_clicked()
+{
+    if(carClicked.isAvailable){
+        admin.deleteCar(carClicked);
+        QMessageBox::information(this, "Delete", "The car has been deleted from the database.");
+    }else{
+        QMessageBox::critical(this, "Action Failed", "The car is not available at the moment. Please try again later.");
+    }
+    initializeHomeTab();
+}
 
