@@ -50,6 +50,9 @@ color: rgb(0, 0, 0);</string>
     <property name="tabPosition">
      <enum>QTabWidget::West</enum>
     </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
@@ -66,8 +69,12 @@ color: rgb(0, 0, 0);</string>
         <height>611</height>
        </rect>
       </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="styleSheet">
        <string notr="true">QGroupBox{
+	border: 2px solid gray;
 
 	background-color:#ffffff;
 
@@ -80,125 +87,38 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_20">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>10</x>
          <y>10</y>
-         <width>111</width>
-         <height>21</height>
+         <width>251</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);
+font: 700 20pt &quot;Gotham&quot;;</string>
        </property>
        <property name="text">
         <string>RENT</string>
        </property>
-      </widget>
-      <widget class="QWidget" name="gridLayoutWidget_5">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>40</y>
-         <width>271</width>
-         <height>381</height>
-        </rect>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
-       <layout class="QGridLayout" name="gridLayout_5">
-        <item row="9" column="0">
-         <widget class="QLineEdit" name="lineEdit_rentDays"/>
-        </item>
-        <item row="10" column="0">
-         <widget class="QLabel" name="label_26">
-          <property name="text">
-           <string>Cost:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QDateEdit" name="dateEdit_rentReturnDate">
-          <property name="dateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2000</year>
-            <month>1</month>
-            <day>1</day>
-           </datetime>
-          </property>
-          <property name="displayFormat">
-           <string>d/M/yyyy</string>
-          </property>
-          <property name="date">
-           <date>
-            <year>2000</year>
-            <month>1</month>
-            <day>1</day>
-           </date>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLineEdit" name="lineEdit_rentPhoneNum"/>
-        </item>
-        <item row="8" column="0">
-         <widget class="QLabel" name="label_25">
-          <property name="text">
-           <string>Days Rented:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_22">
-          <property name="text">
-           <string>Phone Number of Customer:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLineEdit" name="lineEdit_rentPlateNum"/>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_24">
-          <property name="text">
-           <string>Date to Return: (d/m/y)</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_23">
-          <property name="text">
-           <string>Rent Date: (d/m/y)</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_21">
-          <property name="text">
-           <string>Plate Number:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QDateEdit" name="dateEdit_rentDate">
-          <property name="displayFormat">
-           <string>d/M/yyyy</string>
-          </property>
-         </widget>
-        </item>
-        <item row="11" column="0">
-         <widget class="QLineEdit" name="lineEdit_rentCost">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </widget>
       <widget class="QPushButton" name="pushButton_rent">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>570</y>
+         <x>90</x>
+         <y>460</y>
          <width>83</width>
          <height>29</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+color: rgb(255, 255, 255);
+font: 700 12pt &quot;Gotham&quot;;
+border-radius:10;</string>
        </property>
        <property name="text">
         <string>Rent</string>
@@ -207,14 +127,230 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_warnDaysRented">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>460</y>
+         <x>20</x>
+         <y>360</y>
          <width>231</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
         <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentCost">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>410</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_rentDate">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>210</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="displayFormat">
+        <string>d/M/yyyy</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentPhoneNum">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>150</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentDays">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>330</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_26">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>390</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>Cost:</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_rentReturnDate">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>270</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="displayFormat">
+        <string>d/M/yyyy</string>
+       </property>
+       <property name="date">
+        <date>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_25">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Days Rented:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>130</y>
+         <width>201</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Phone Number of Customer:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentPlateNum">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>90</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_24">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>250</y>
+         <width>151</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>Date to Return: (d/m/y)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_23">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>190</y>
+         <width>131</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+
+</string>
+       </property>
+       <property name="text">
+        <string>Rent Date: (d/m/y)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>70</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Plate Number:</string>
        </property>
       </widget>
      </widget>
@@ -229,6 +365,7 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QGroupBox{
+	border: 0px solid white;
 	background-color:#ffffff;
 }</string>
       </property>
@@ -254,6 +391,7 @@ color: rgb(0, 0, 0);</string>
           </property>
           <property name="styleSheet">
            <string notr="true">	color: rgb(0, 0, 0);
+	border: 0px solid white;
 	background-color: #ffffff;
 	alternate-background-color: rgb(151, 177, 196);
 	selection-background-color:#282828;
@@ -284,6 +422,7 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QGroupBox{
+	border: 2px solid gray;
 
 	background-color:#ffffff;
 
@@ -295,14 +434,22 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_10">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>20</y>
-         <width>91</width>
+         <x>10</x>
+         <y>10</y>
+         <width>291</width>
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(27, 102, 165);
+font: 700 15pt &quot;Gotham&quot;;</string>
+       </property>
        <property name="text">
         <string>DISPLAY</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
       <widget class="QLabel" name="label_carPhoto">
@@ -336,6 +483,9 @@ color: rgb(0, 0, 0);</string>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="4" column="0">
          <widget class="QLabel" name="label_15">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string>Status:</string>
           </property>
@@ -343,6 +493,9 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="0" column="1">
          <widget class="QLabel" name="label_showPlateNum">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -350,6 +503,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_12">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string>Brand:</string>
           </property>
@@ -357,6 +514,9 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="6" column="1">
          <widget class="QLabel" name="label_showDateRented">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -364,6 +524,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="label_14">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string>Rate:</string>
           </property>
@@ -371,6 +535,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="1" column="1">
          <widget class="QLabel" name="label_showBrand">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -378,6 +546,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="3" column="1">
          <widget class="QLabel" name="label_showRate">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -385,6 +557,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="5" column="1">
          <widget class="QLabel" name="label_showCustomer">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -392,6 +568,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="5" column="0">
          <widget class="QLabel" name="label_16">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string>Rented By:</string>
           </property>
@@ -399,6 +579,9 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label_11">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string>Plate Number:</string>
           </property>
@@ -406,6 +589,9 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="6" column="0">
          <widget class="QLabel" name="label_17">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string>Date Rented:</string>
           </property>
@@ -413,6 +599,9 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_13">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string>Model:</string>
           </property>
@@ -420,6 +609,9 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="4" column="1">
          <widget class="QLabel" name="label_showStatus">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -427,6 +619,9 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="2" column="1">
          <widget class="QLabel" name="label_showModel">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -434,6 +629,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="7" column="0">
          <widget class="QLabel" name="label_18">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string>Date To Return:</string>
           </property>
@@ -441,6 +640,10 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item row="7" column="1">
          <widget class="QLabel" name="label_showDateToReturn">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -451,11 +654,17 @@ color: rgb(0, 0, 0);</string>
       <widget class="QPushButton" name="pushButton_carReturn">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>40</x>
          <y>500</y>
          <width>101</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+color: rgb(255, 255, 255);
+font: 700 10pt &quot;Gotham&quot;;
+border-radius:10;</string>
        </property>
        <property name="text">
         <string>Return</string>
@@ -464,11 +673,17 @@ color: rgb(0, 0, 0);</string>
       <widget class="QPushButton" name="pushButton_carDelete">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>190</x>
          <y>500</y>
          <width>83</width>
          <height>29</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 10pt &quot;Gotham&quot;;
+border-radius:10;</string>
        </property>
        <property name="text">
         <string>Delete</string>
@@ -477,11 +692,16 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>40</x>
          <y>50</y>
-         <width>281</width>
+         <width>251</width>
          <height>21</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+font: 500 9pt &quot;Gotham&quot;;
+color: rgb(255, 0, 0);</string>
        </property>
        <property name="text">
         <string>Double click on plate number to see data</string>
@@ -499,6 +719,8 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QGroupBox{
+	border-color: rgb(255, 255, 255);
+	border: 0px solid white;
 
 	background-color:#ffffff;
 
@@ -520,7 +742,7 @@ color: rgb(0, 0, 0);</string>
         <string notr="true">background-color: rgb(151, 177, 196);
 color: rgb(255, 255, 255);
 border-radius:10;
-</string>
+font: 500 9pt &quot;Gotham&quot;;</string>
        </property>
        <property name="inputMask">
         <string/>
@@ -599,7 +821,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Gotham&quot;;</string>
        </property>
        <property name="text">
         <string>Status</string>
@@ -635,7 +858,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Gotham&quot;;</string>
        </property>
        <property name="text">
         <string>Price range</string>
@@ -711,7 +935,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Gotham&quot;;</string>
        </property>
        <property name="text">
         <string>Sort By Price</string>
@@ -764,6 +989,12 @@ QPushButton:pressed {
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -779,6 +1010,23 @@ QPushButton:pressed {
          <width>91</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
        </property>
        <property name="text">
         <string>Search</string>
@@ -839,6 +1087,16 @@ QPushButton:pressed {
          <height>521</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">	color: rgb(0, 0, 0);
+	background-color: #ffffff;
+	alternate-background-color: rgb(151, 177, 196);
+	selection-background-color:#282828;
+</string>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>232</number>
+       </attribute>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_details">
@@ -1697,8 +1955,8 @@ font: 500 12pt &quot;Gotham&quot;;</string>
    <widget class="QLabel" name="label_welcomeUser">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>630</y>
+      <x>600</x>
+      <y>640</y>
       <width>511</width>
       <height>21</height>
      </rect>
@@ -1717,7 +1975,7 @@ font: 500 12pt &quot;Gotham&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
