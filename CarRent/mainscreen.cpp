@@ -695,6 +695,16 @@ void MainScreen::on_pushButton_Search_clicked()
     }
     thisCostumer = admin.importCostumer(searchText,isPhone);
     ui->tableView_customer->setModel(admin.searchTableCostumer(searchText,isPhone));
+}
+
+
+
+
+void MainScreen::on_tableView_customer_activated(const QModelIndex &index)
+{
+    QString val = ui->tableView_customer->model()->data(index).toString();
+    Costumer thisCostumer;
+    thisCostumer = admin.importCostumer(val,true);
     ui->label_sql_fname->setText(thisCostumer.C_fname);
     ui->label_sql_lname->setText(thisCostumer.C_lname);
     ui->label_sql_age->setText(QString::number(thisCostumer.age));
@@ -702,9 +712,8 @@ void MainScreen::on_pushButton_Search_clicked()
     ui->label_sql_phone->setText(thisCostumer.phone_no);
     ui->label_sql_lisence->setText(thisCostumer.lisence_no);
     ui->label_sql_address->setText(thisCostumer.Address);
+
 }
-
-
 
 
 void MainScreen::on_pushButton_carDelete_clicked()

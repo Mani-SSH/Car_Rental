@@ -50,7 +50,7 @@ private slots:
     void on_pushButton_Search_clicked();
 
     void on_pushButton_2_clicked();
-
+    
     void on_dateEdit_rentDate_dateChanged(const QDate &date);
 
     void on_dateEdit_rentReturnDate_dateChanged(const QDate &date);
@@ -62,6 +62,9 @@ private slots:
     void on_pushButton_carReturn_clicked();
 
     void on_pushButton_carDelete_clicked();
+
+    void on_tableView_customer_activated(const QModelIndex &index);
+
 
 private:
     Ui::MainScreen *ui;
