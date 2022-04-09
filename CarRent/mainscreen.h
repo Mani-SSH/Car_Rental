@@ -46,6 +46,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_tableView_customer_activated(const QModelIndex &index);
+
 private:
     Ui::MainScreen *ui;
 };
