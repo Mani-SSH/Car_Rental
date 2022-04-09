@@ -828,6 +828,12 @@ border-radius:10;</string>
        <height>18</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 10pt &quot;Gotham&quot;;
+border-radius:10;</string>
+     </property>
      <property name="text">
       <string>Exit</string>
      </property>
@@ -853,7 +859,7 @@ border-radius:10;</string>
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

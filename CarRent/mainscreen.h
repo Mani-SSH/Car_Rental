@@ -19,10 +19,15 @@ class MainScreen : public QMainWindow
     Q_OBJECT
 
 public:
-    account user;
     Car carToAdd;
+    Car carClicked;
+
     explicit MainScreen(QWidget *parent = nullptr);
     void displayCar(Car x);
+    void initializeRentCar(Car x);
+    void initializeHomeTab();
+    void initializeCarDisplay();
+    void showCost(Car x);
     ~MainScreen();
 
 private slots:
@@ -45,8 +50,21 @@ private slots:
     void on_pushButton_Search_clicked();
 
     void on_pushButton_2_clicked();
+    
+    void on_dateEdit_rentDate_dateChanged(const QDate &date);
+
+    void on_dateEdit_rentReturnDate_dateChanged(const QDate &date);
+
+    void on_pushButton_rent_clicked();
+
+    void on_lineEdit_rentDays_textChanged(const QString &arg1);
+
+    void on_pushButton_carReturn_clicked();
+
+    void on_pushButton_carDelete_clicked();
 
     void on_tableView_customer_activated(const QModelIndex &index);
+
 
 private:
     Ui::MainScreen *ui;

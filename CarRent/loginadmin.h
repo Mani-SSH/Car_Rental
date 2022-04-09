@@ -17,7 +17,6 @@ class LoginAdmin : public QMainWindow
     Q_OBJECT
 
 public:
-    account thisAccount;       //account entered by the user
     LoginAdmin(QWidget *parent = nullptr);
     ~LoginAdmin();
     void hintLoginDetails();

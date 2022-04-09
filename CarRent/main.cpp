@@ -8,7 +8,8 @@
 
 sql admin;
 bool isLoggedIn = false;   //are account details are correct? (initially set to false)
-bool isClose = false;
+bool isClose = false;      //is program closed
+account user;              //account entered bu the user
 
 int main(int argc, char *argv[])
 {
@@ -23,12 +24,30 @@ int main(int argc, char *argv[])
 
         /*if login details are correct*/
         if (isLoggedIn){
-            /*open main screen and copy the login details entered by the user*/
+            /*open main screen*/
             MainScreen m;
-            m.user = w.thisAccount;
             m.show();
             a.exec();
+        }else{
+            /*if not correct, must be clicked force exit button*/
+            try{
+                if (!isClose){
+                    throw isLoggedIn;
+                }
+            }catch (bool){
+                isClose = true;
+            }
         }
+
+        /*check if force exit button is clicked on main screen*/
+        try{
+            if (isLoggedIn){
+                throw isLoggedIn;
+            }
+        }catch (bool){
+            isLoggedIn = false;
+        }
+
     }
     return 0;
 }

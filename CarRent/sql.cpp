@@ -11,8 +11,8 @@ void sql::createdbFile()
     query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, key INT)");
     query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 'default' , 'account' , 0)");
     query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, PhotoPath VARCHAR(10))");
-    query.exec("CREATE TABLE IF NOT EXISTS rentedcars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, phone_no VARCHAR(10) NOT NULL FOREIGN KEY, DateRented TEXT NOT NULL, DateToReturn TEXT NOT NULL");
-    query.exec("CREATE TABLE IF NOT EXISTS costumers (phone_no VARCHAR(10) NOT NULL PRIMARY KEY, f_name VARCHAR(20) NOT NULL, l_name VARCHAR(20) NOT NULL, Age INT NOT NULL, Address VARCHAR(20) NOT NULL, Lisence_Number VARCHAR(12) NOT NULL, Gender INT NOT NULL)");
+    query.exec("CREATE TABLE IF NOT EXISTS rentedcars (PlateNumber VARCHAR(10) NOT NULL, phone_no VARCHAR(10) NOT NULL, DateRented TEXT NOT NULL, DateToReturn TEXT NOT NULL, Cost INT NOT NULL)");
+    query.exec("CREATE TABLE IF NOT EXISTS costumers (phone_no VARCHAR(10) NOT NULL PRIMARY KEY, f_name VARCHAR(20) NOT NULL, l_name VARCHAR(20) NOT NULL, Age INT NOT NULL, Address VARCHAR(20) NOT NULL, Lisence_Number VARCHAR(12) NOT NULL, Gender INT NOT NULL, Strikes INT NOT NULL)");
 }
 
 
@@ -154,6 +154,26 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
 
 
 /**
+ * @brief imports first and last name of the account x from the database
+ * @param x
+ *
+ * uses an sql query to import the data
+ */
+void sql::importName(account &x)
+{
+    /*run query to select all from table accounts where username store in x matches*/
+    QSqlQuery qry;
+    qry.exec("SELECT * FROM accounts WHERE username = '"+x.username+"'");
+
+    /*import data of 3rd and 4th column i.e. the position 2 and 3*/
+    while(qry.next())
+    {
+        x.f_name = qry.value(2).toString();
+        x.l_name = qry.value(3).toString();
+    }
+}
+
+/**
  * @brief exports the account information into database
  * @param dummy
  */
@@ -211,6 +231,15 @@ void sql::exportCarDetails(Car x)
     /*run a sql query to insert members of car x into database*/
     QSqlQuery qry;
     qry.exec("INSERT INTO cars (PlateNumber, Brand, Model, Rate, isAvailable, PhotoPath) VALUES ('"+x.PlateNum+"', '"+x.Brand+"', '"+x.Model+"', "+QString::number(x.Rate)+", "+QString::number(x.isAvailable)+", '"+x.PhotoPath+"')");
+}
+
+
+
+void sql::rentCar(Car x)
+{
+    QSqlQuery qry;
+    qry.exec("UPDATE cars SET isAvailable = 0 WHERE PlateNumber = '"+x.PlateNum+"'");
+    qry.exec("INSERT INTO rentedcars (PlateNumber, phone_no, DateRented, DateToReturn, Cost) VALUES ('"+x.PlateNum+"', '"+x.phone_no+"', '"+x.DateRented.toString()+"', '"+x.DateToReturn.toString()+"', "+QString::number(x.Cost)+")");
 }
 
 
@@ -284,9 +313,21 @@ void sql::exportCarDetails(Car x)
      }
  }
 
+
+ /**
+  * @brief returns an object of class car with all the data from the database
+  * @param PlateNum of the car
+  * @return
+  *
+  * runs query to copy all the data from table car in the database where PlateNum matches
+  * if car is rented, run a query to get data of customer and dates when car was rented and to be returned
+  * returns the object where all data is stored
+  */
  Car sql::importCar(QString PlateNum)
  {
-     Car ThisCar;
+     Car ThisCar;    //an object of class car
+
+     /*run query to copy all the data from table car in the database where PlateNum matches*/
      QSqlQuery qry;
      qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+PlateNum+"'");
      while (qry.next())
@@ -298,22 +339,48 @@ void sql::exportCarDetails(Car x)
          ThisCar.isAvailable = qry.value(4).toBool();
          ThisCar.PhotoPath = qry.value(5).toString();
      }
-     qry.exec("SELECT * FROM rentedcars WHERE PlateNumber = '"+PlateNum+"'");
-     while (qry.next())
-     {
-         if(ThisCar.isAvailable){
-             ThisCar.phone_no = qry.value(1).toString();
-             ThisCar.DateRented = QDate::fromString(qry.value(2).toString());
-             ThisCar.DateToReturn = QDate::fromString(qry.value(3).toString());
+     qry.clear();
+     /*if car is rented, run a query to get data of customer and dates when car was rented and to be returned*/
+     if(!ThisCar.isAvailable){
+         qry.exec("SELECT * FROM rentedcars WHERE PlateNumber = '"+PlateNum+"'");
+         while (qry.next())
+         {
+
+                 ThisCar.phone_no = qry.value(1).toString();
+                 ThisCar.DateRented = QDate::fromString(qry.value(2).toString());
+                 ThisCar.DateToReturn = QDate::fromString(qry.value(3).toString());
          }
      }
      return ThisCar;
  }
 
+
+ /**
+  * @brief update data in database when car is returned
+  * @param x
+  *
+  * set the car as available
+  * deletes the data of the car in table rentedcars
+  */
+ void sql::returnCar(Car x)
+ {
+     QSqlQuery qry;
+     qry.exec("UPDATE cars SET isAvailable = 1 WHERE PlateNumber = '"+x.PlateNum+"'");
+     qry.exec("DELETE FROM rentedcars WHERE PlateNumber = '"+x.PlateNum+"'");
+ }
+
+
+ void sql::deleteCar(Car x)
+ {
+     QSqlQuery qry;
+     qry.exec("DELETE FROM cars WHERE PlateNumber = '"+x.PlateNum+"'");
+ }
+
+
  void sql::exportCostumer(Costumer x)
  {
      QSqlQuery qry;
-    if( qry.exec("INSERT INTO costumers (phone_no, f_name, l_name, Age, Address, Lisence_Number, Gender) VALUES ('"+x.phone_no+"', '"+x.C_fname+"', '"+x.C_lname+"', '"+QString::number(x.age)+"', '"+x.Address+"', '"+x.lisence_no+"', '"+x.gender+"')"))
+    if( qry.exec("INSERT INTO costumers (phone_no, f_name, l_name, Age, Address, Lisence_Number, Gender, Strikes) VALUES ('"+x.phone_no+"', '"+x.C_fname+"', '"+x.C_lname+"', '"+QString::number(x.age)+"', '"+x.Address+"', '"+x.lisence_no+"', '"+x.gender+"', "+QString::number(x.strikes)+")"))
     {
         qDebug() << "value added";
     }
@@ -355,6 +422,82 @@ void sql::exportCarDetails(Car x)
          dummy.Address = qry.value(4).toString();
          dummy.lisence_no = qry.value(5).toString();
          dummy.gender = qry.value(6).toString();
+         dummy.strikes = qry.value(7).toInt();
      }
      return dummy;
+ }
+
+
+ /**
+  * @brief checks if the customer exists on the database
+  * @param phone_no of the customer
+  * @return true, if customer exists
+  *
+  * runs a sql query to increase count if the car with given plate number is found
+  * returns true if count is increased
+  */
+ bool sql::costumerExists(QString phone_no)
+ {
+     /*run a sql query to increase count if the car with given plate number is found*/
+     int count = 0;
+     QSqlQuery qry;
+     qry.exec("SELECT * FROM costumers WHERE phone_no = '"+phone_no+"'");
+     while (qry.next())
+     {
+         count++;
+     }
+
+     /*return true if count is increased*/
+     if (count == 1){
+         return true;
+     }else{
+         return false;
+     }
+ }
+
+ /**
+  * @brief checks if the customer currently holds a rented car
+  * @param phone_no of the customer
+  * @return true, if customer currently holds a rented car
+  *
+  * runs a sql query to increase count if the car with given plate number is found
+  * returns true if count is increased
+  */
+ bool sql::hasCustomerRented(QString phone_no)
+ {
+     /*run a sql query to increase count if the car with given plate number is found*/
+      int count = 0;
+      QSqlQuery qry;
+      qry.exec("SELECT * FROM rentedcars WHERE phone_no = '"+phone_no+"'");
+      while (qry.next())
+      {
+          count++;
+      }
+
+      /*return true if count is increased*/
+      if (count == 1){
+          return true;
+      }else{
+          return false;
+      }
+ }
+
+
+
+ void sql::strikeCustomer(QString phone_no)
+ {
+     /*run a query to get strikes of customer*/
+     int strikes = 0;
+     QSqlQuery qry;
+     qry.exec("SELECT Strikes FROM costumers WHERE phone_no = '"+phone_no+"'");
+     while (qry.next())
+     {
+         strikes = qry.value(7).toInt();
+     }
+
+     /*increase strikes*/
+     strikes++;
+
+     /*update to database*/
+     qry.exec("UPDATE costumers SET Strikes = "+QString::number(strikes)+" WHERE phone_no = '"+phone_no+"'");
  }

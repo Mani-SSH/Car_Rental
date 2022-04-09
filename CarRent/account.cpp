@@ -29,6 +29,12 @@ QString account::getPassword()
     return password;
 }
 
+
+void account::setKey(int key)
+{
+    this->key = key;
+}
+
 /**
  * @brief returns password
  * @return

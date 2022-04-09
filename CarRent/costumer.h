@@ -16,7 +16,7 @@ public:
     int age;
     QString phone_no;
     QString gender;
-
+    int strikes;
 
 };
 

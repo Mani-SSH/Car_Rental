@@ -12,12 +12,17 @@ public:
     QString Model;
     int Rate;
     bool isAvailable = false;
+    QString PhotoPath;
     QDate DateRented;
     QDate DateToReturn;
     QDate DateReturned;
-    QString PhotoPath;
     QString phone_no;
+    int Cost;
+
     Car();
+    int calculateCost();
+    //int calculateDaysRented();
+    static int calculateDaysRented(QDate d1, QDate d2);
 };
 
 #endif // CAR_H

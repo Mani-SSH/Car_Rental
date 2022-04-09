@@ -9,4 +9,5 @@ Costumer::Costumer()
     age = 0;
     phone_no = 0;
     gender = 0;
+    strikes = 0;
 }
