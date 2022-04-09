@@ -65,6 +65,7 @@ private slots:
 
     void on_tableView_customer_activated(const QModelIndex &index);
 
+    void on_pushButton_Filter_costumer_clicked();
 
 private:
     Ui::MainScreen *ui;

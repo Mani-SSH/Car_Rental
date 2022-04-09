@@ -973,7 +973,7 @@ font: 9pt &quot;Gotham&quot;;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>741</width>
+        <width>881</width>
         <height>71</height>
        </rect>
       </property>
@@ -1083,8 +1083,8 @@ QPushButton:pressed {
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>721</width>
-         <height>521</height>
+         <width>731</width>
+         <height>531</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1102,10 +1102,10 @@ QPushButton:pressed {
      <widget class="QGroupBox" name="groupBox_details">
       <property name="geometry">
        <rect>
-        <x>749</x>
-        <y>0</y>
+        <x>740</x>
+        <y>70</y>
         <width>591</width>
-        <height>611</height>
+        <height>541</height>
        </rect>
       </property>
       <property name="title">
@@ -1140,24 +1140,10 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_Address_2">
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_sql_fname">
           <property name="text">
-           <string>Address</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_Lisence_NO">
-          <property name="text">
-           <string>Lisence Number</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_Phone_number">
-          <property name="text">
-           <string>Phone Number</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -1168,10 +1154,10 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_gender">
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_sql_lname">
           <property name="text">
-           <string>gender</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -1182,24 +1168,17 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_sql_fname">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_sql_lname">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="1">
          <widget class="QLabel" name="label_sql_age">
           <property name="text">
            <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_gender">
+          <property name="text">
+           <string>gender</string>
           </property>
          </widget>
         </item>
@@ -1210,10 +1189,24 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_Phone_number">
+          <property name="text">
+           <string>Phone Number</string>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="1">
          <widget class="QLabel" name="label_sql_phone">
           <property name="text">
            <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_Lisence_NO">
+          <property name="text">
+           <string>Lisence Number</string>
           </property>
          </widget>
         </item>
@@ -1224,8 +1217,29 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_Address_2">
+          <property name="text">
+           <string>Address</string>
+          </property>
+         </widget>
+        </item>
         <item row="6" column="1">
          <widget class="QLabel" name="label_sql_address">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_Status">
+          <property name="text">
+           <string>Status</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLabel" name="label_sql_Strike">
           <property name="text">
            <string/>
           </property>
@@ -1252,6 +1266,83 @@ QPushButton:pressed {
        </property>
       </widget>
      </widget>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>0</y>
+        <width>441</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="label_QUICKFILTER">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Quick Filter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Costumer_status">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>20</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Costumer Status</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_strikes">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>40</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Available</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Black Listed</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Filter_costumer">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>20</y>
+         <width>80</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Filter</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_Add">
      <attribute name="title">
@@ -1273,7 +1364,7 @@ QPushButton:pressed {
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_addCar">
           <attribute name="title">
@@ -1931,6 +2022,29 @@ font: 500 12pt &quot;Gotham&quot;;</string>
              <string/>
             </property>
            </widget>
+           <widget class="QLabel" name="label_DateoBirth">
+            <property name="geometry">
+             <rect>
+              <x>440</x>
+              <y>370</y>
+              <width>241</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Date of Birth</string>
+            </property>
+           </widget>
+           <widget class="QDateEdit" name="dateEdit_DateoBirth">
+            <property name="geometry">
+             <rect>
+              <x>430</x>
+              <y>390</y>
+              <width>110</width>
+              <height>22</height>
+             </rect>
+            </property>
+           </widget>
           </widget>
          </widget>
         </widget>
@@ -1975,7 +2089,7 @@ font: 500 12pt &quot;Gotham&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

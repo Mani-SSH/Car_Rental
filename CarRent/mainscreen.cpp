@@ -36,10 +36,9 @@ MainScreen::MainScreen(QWidget *parent) :
     /*make dateEdit able to use Calendar Popup*/
     ui->dateEdit_rentDate->setCalendarPopup(true);
     ui->dateEdit_rentReturnDate->setCalendarPopup(true);
+    ui->dateEdit_DateoBirth->setCalendarPopup(true);
 
-    QString dummy = "";
-   // ui->tableView_customer->setModel(admin.importCostumer(dummy,false));
-
+    ui->tableView_customer->setModel(admin.filterTableCostumer(0));
 
     //adding icons in search bars
     QIcon search(":/resources/img/search.png");
@@ -656,11 +655,12 @@ void MainScreen::on_pushButton_admin_clicked()
 void MainScreen::on_pushButton_clicked()
 {
     Costumer Thiscostumer;
+    QDate DateofBirth;
     Thiscostumer.C_fname = ui->lineEdit_fnameh->text();
     Thiscostumer.C_lname = ui->lineEdit_lname->text();
     Thiscostumer.phone_no = ui->lineEdit_phone_no->text();
     Thiscostumer.lisence_no = ui->lineEdit_lisence_no->text();
-    Thiscostumer.age = ui->lineEdit_age->text().toInt();
+    //Thiscostumer.age = ui->lineEdit_age->text().toInt();
     Thiscostumer.Address = ui->lineEdit_address->text();
     if(ui->radioButton_Male->isChecked())
     {
@@ -674,6 +674,9 @@ void MainScreen::on_pushButton_clicked()
     {
         Thiscostumer.gender = "Other";
     }
+    DateofBirth = ui->dateEdit_DateoBirth->date();
+    Thiscostumer.age = (DateofBirth.daysTo(QDate::currentDate()))/365;
+    qDebug() << "The age is: " <<Thiscostumer.age;
     admin.exportCostumer(Thiscostumer);
     QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
 }
@@ -712,6 +715,23 @@ void MainScreen::on_tableView_customer_activated(const QModelIndex &index)
     ui->label_sql_phone->setText(thisCostumer.phone_no);
     ui->label_sql_lisence->setText(thisCostumer.lisence_no);
     ui->label_sql_address->setText(thisCostumer.Address);
+    if (thisCostumer.strikes == 0)
+    {
+        ui->label_sql_Strike->setText("GREEN");
+    }
+    else if (thisCostumer.strikes == 1)
+    {
+        ui->label_sql_Strike->setText("YELLOW");
+    }
+    else if (thisCostumer.strikes == 2)
+    {
+        ui->label_sql_Strike->setText("RED");
+    }
+    else
+    {
+        ui->label_sql_Strike->setText("BLACK LISTED");
+    }
+
 
 }
 
@@ -725,5 +745,18 @@ void MainScreen::on_pushButton_carDelete_clicked()
         QMessageBox::critical(this, "Action Failed", "The car is not available at the moment. Please try again later.");
     }
     initializeHomeTab();
+}
+
+
+void MainScreen::on_pushButton_Filter_costumer_clicked()
+{
+    if (ui->comboBox_strikes->currentIndex()==0)
+    {
+        ui->tableView_customer->setModel(admin.filterTableCostumer(0));
+    }
+    else
+    {
+        ui->tableView_customer->setModel(admin.filterTableCostumer(1));
+    }
 }
 

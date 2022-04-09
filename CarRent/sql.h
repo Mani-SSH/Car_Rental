@@ -35,10 +35,12 @@ public:
     bool carExists(QString PlateNum);
     void exportCostumer(Costumer x);
     QSqlQueryModel* searchTableCostumer(QString searchText, bool isPhone);
+    QSqlQueryModel* filterTableCostumer(int status);
     Costumer importCostumer(QString searchText, bool isPhone);
     bool costumerExists(QString phone_no);
     bool hasCustomerRented(QString phone_no);
     void strikeCustomer(QString phone_no);
+    Costumer Filtercustomer(int status);
 };
 
 #endif // SQL_H
