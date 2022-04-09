@@ -487,7 +487,7 @@ void MainScreen::on_pushButton_rent_clicked()
                         x = admin.importCostumer(phone_no, true);
 
                         /*if the customer is striked less than 4 times*/
-                        if (x.strikes < 4){
+                        if (x.strikes < 3){
 
                             /*rent the car*/
                             admin.rentCar(ThisCar);
