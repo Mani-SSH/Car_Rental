@@ -616,7 +616,7 @@ void MainScreen::on_lineEdit_rentDays_textChanged(const QString &arg1)
         }else{
             try {
                 int x = arg1.toInt();
-                if (x > 9999999)
+                if (x > 30)
                     throw (x);
             }  catch (int x) {
                 isValid = false;

@@ -259,7 +259,7 @@ font: 500 9pt &quot;Gotham&quot;;</string>
         <rect>
          <x>10</x>
          <y>310</y>
-         <width>111</width>
+         <width>201</width>
          <height>16</height>
         </rect>
        </property>
@@ -267,7 +267,7 @@ font: 500 9pt &quot;Gotham&quot;;</string>
         <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
        </property>
        <property name="text">
-        <string>Days Rented:</string>
+        <string>Days Rented: (Max. 30)</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_22">
@@ -1975,7 +1975,7 @@ font: 500 12pt &quot;Gotham&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
