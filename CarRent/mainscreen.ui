@@ -54,7 +54,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_Home">
      <attribute name="title">
@@ -977,6 +977,9 @@ font: 9pt &quot;Gotham&quot;;</string>
         <height>71</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">	border: 0px solid white;</string>
+      </property>
       <property name="title">
        <string/>
       </property>
@@ -1071,9 +1074,12 @@ QPushButton:pressed {
        <rect>
         <x>0</x>
         <y>70</y>
-        <width>741</width>
+        <width>951</width>
         <height>541</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	border: 0px solid white;</string>
       </property>
       <property name="title">
        <string/>
@@ -1083,7 +1089,7 @@ QPushButton:pressed {
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>731</width>
+         <width>931</width>
          <height>531</height>
         </rect>
        </property>
@@ -1094,214 +1100,246 @@ QPushButton:pressed {
 	selection-background-color:#282828;
 </string>
        </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
        <attribute name="horizontalHeaderDefaultSectionSize">
-        <number>232</number>
+        <number>300</number>
        </attribute>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_details">
       <property name="geometry">
        <rect>
-        <x>740</x>
-        <y>70</y>
-        <width>591</width>
-        <height>541</height>
+        <x>960</x>
+        <y>80</y>
+        <width>371</width>
+        <height>361</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	border: 0px solid white;</string>
       </property>
       <property name="title">
        <string/>
       </property>
-      <widget class="QWidget" name="formLayoutWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>70</y>
-         <width>531</width>
-         <height>531</height>
-        </rect>
-       </property>
-       <layout class="QFormLayout" name="formLayout_costumer">
-        <property name="horizontalSpacing">
-         <number>20</number>
-        </property>
-        <property name="verticalSpacing">
-         <number>20</number>
-        </property>
-        <property name="leftMargin">
-         <number>15</number>
-        </property>
-        <property name="topMargin">
-         <number>20</number>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_f_name">
-          <property name="text">
-           <string>First Name</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_sql_fname">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_l_name">
-          <property name="text">
-           <string>Last Name</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_sql_lname">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_Age">
-          <property name="text">
-           <string>Age</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="label_sql_age">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_gender">
-          <property name="text">
-           <string>gender</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="label_sql_gender">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_Phone_number">
-          <property name="text">
-           <string>Phone Number</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLabel" name="label_sql_phone">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_Lisence_NO">
-          <property name="text">
-           <string>Lisence Number</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QLabel" name="label_sql_lisence">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_Address_2">
-          <property name="text">
-           <string>Address</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QLabel" name="label_sql_address">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="label_Status">
-          <property name="text">
-           <string>Status</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="1">
-         <widget class="QLabel" name="label_sql_Strike">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>20</y>
-         <width>261</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>18</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>COSTUMER DETAILS</string>
-       </property>
-      </widget>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="3" column="1">
+        <widget class="QLabel" name="label_sql_age">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_Address_2">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Address</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLabel" name="label_sql_gender">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_Lisence_NO">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Lisence Number</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLabel" name="label_sql_Strike">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_sql_fname">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_sql_lname">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_Age">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Age</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLabel" name="label_sql_phone">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_Phone_number">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Phone Number</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLabel" name="label_sql_address">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_gender">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Gender</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_l_name">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Last Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_f_name">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>First Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLabel" name="label_sql_lisence">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_Status">
+         <property name="styleSheet">
+          <string notr="true">font: 500 13pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Status</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);
+font: 700 20pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>COSTUMER DETAILS</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>890</x>
+        <x>710</x>
         <y>0</y>
-        <width>441</width>
+        <width>621</width>
         <height>71</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	border: 0px solid white;</string>
       </property>
       <property name="title">
        <string/>
       </property>
-      <widget class="QLabel" name="label_QUICKFILTER">
+      <widget class="QLabel" name="label_Costumer_status">
        <property name="geometry">
         <rect>
          <x>20</x>
          <y>10</y>
-         <width>121</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>18</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Quick Filter</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_Costumer_status">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>20</y>
-         <width>81</width>
+         <width>111</width>
          <height>16</height>
         </rect>
        </property>
@@ -1312,8 +1350,8 @@ QPushButton:pressed {
       <widget class="QComboBox" name="comboBox_strikes">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>40</y>
+         <x>10</x>
+         <y>30</y>
          <width>121</width>
          <height>22</height>
         </rect>
@@ -1332,11 +1370,28 @@ QPushButton:pressed {
       <widget class="QPushButton" name="pushButton_Filter_costumer">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>20</y>
-         <width>80</width>
-         <height>41</height>
+         <x>150</x>
+         <y>30</y>
+         <width>91</width>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
        </property>
        <property name="text">
         <string>Filter</string>
@@ -1750,30 +1805,6 @@ font: 500 16pt &quot;Gotham&quot;;</string>
              <string>Address</string>
             </property>
            </widget>
-           <widget class="QLabel" name="label_age">
-            <property name="geometry">
-             <rect>
-              <x>110</x>
-              <y>195</y>
-              <width>51</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>16</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-font: 500 16pt &quot;Gotham&quot;;</string>
-            </property>
-            <property name="text">
-             <string>Age</string>
-            </property>
-           </widget>
            <widget class="QLabel" name="label_ADD_COSTUMER">
             <property name="geometry">
              <rect>
@@ -1867,22 +1898,6 @@ border-radius:10;
              <rect>
               <x>410</x>
               <y>305</y>
-              <width>271</width>
-              <height>30</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(151, 177, 196);
-color: rgb(255, 255, 255);
-border-radius:10;
-</string>
-            </property>
-           </widget>
-           <widget class="QLineEdit" name="lineEdit_age">
-            <property name="geometry">
-             <rect>
-              <x>110</x>
-              <y>225</y>
               <width>271</width>
               <height>30</height>
              </rect>
@@ -2025,11 +2040,15 @@ font: 500 12pt &quot;Gotham&quot;;</string>
            <widget class="QLabel" name="label_DateoBirth">
             <property name="geometry">
              <rect>
-              <x>440</x>
-              <y>370</y>
+              <x>110</x>
+              <y>200</y>
               <width>241</width>
               <height>16</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;</string>
             </property>
             <property name="text">
              <string>Date of Birth</string>
@@ -2038,11 +2057,14 @@ font: 500 12pt &quot;Gotham&quot;;</string>
            <widget class="QDateEdit" name="dateEdit_DateoBirth">
             <property name="geometry">
              <rect>
-              <x>430</x>
-              <y>390</y>
-              <width>110</width>
-              <height>22</height>
+              <x>110</x>
+              <y>225</y>
+              <width>141</width>
+              <height>31</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
             </property>
            </widget>
           </widget>
@@ -2089,7 +2111,7 @@ font: 500 12pt &quot;Gotham&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

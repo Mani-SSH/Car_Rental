@@ -44,6 +44,8 @@ MainScreen::MainScreen(QWidget *parent) :
     QIcon search(":/resources/img/search.png");
     ui->lineEdit_carSearch->addAction(search,QLineEdit::LeadingPosition);
 
+    ui->lineEdit_searchbar->addAction(search,QLineEdit::LeadingPosition);
+
     /*adding photo in customer add page*/
     QPixmap customerAdd(":/resources/img/addCustomer.png");
     ui->label_addcusphoto->setPixmap(customerAdd);
@@ -660,7 +662,6 @@ void MainScreen::on_pushButton_clicked()
     Thiscostumer.C_lname = ui->lineEdit_lname->text();
     Thiscostumer.phone_no = ui->lineEdit_phone_no->text();
     Thiscostumer.lisence_no = ui->lineEdit_lisence_no->text();
-    //Thiscostumer.age = ui->lineEdit_age->text().toInt();
     Thiscostumer.Address = ui->lineEdit_address->text();
     if(ui->radioButton_Male->isChecked())
     {
