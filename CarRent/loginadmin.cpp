@@ -41,14 +41,21 @@ LoginAdmin::LoginAdmin(QWidget *parent)
 
     /*adding logo in admin login page*/
     QPixmap pix(":/resources/img/logo.png");
-    ui->label_logo->setPixmap(pix.scaled(130,50,Qt::IgnoreAspectRatio));
+    ui->label_logo->setPixmap(pix);
+    ui->label_logo->setScaledContents(true);
+    ui->label_logo->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
     //adding icons
     QIcon username(":/resources/img/user.png");
     QIcon pass(":/resources/img/pass.png");
     ui->lineEdit_username->addAction(username,QLineEdit::LeadingPosition);
     ui->lineEdit_password->addAction(pass,QLineEdit::LeadingPosition);
+
+    /*adding exit icon*/
+    ui->pushButton_Exit->setIcon(QIcon(":/resources/img/exit.png"));
+
 }
+
 
 LoginAdmin::~LoginAdmin()
 {

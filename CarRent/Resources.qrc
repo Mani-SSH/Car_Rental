@@ -10,5 +10,7 @@
         <file>img/user.png</file>
         <file>img/addCustomer.png</file>
         <file>img/dummy car img.jpg</file>
+        <file>img/logout.png</file>
+        <file>img/exit.png</file>
     </qresource>
 </RCC>
