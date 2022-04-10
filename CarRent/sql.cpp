@@ -501,3 +501,17 @@ void sql::rentCar(Car x)
      /*update to database*/
      qry.exec("UPDATE costumers SET Strikes = "+QString::number(strikes)+" WHERE phone_no = '"+phone_no+"'");
  }
+
+ QSqlQueryModel* sql ::filterTableCostumer(int status)
+ {
+     static QSqlQueryModel modal;
+     if (status == 0)
+     {
+         modal.setQuery("SELECT phone_no,f_name,l_name FROM costumers WHERE Strikes = 0 OR Strikes = 1 OR Strikes = 2");
+     }
+     else
+     {
+         modal.setQuery("SELECT phone_no,f_name,l_name FROM costumers WHERE Strikes = 3");
+     }
+     return &modal;
+ }
