@@ -12,5 +12,7 @@
         <file>img/dummy car img.jpg</file>
         <file>img/logout.png</file>
         <file>img/exit.png</file>
+        <file>img/dummy car img-01.jpg</file>
+        <file>img/add account.png</file>
     </qresource>
 </RCC>

@@ -8,6 +8,12 @@ change_admin::change_admin(QWidget *parent) :
     ui(new Ui::change_admin)
 {
     ui->setupUi(this);
+
+    /*adding logout icon*/
+    ui->pushButton_logout->setIcon(QIcon(":/resources/img/logout.png"));
+
+    /*adding add account icon*/
+    ui->pushButton_addAccount->setIcon(QIcon(":/resources/img/add account.png"));
 }
 
 change_admin::~change_admin()

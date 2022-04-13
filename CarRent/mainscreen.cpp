@@ -53,10 +53,18 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->label_addcusphoto->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
     /*adding photo in add image label*/
-    QPixmap dummyImg(":/resources/img/dummy car img.jpg");
+    QPixmap dummyImg(":/resources/img/dummy car img-01.jpg");
     ui->label_image->setPixmap(dummyImg);
     ui->label_image->setScaledContents(true);
     ui->label_image->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
+    /*adding photo in label_carPhoto*/
+    ui->label_carPhoto->setPixmap(dummyImg);
+    ui->label_carPhoto->setScaledContents(true);
+    ui->label_carPhoto->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
+    /*adding admin icon*/
+    ui->pushButton_admin->setIcon(QIcon(":/resources/img/admin_icon.png"));
 
     /*initialize home tab*/
     initializeHomeTab();
