@@ -76,6 +76,14 @@ MainScreen::~MainScreen()
     delete ui;
 }
 
+void MainScreen::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    QPixmap pix;
+    pix.load(":/resources/img/blue.png");
+    painter.drawPixmap(0,0,pix);
+
+}
 
 void MainScreen::initializeHomeTab()
 {

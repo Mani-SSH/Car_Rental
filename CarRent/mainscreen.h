@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-
+#include <QPainter>
 #include "account.h"
 #include "sql.h"
 #include "car.h"
@@ -21,6 +21,7 @@ class MainScreen : public QMainWindow
 public:
     Car carToAdd;
     Car carClicked;
+    void paintEvent(QPaintEvent *);
 
     explicit MainScreen(QWidget *parent = nullptr);
     void displayCar(Car x);

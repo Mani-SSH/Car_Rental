@@ -54,11 +54,22 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
     </property>
     <widget class="QWidget" name="tab_Home">
+     <attribute name="icon">
+      <iconset resource="Resources.qrc">
+       <normaloff>:/resources/img/home-white.png</normaloff>
+       <normalon>:/resources/img/home-black.png</normalon>:/resources/img/home-white.png</iconset>
+     </attribute>
      <attribute name="title">
-      <string>Home</string>
+      <string/>
      </attribute>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
@@ -74,9 +85,10 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QGroupBox{
-	border: 2px solid gray;
+	
 
-	background-color:#ffffff;
+	background-color: rgb(27, 102, 165);
+	border-radius:10px;
 
 }
 </string>
@@ -94,8 +106,10 @@ color: rgb(0, 0, 0);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(27, 102, 165);
-color: rgb(255, 255, 255);
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(27, 102, 165);
+border-radius:10px;
+
 font: 700 20pt &quot;Gotham&quot;;</string>
        </property>
        <property name="text">
@@ -116,6 +130,7 @@ font: 700 20pt &quot;Gotham&quot;;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+background-color: rgb(101, 255, 66);
 color: rgb(255, 255, 255);
 font: 700 12pt &quot;Gotham&quot;;
 border-radius:10;</string>
@@ -132,6 +147,11 @@ border-radius:10;</string>
          <width>231</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string/>
@@ -215,7 +235,8 @@ font: 500 9pt &quot;Gotham&quot;;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Gotham&quot;;
-</string>
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Cost:</string>
@@ -264,7 +285,9 @@ font: 500 9pt &quot;Gotham&quot;;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Days Rented: (Max. 30)</string>
@@ -280,7 +303,9 @@ font: 500 9pt &quot;Gotham&quot;;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Phone Number of Customer:</string>
@@ -313,7 +338,8 @@ font: 500 9pt &quot;Gotham&quot;;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Gotham&quot;;
-</string>
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Date to Return: (d/m/y)</string>
@@ -330,8 +356,8 @@ font: 500 9pt &quot;Gotham&quot;;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 10pt &quot;Gotham&quot;;
-
-</string>
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Rent Date: (d/m/y)</string>
@@ -347,7 +373,9 @@ font: 500 9pt &quot;Gotham&quot;;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Plate Number:</string>
@@ -389,16 +417,28 @@ font: 500 9pt &quot;Gotham&quot;;</string>
             <bold>false</bold>
            </font>
           </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
           <property name="styleSheet">
-           <string notr="true">	color: rgb(0, 0, 0);
-	border: 0px solid white;
-	background-color: #ffffff;
-	alternate-background-color: rgb(151, 177, 196);
-	selection-background-color:#282828;
+           <string notr="true">QTableView {
+border: 1px solid rgba(118, 122, 142, 153);
+background: rgba(224, 222, 225, 51);
+selection-background-color: rgba(136, 132, 159, 204);
+selection-color: rgb(248, 246, 250);
+alternate-background-color: rgb(151, 177, 196);;
+}
+
+QHeaderView::section {
+border-radius: 30px;
+height: 30px;
+color: rgb(239, 238, 241);
+background: rgb(108, 104, 124);
+}
 </string>
           </property>
           <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
+           <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="alternatingRowColors">
            <bool>true</bool>
@@ -422,11 +462,13 @@ font: 500 9pt &quot;Gotham&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QGroupBox{
-	border: 2px solid gray;
+	
 
-	background-color:#ffffff;
+	background: rgba(224, 222, 225, 51);
+	border-radius:10px;
 
-}</string>
+}
+</string>
       </property>
       <property name="title">
        <string/>
@@ -441,9 +483,10 @@ font: 500 9pt &quot;Gotham&quot;;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(27, 102, 165);
-font: 700 15pt &quot;Gotham&quot;;</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(27, 102, 165);
+font: 700 15pt &quot;Gotham&quot;;
+border-radius:10px;</string>
        </property>
        <property name="text">
         <string>DISPLAY</string>
@@ -461,6 +504,9 @@ font: 700 15pt &quot;Gotham&quot;;</string>
          <height>135</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius:10px;</string>
+       </property>
        <property name="frameShape">
         <enum>QFrame::Box</enum>
        </property>
@@ -474,13 +520,76 @@ font: 700 15pt &quot;Gotham&quot;;</string>
       <widget class="QWidget" name="gridLayoutWidget_4">
        <property name="geometry">
         <rect>
-         <x>19</x>
-         <y>219</y>
+         <x>10</x>
+         <y>220</y>
          <width>291</width>
          <height>241</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_4">
+        <item row="5" column="1">
+         <widget class="QLabel" name="label_showCustomer">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_showPlateNum">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_11">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+</string>
+          </property>
+          <property name="text">
+           <string>Plate Number:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="label_showDateRented">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="label_showRate">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="label_showModel">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_15">
           <property name="styleSheet">
@@ -491,10 +600,31 @@ font: 700 15pt &quot;Gotham&quot;;</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_showPlateNum">
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_16">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string>Rented By:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_17">
           <property name="styleSheet">
            <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Date Rented:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="label_showStatus">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
           </property>
           <property name="text">
            <string/>
@@ -512,13 +642,13 @@ background-color: rgb(151, 177, 196);</string>
           </property>
          </widget>
         </item>
-        <item row="6" column="1">
-         <widget class="QLabel" name="label_showDateRented">
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_13">
           <property name="styleSheet">
            <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
           </property>
           <property name="text">
-           <string/>
+           <string>Model:</string>
           </property>
          </widget>
         </item>
@@ -533,100 +663,6 @@ background-color: rgb(151, 177, 196);</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_showBrand">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
-background-color: rgb(151, 177, 196);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="label_showRate">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
-background-color: rgb(151, 177, 196);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QLabel" name="label_showCustomer">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
-background-color: rgb(151, 177, 196);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_16">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
-background-color: rgb(151, 177, 196);</string>
-          </property>
-          <property name="text">
-           <string>Rented By:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_11">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Plate Number:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_17">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Date Rented:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_13">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Model:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLabel" name="label_showStatus">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="label_showModel">
-          <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
         <item row="7" column="0">
          <widget class="QLabel" name="label_18">
           <property name="styleSheet">
@@ -638,10 +674,21 @@ background-color: rgb(151, 177, 196);</string>
           </property>
          </widget>
         </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_showBrand">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
         <item row="7" column="1">
          <widget class="QLabel" name="label_showDateToReturn">
           <property name="styleSheet">
-           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
 background-color: rgb(151, 177, 196);</string>
           </property>
           <property name="text">
@@ -698,10 +745,20 @@ border-radius:10;</string>
          <height>21</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">
-font: 500 9pt &quot;Gotham&quot;;
-color: rgb(255, 0, 0);</string>
+        <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+color: rgb(0, 0, 0);
+background: rgba(224, 222, 225, 51);
+</string>
        </property>
        <property name="text">
         <string>Double click on plate number to see data</string>
@@ -721,8 +778,7 @@ color: rgb(255, 0, 0);</string>
        <string notr="true">QGroupBox{
 	border-color: rgb(255, 255, 255);
 	border: 0px solid white;
-
-	background-color:#ffffff;
+	background-color: rgb(255, 255, 255);
 
 }</string>
       </property>
@@ -819,6 +875,9 @@ QPushButton:pressed {
          <width>63</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);
@@ -965,8 +1024,13 @@ font: 9pt &quot;Gotham&quot;;</string>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_Customers">
+     <attribute name="icon">
+      <iconset resource="Resources.qrc">
+       <normaloff>:/resources/img/customer-white.png</normaloff>
+       <normalon>:/resources/img/customer-black.png</normalon>:/resources/img/customer-white.png</iconset>
+     </attribute>
      <attribute name="title">
-      <string>Customers</string>
+      <string/>
      </attribute>
      <widget class="QGroupBox" name="groupBox_searchbar">
       <property name="geometry">
@@ -1094,10 +1158,20 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">	color: rgb(0, 0, 0);
-	background-color: #ffffff;
-	alternate-background-color: rgb(151, 177, 196);
-	selection-background-color:#282828;
+        <string notr="true">QTableView {
+border: 1px solid rgba(118, 122, 142, 153);
+background: rgba(224, 222, 225, 51);
+selection-background-color: rgba(136, 132, 159, 204);
+selection-color: rgb(248, 246, 250);
+alternate-background-color: rgb(151, 177, 196);;
+}
+
+QHeaderView::section {
+border-radius: 30px;
+height: 30px;
+color: rgb(239, 238, 241);
+background: rgb(108, 104, 124);
+}
 </string>
        </property>
        <property name="alternatingRowColors">
@@ -1111,14 +1185,21 @@ QPushButton:pressed {
      <widget class="QGroupBox" name="groupBox_details">
       <property name="geometry">
        <rect>
-        <x>940</x>
-        <y>70</y>
+        <x>950</x>
+        <y>80</y>
         <width>371</width>
         <height>361</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">	border: 0px solid white;</string>
+       <string notr="true">QGroupBox{
+	
+
+	background: rgba(224, 222, 225, 51);
+	border-radius:10px;
+
+}
+</string>
       </property>
       <property name="title">
        <string/>
@@ -1127,7 +1208,7 @@ QPushButton:pressed {
        <item row="3" column="1">
         <widget class="QLabel" name="label_sql_age">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
          </property>
          <property name="text">
           <string/>
@@ -1147,7 +1228,7 @@ QPushButton:pressed {
        <item row="4" column="1">
         <widget class="QLabel" name="label_sql_gender">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
 background-color: rgb(151, 177, 196);</string>
          </property>
          <property name="text">
@@ -1169,7 +1250,7 @@ background-color: rgb(151, 177, 196);</string>
        <item row="8" column="1">
         <widget class="QLabel" name="label_sql_Strike">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
 background-color: rgb(151, 177, 196);</string>
          </property>
          <property name="text">
@@ -1180,7 +1261,7 @@ background-color: rgb(151, 177, 196);</string>
        <item row="1" column="1">
         <widget class="QLabel" name="label_sql_fname">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
          </property>
          <property name="text">
           <string/>
@@ -1190,7 +1271,7 @@ background-color: rgb(151, 177, 196);</string>
        <item row="2" column="1">
         <widget class="QLabel" name="label_sql_lname">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
 background-color: rgb(151, 177, 196);</string>
          </property>
          <property name="text">
@@ -1211,7 +1292,7 @@ background-color: rgb(151, 177, 196);</string>
        <item row="5" column="1">
         <widget class="QLabel" name="label_sql_phone">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
          </property>
          <property name="text">
           <string/>
@@ -1231,7 +1312,7 @@ background-color: rgb(151, 177, 196);</string>
        <item row="7" column="1">
         <widget class="QLabel" name="label_sql_address">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
          </property>
          <property name="text">
           <string/>
@@ -1280,7 +1361,7 @@ background-color: rgb(151, 177, 196);</string>
        <item row="6" column="1">
         <widget class="QLabel" name="label_sql_lisence">
          <property name="styleSheet">
-          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
 background-color: rgb(151, 177, 196);</string>
          </property>
          <property name="text">
@@ -1303,15 +1384,16 @@ background-color: rgb(151, 177, 196);</string>
         <widget class="QLabel" name="label_8">
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>15</pointsize>
            <italic>false</italic>
            <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(27, 102, 165);
-color: rgb(255, 255, 255);
-font: 700 17pt &quot;Gotham&quot;;</string>
+          <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(27, 102, 165);
+font: 700 15pt &quot;Gotham&quot;;
+border-radius:10px;</string>
          </property>
          <property name="text">
           <string>COSTUMER DETAILS</string>
@@ -1426,7 +1508,7 @@ QPushButton:pressed {
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab_addCar">
           <attribute name="title">
@@ -2119,14 +2201,15 @@ QPushButton:pressed {
    <widget class="QLabel" name="label_welcomeUser">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>640</y>
-      <width>511</width>
-      <height>21</height>
+      <x>570</x>
+      <y>650</y>
+      <width>681</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+font: 500 12pt &quot;Gotham&quot;;</string>
     </property>
     <property name="text">
      <string/>
@@ -2165,6 +2248,8 @@ QPushButton:pressed {
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
