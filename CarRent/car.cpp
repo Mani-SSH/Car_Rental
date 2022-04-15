@@ -9,6 +9,7 @@ Car::Car()
     phone_no = NULL;
     Cost = 0;
     //PhotoPath = <Path of default car icon on resources>
+    PhotoPath=":/resources/img/dummy car img-01.jpg";
 }
 
 

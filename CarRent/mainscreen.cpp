@@ -204,7 +204,12 @@ void MainScreen::on_pushButton_addCar_clicked()
         }else{
             /*export the data to the database and inform the user*/
             admin.exportCarDetails(carToAdd);
+
+
+
             QMessageBox::information(this, "Data added", "Car has been added to the database.");
+
+            carToAdd=Car();
 
             /*clear the add cars form*/
             ui->lineEdit_plateNum->setText("");
@@ -212,7 +217,7 @@ void MainScreen::on_pushButton_addCar_clicked()
             ui->lineEdit_model->setText("");
             ui->lineEdit_rate->setText("");
             /*adding photo in add image label*/
-            QPixmap dummyImg(":/resources/img/dummy car img.jpg");
+            QPixmap dummyImg(":/resources/img/dummy car img-01.jpg");
             ui->label_image->setPixmap(dummyImg);
             ui->label_image->setScaledContents(true);
             ui->label_image->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
@@ -244,7 +249,7 @@ void MainScreen::on_pushButton_2_clicked()
         }
         else
         {
-            //Error handling
+            carToAdd.PhotoPath=":/resources/img/dummy car img-01.jpg";
         }
     }
 
@@ -315,11 +320,12 @@ void MainScreen::displayCar(Car x)
     {
         image = image.scaledToWidth(ui->label_carPhoto->width(), Qt::SmoothTransformation);
         ui->label_carPhoto->setPixmap(QPixmap::fromImage(image));
-        carToAdd.PhotoPath = x.PhotoPath;
     }
     else
     {
-        //Error handling
+        image.load(":/resources/img/dummy car img-01.jpg");
+        image = image.scaledToWidth(ui->label_carPhoto->width(), Qt::SmoothTransformation);
+        ui->label_carPhoto->setPixmap(QPixmap::fromImage(image));
     }
 
     /*check if car is available for renting*/

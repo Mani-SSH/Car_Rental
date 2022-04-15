@@ -129,11 +129,16 @@ font: 700 20pt &quot;Gotham&quot;;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+        <string notr="true">QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
 background-color: rgb(101, 255, 66);
 color: rgb(255, 255, 255);
 font: 700 12pt &quot;Gotham&quot;;
-border-radius:10;</string>
+border-radius:10;
+}
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
        </property>
        <property name="text">
         <string>Rent</string>
@@ -332,7 +337,7 @@ font: 500 9pt &quot;Gotham&quot;;</string>
         <rect>
          <x>11</x>
          <y>250</y>
-         <width>151</width>
+         <width>161</width>
          <height>16</height>
         </rect>
        </property>
@@ -708,10 +713,16 @@ background-color: rgb(151, 177, 196);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+        <string notr="true">QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
 color: rgb(255, 255, 255);
 font: 700 10pt &quot;Gotham&quot;;
-border-radius:10;</string>
+border-radius:10;
+}
+
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
        </property>
        <property name="text">
         <string>Return</string>
@@ -727,10 +738,16 @@ border-radius:10;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 0, 0);
+        <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
 color: rgb(255, 255, 255);
 font: 700 10pt &quot;Gotham&quot;;
-border-radius:10;</string>
+border-radius:10;
+}
+
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
        </property>
        <property name="text">
         <string>Delete</string>
@@ -1541,10 +1558,15 @@ QPushButton:pressed {
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+             <string notr="true">QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
 color: rgb(255, 255, 255);
 font: 700 14pt &quot;Gotham&quot;;
-border-radius:10;</string>
+border-radius:10;
+}
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
             </property>
             <property name="text">
              <string>ADD</string>
