@@ -33,5 +33,9 @@
         <file>img/customer-black.png</file>
         <file>img/customer-white.png</file>
         <file>img/home-white.png</file>
+        <file>img/add-black.png</file>
+        <file>img/add-white.png</file>
+        <file>img/add_custoBg-01.jpg</file>
+        <file>img/add_custoBg-01-01.jpg</file>
     </qresource>
 </RCC>

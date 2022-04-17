@@ -63,6 +63,12 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->label_carPhoto->setScaledContents(true);
     ui->label_carPhoto->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
+    /*adding photo in add_customer label*/
+    QPixmap add_custoImg(":/resources/img/add_custoBg-01-01.jpg");
+    ui->add_custo_bg->setPixmap(add_custoImg);
+    ui->add_custo_bg->setScaledContents(true);
+    ui->add_custo_bg->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
     /*adding admin icon*/
     ui->pushButton_admin->setIcon(QIcon(":/resources/img/admin_icon.png"));
 

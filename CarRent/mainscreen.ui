@@ -54,7 +54,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="iconSize">
      <size>
@@ -1049,114 +1049,13 @@ font: 9pt &quot;Gotham&quot;;</string>
      <attribute name="title">
       <string/>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_searchbar">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>881</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	border: 0px solid white;</string>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-      <widget class="QLineEdit" name="lineEdit_searchbar">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>441</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(151, 177, 196);
-color: rgb(255, 255, 255);
-border-radius:10;
-font: 500 9pt &quot;Gotham&quot;;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>Enter Phone Number or Lisence Number</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_Search">
-       <property name="geometry">
-        <rect>
-         <x>470</x>
-         <y>30</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-
-    background-color: rgb(27, 102, 165);
-    border-style: outset;
-    border-width: 1px;
-    border-radius: 4px;
-    border-color: white;
-	color:white;
-	padding: 6px;
-}
-QPushButton:pressed {
-	color:white;
-    background-color: rgb(30, 108, 170);
-    border-style: inset;
-}</string>
-       </property>
-       <property name="text">
-        <string>Search</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_costumer">
-       <property name="geometry">
-        <rect>
-         <x>590</x>
-         <y>30</y>
-         <width>111</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>Phone Number</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Lisence Number</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_Search_by">
-       <property name="geometry">
-        <rect>
-         <x>590</x>
-         <y>10</y>
-         <width>91</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Search By:</string>
-       </property>
-      </widget>
-     </widget>
      <widget class="QGroupBox" name="groupBox_costumer_table">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>70</y>
+        <y>270</y>
         <width>951</width>
-        <height>541</height>
+        <height>341</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1171,7 +1070,7 @@ QPushButton:pressed {
          <x>10</x>
          <y>10</y>
          <width>931</width>
-         <height>531</height>
+         <height>321</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1203,9 +1102,9 @@ background: rgb(108, 104, 124);
       <property name="geometry">
        <rect>
         <x>950</x>
-        <y>80</y>
+        <y>270</y>
         <width>371</width>
-        <height>361</height>
+        <height>331</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1425,17 +1324,139 @@ border-radius:10px;</string>
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="add_custo_bg">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1311</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_searchbar">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>180</y>
+        <width>711</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);
+border: 0px solid white;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="lineEdit_searchbar">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>441</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Enter Phone Number or Lisence Number</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Search">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>30</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_costumer">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>40</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Phone Number</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Lisence Number</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_Search_by">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>20</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Search By:</string>
+       </property>
+      </widget>
+     </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>710</x>
-        <y>0</y>
+        <x>820</x>
+        <y>180</y>
         <width>621</width>
         <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">	border: 0px solid white;</string>
+       <string notr="true">background-color: rgba(255, 255, 255, 0);
+	border: 0px solid white;</string>
       </property>
       <property name="title">
        <string/>
@@ -1443,8 +1464,8 @@ border-radius:10px;</string>
       <widget class="QLabel" name="label_Costumer_status">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>10</y>
+         <x>10</x>
+         <y>20</y>
          <width>111</width>
          <height>16</height>
         </rect>
@@ -1457,10 +1478,13 @@ border-radius:10px;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>40</y>
          <width>121</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
        <item>
         <property name="text">
