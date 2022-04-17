@@ -699,9 +699,20 @@ void MainScreen::on_pushButton_clicked()
     }
     DateofBirth = ui->dateEdit_DateoBirth->date();
     Thiscostumer.age = (DateofBirth.daysTo(QDate::currentDate()))/365;
-    qDebug() << "The age is: " <<Thiscostumer.age;
-    admin.exportCostumer(Thiscostumer);
-    QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
+    if (Thiscostumer.C_fname == ""|| Thiscostumer.C_lname=="" || Thiscostumer.gender == "" || Thiscostumer.lisence_no == "" || Thiscostumer.phone_no == "" )
+    {
+        QMessageBox::critical(this, "Incomplete Form", "Please fill up the forms");
+    }
+    else
+    {
+        admin.exportCostumer(Thiscostumer);
+        QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
+    }
+    ui->lineEdit_fnameh->setText("");
+    ui->lineEdit_lname->setText("");
+    ui->lineEdit_address->setText("");
+    ui->lineEdit_lisence_no->setText("");
+    ui->lineEdit_phone_no->setText("");
 }
 
 
