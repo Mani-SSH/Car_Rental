@@ -2,6 +2,7 @@
 #include "ui_mainscreen.h"
 #include "costumer.h"
 #include "car.h"
+#include "pdf.h"
 
 extern sql admin;
 extern bool isLoggedIn;
@@ -496,6 +497,7 @@ void MainScreen::on_pushButton_rent_clicked()
                 if(ThisCar.isAvailable){
 
                     /*store the given data in the object of class Car*/
+                    ThisCar.PlateNum = PlateNum;
                     ThisCar.phone_no = phone_no;
                     ThisCar.DateRented = ui->dateEdit_rentDate->date();
                     ThisCar.DateToReturn = ui->dateEdit_rentReturnDate->date();
@@ -519,7 +521,7 @@ void MainScreen::on_pushButton_rent_clicked()
                             QMessageBox::information(this, "Rented", "The car has been set as rented.");
 
                             /*display initial bill*/
-
+                            first_receipt(ThisCar);
                             /*clear home tab*/
                             initializeHomeTab();
                         }else{
@@ -550,13 +552,14 @@ void MainScreen::on_pushButton_rent_clicked()
  */
 void MainScreen::on_pushButton_carReturn_clicked()
 {
+    int daysRented;
+    int daystoRent;
     /*if the clicked car exists*/
     if (admin.carExists(carClicked.PlateNum)){
 
         /*if the clicked car is rented*/
         if(!carClicked.isAvailable){
             carClicked.DateReturned = QDate::currentDate();
-
             /*if deadline is crossed*/
             if(carClicked.DateReturned > carClicked.DateToReturn){
                 /*strike customer and return the car and give a message*/
@@ -569,7 +572,10 @@ void MainScreen::on_pushButton_carReturn_clicked()
                 QMessageBox::information(this, "Car Returned", "The car has been returned.");
             }
             /*display final bill*/
-
+            daysRented = Car::calculateDaysRented(carClicked.DateRented,carClicked.DateReturned);
+            daystoRent = Car::calculateDaysRented(carClicked.DateRented,carClicked.DateToReturn);
+            carClicked.final_Cost = carClicked.finalCost(daysRented,daystoRent);
+            final_receipt(carClicked);
             /*clear home tab*/
             initializeHomeTab();
         }

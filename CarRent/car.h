@@ -18,11 +18,13 @@ public:
     QDate DateReturned;
     QString phone_no;
     int Cost;
+    int final_Cost;
 
     Car();
     int calculateCost();
     //int calculateDaysRented();
     static int calculateDaysRented(QDate d1, QDate d2);
+    int finalCost(int daysreturned, int daystoreturn);
 };
 
 #endif // CAR_H
