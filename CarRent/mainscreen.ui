@@ -54,7 +54,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <property name="iconSize">
      <size>
@@ -1530,8 +1530,13 @@ QPushButton:pressed {
      </widget>
     </widget>
     <widget class="QWidget" name="tab_Add">
+     <attribute name="icon">
+      <iconset resource="Resources.qrc">
+       <normaloff>:/resources/img/add-white.png</normaloff>
+       <normalon>:/resources/img/add-black.png</normalon>:/resources/img/add-white.png</iconset>
+     </attribute>
      <attribute name="title">
-      <string>Add</string>
+      <string/>
      </attribute>
      <widget class="QWidget" name="gridLayoutWidget_2">
       <property name="geometry">
@@ -1546,7 +1551,8 @@ QPushButton:pressed {
        <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget_2">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(255, 255, 255);
+border: 0px solid white;</string>
          </property>
          <property name="currentIndex">
           <number>0</number>
@@ -1560,7 +1566,7 @@ QPushButton:pressed {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1311</width>
+             <width>681</width>
              <height>571</height>
             </rect>
            </property>
@@ -1568,6 +1574,9 @@ QPushButton:pressed {
             <font>
              <pointsize>9</pointsize>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border: 0px solid white;</string>
            </property>
            <property name="title">
             <string/>
@@ -1798,6 +1807,19 @@ font: 500 16pt &quot;Gotham&quot;;</string>
              <string>Rate</string>
             </property>
            </widget>
+          </widget>
+          <widget class="QLabel" name="label_addCar_vector">
+           <property name="geometry">
+            <rect>
+             <x>688</x>
+             <y>-25</y>
+             <width>631</width>
+             <height>611</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
           </widget>
          </widget>
          <widget class="QWidget" name="tab_addCustomer">

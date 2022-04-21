@@ -69,6 +69,12 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->add_custo_bg->setScaledContents(true);
     ui->add_custo_bg->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
+    /*adding photo in add_car label*/
+    QPixmap add_carVecImg(":/resources/img/addCar_vector-01.jpg");
+    ui->label_addCar_vector->setPixmap(add_carVecImg);
+    ui->label_addCar_vector->setScaledContents(true);
+    ui->label_addCar_vector->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
     /*adding admin icon*/
     ui->pushButton_admin->setIcon(QIcon(":/resources/img/admin_icon.png"));
 
