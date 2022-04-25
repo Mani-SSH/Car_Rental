@@ -1,21 +1,60 @@
 #include "pdf.h"
 extern sql admin;
 extern account user;
+
+QString generatePdfName()
+{
+    QDate date = QDate::currentDate();
+    QTime time = QTime::currentTime();
+    QString name = QString::number(date.year());
+    if(date.month() < 10){
+        name = name + "0" + QString::number(date.month());
+    }else{
+        name = name + QString::number(date.month());
+    }
+
+    if(date.day() < 10){
+        name = name + "0" + QString::number(date.day());
+    }else{
+        name = name + QString::number(date.day());
+    }
+
+    if(time.hour() < 10){
+        name = name + "0" + QString::number(time.hour());
+    }else{
+        name = name + QString::number(time.hour());
+    }
+
+    if(time.minute() < 10){
+        name = name + "0" + QString::number(time.minute());
+    }else{
+        name = name + QString::number(time.minute());
+    }
+
+    if(time.second() < 10){
+        name = name + "0" + QString::number(time.second());
+    }else{
+        name = name + QString::number(time.second());
+    }
+
+    return name;
+}
+
+
 void first_receipt(Car ThisCar)
 {
     Costumer ThisCostumer = admin.importCostumer(ThisCar.phone_no,true);
-    QDate now = QDate::currentDate();
-    QString temp = now.toString();
+    QString pdfName = generatePdfName() + "_i";
     QString DateRented = ThisCar.DateRented.toString() ;
     QString DateToReturn = ThisCar.DateToReturn.toString();
 
-    qDebug() << temp;
+    qDebug() << pdfName;
     QString html =
     "<div align=left>"
         "Rent-a-Car"
     "</div>"
     "<div align=right>"
-       ""+temp+""
+       ""+pdfName+""
     "</div>"
     "<h1 align=center>Rent Receipt</h1>"
     "<div align=left>"
@@ -36,7 +75,7 @@ void first_receipt(Car ThisCar)
     QPrinter printer(QPrinter::PrinterResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPageSize(QPageSize::A6);
-    printer.setOutputFileName("C:/pdf/"+temp+".pdf");
+    printer.setOutputFileName("C:/pdf/"+pdfName+".pdf");
     printer.setPageMargins(QMarginsF(1, 1, 1, 1));
 
     document.print(&printer);
@@ -46,8 +85,7 @@ void first_receipt(Car ThisCar)
 void final_receipt(Car ThisCar)
 {
     Costumer ThisCostumer = admin.importCostumer(ThisCar.phone_no,true);
-    QDate now = QDate::currentDate();
-    QString temp = now.toString();
+    QString temp = generatePdfName() + "_f";
     QString DateRented = ThisCar.DateRented.toString() ;
     QString DateToReturn = ThisCar.DateToReturn.toString();
 
@@ -78,7 +116,7 @@ void final_receipt(Car ThisCar)
     QPrinter printer(QPrinter::PrinterResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPageSize(QPageSize::A6);
-    printer.setOutputFileName("C:/pdf/final.pdf");
+    printer.setOutputFileName("C:/pdf/"+temp+".pdf");
     printer.setPageMargins(QMarginsF(1, 1, 1, 1));
 
     document.print(&printer);

@@ -16,5 +16,6 @@
 
 void first_receipt (Car ThisCar);
 void final_receipt (Car ThisCar);
+QString generatePdfName();
 
 #endif // PDF_H
