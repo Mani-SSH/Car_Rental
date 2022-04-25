@@ -17,7 +17,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(52, 56, 59);</string>
+      <string notr="true"/>
      </property>
      <property name="title">
       <string/>
@@ -35,10 +35,7 @@
        <string notr="true">
 QPushButton {
 	background-color: rgb(255, 255, 255);
-    border-style: outset;
-    border-width: 1px;
     border-radius: 40px;
-    border-color:solid white;
 	padding: 3px;
 }
 QPushButton:pressed {
@@ -69,10 +66,7 @@ QPushButton:pressed {
        <string notr="true">
 QPushButton {
 	background-color: rgb(255, 255, 255);
-    border-style: outset;
-    border-width: 1px;
-    border-radius:40px;
-    border-color:solid white;
+    border-radius: 40px;
 	padding: 3px;
 }
 QPushButton:pressed {

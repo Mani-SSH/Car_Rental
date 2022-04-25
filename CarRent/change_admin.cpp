@@ -9,6 +9,13 @@ change_admin::change_admin(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    /*adding background image color in window*/
+    QPixmap bkgnd(":/resources/img/mainscreen.jpg");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
+
     /*adding logout icon*/
     ui->pushButton_logout->setIcon(QIcon(":/resources/img/logout.png"));
 

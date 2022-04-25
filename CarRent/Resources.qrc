@@ -10,7 +10,6 @@
         <file>img/user.png</file>
         <file>img/addCustomer.png</file>
         <file>img/dummy car img.jpg</file>
-        <file>img/logout.png</file>
         <file>img/exit.png</file>
         <file>img/dummy car img-01.jpg</file>
         <file>img/add account.png</file>
@@ -38,5 +37,9 @@
         <file>img/add_custoBg-01.jpg</file>
         <file>img/add_custoBg-01-01.jpg</file>
         <file>img/addCar_vector-01.jpg</file>
+        <file>img/alternative_carpark-01.jpg</file>
+        <file>img/alternative_carpark-01-01.png</file>
+        <file>img/addCustomer-01.png</file>
+        <file>img/logout.png</file>
     </qresource>
 </RCC>

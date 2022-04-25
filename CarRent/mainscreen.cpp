@@ -47,7 +47,7 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->lineEdit_searchbar->addAction(search,QLineEdit::LeadingPosition);
 
     /*adding photo in customer add page*/
-    QPixmap customerAdd(":/resources/img/addCustomer.png");
+    QPixmap customerAdd(":/resources/img/addCustomer-01.png");
     ui->label_addcusphoto->setPixmap(customerAdd);
     ui->label_addcusphoto->setScaledContents(true);
     ui->label_addcusphoto->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
@@ -70,7 +70,7 @@ MainScreen::MainScreen(QWidget *parent) :
     ui->add_custo_bg->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
     /*adding photo in add_car label*/
-    QPixmap add_carVecImg(":/resources/img/addCar_vector-01.jpg");
+    QPixmap add_carVecImg(":/resources/img/alternative_carpark-01-01.png");
     ui->label_addCar_vector->setPixmap(add_carVecImg);
     ui->label_addCar_vector->setScaledContents(true);
     ui->label_addCar_vector->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
