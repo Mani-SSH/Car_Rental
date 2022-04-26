@@ -118,7 +118,19 @@ void LoginAdmin::on_checkBox_showPassword_stateChanged(int arg1)
 }
 
 /**
- * @brief INCOMPLETE
+ * @brief on login button pushed
+ *
+ * gets username and password entered by the user
+ * checks if username entered by the user exists
+ * if false, gives a message back to user
+ * if true, creates an object of class account to import the encrypted password and key of the given username from the database and set the username
+ * checks if the decrypted password from the database and password entered by the user matches
+ * if false, tells password is incorrect
+ * if true, sets password and key
+ * hides the login window
+ * check if the account is default account
+ * if true, prompts user to create a new account, deletes the default account, closes the window and sets isLoggedIn as true
+ * if false, imports name of the user, closes the window and sets isLoggedIn as true
  */
 void LoginAdmin::on_pushButton_login_clicked()
 {
@@ -185,8 +197,15 @@ void LoginAdmin::on_pushButton_login_clicked()
 }
 
 
+/**
+ * @brief if exit button is clicked
+ *
+ * sets isClose as true
+ * closes the current window
+ */
 void LoginAdmin::on_pushButton_Exit_clicked()
 {
+    /*set isClose as true and close the current window*/
     isClose = true;
     this->close();
 }

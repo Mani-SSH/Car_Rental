@@ -8,6 +8,13 @@ account::account()
     key = 0;
 }
 
+
+/**
+ * @brief parameterized constructor that takes username, password and key respectively
+ * @param x
+ * @param y
+ * @param z
+ */
 account::account(QString x, QString y, int z)
 {
     username = x;
@@ -15,10 +22,16 @@ account::account(QString x, QString y, int z)
     key = z;
 }
 
+
+/**
+ * @brief sets password of the object of class account as the parameter passed
+ * @param password
+ */
 void account::setPassword(QString password)
 {
     this->password = password;
 }
+
 
 /**
  * @brief returns password of the user
@@ -30,6 +43,10 @@ QString account::getPassword()
 }
 
 
+/**
+ * @brief sets key of the object of class account as the parameter passed
+ * @param key
+ */
 void account::setKey(int key)
 {
     this->key = key;
@@ -43,6 +60,7 @@ int account::getKey()
 {
     return key;
 }
+
 
 /**
  * @brief encrypts password with key with ceasar cipher
@@ -170,12 +188,20 @@ QString account::decrypt(QString encryptedPassword, int key)
             break;
         }
     }
-    qDebug()<<"Decrypted Key:"<<QString::fromStdString(pass);
     return QString::fromStdString(pass);
 }
 
+
+/**
+ * @brief generates a key and sets as member key of the object
+ *
+ * key is a number from 1 to 25
+ */
 void account::keyGenerator(void)
 {
+    /*generates a key*/
     qint32 key_admin = QRandomGenerator::global()->bounded(1,26);
+
+    /*assigns it to the member key*/
     key = int (key_admin);
 }
