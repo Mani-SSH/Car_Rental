@@ -47,6 +47,7 @@ void first_receipt(Car ThisCar)
     QString pdfName = generatePdfName() + "_i";
     QString DateRented = ThisCar.DateRented.toString() ;
     QString DateToReturn = ThisCar.DateToReturn.toString();
+    QString today = QDate::currentDate().toString();
 
     qDebug() << pdfName;
     QString html =
@@ -54,7 +55,7 @@ void first_receipt(Car ThisCar)
         "Rent-a-Car"
     "</div>"
     "<div align=right>"
-       ""+pdfName+""
+       ""+today+""
     "</div>"
     "<h1 align=center>Rent Receipt</h1>"
     "<div align=left>"
@@ -88,6 +89,7 @@ void final_receipt(Car ThisCar)
     QString temp = generatePdfName() + "_f";
     QString DateRented = ThisCar.DateRented.toString() ;
     QString DateToReturn = ThisCar.DateToReturn.toString();
+    QString today = QDate::currentDate().toString();
 
     qDebug() << temp;
     QString html =
@@ -95,7 +97,7 @@ void final_receipt(Car ThisCar)
         "Rent-a-Car"
     "</div>"
     "<div align=right>"
-       ""+temp+""
+       ""+today+""
     "</div>"
     "<h1 align=center>Final Receipt</h1>"
     "<div align=left>"
