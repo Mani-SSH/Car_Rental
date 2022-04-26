@@ -23,3 +23,18 @@ int Car::calculateDaysRented(QDate d1, QDate d2)
     return d1.daysTo(d2);
 }
 
+int Car::finalCost(int daysreturned, int daystoreturn)
+{
+    int total_cost;
+    if (daysreturned != daystoreturn)
+    {
+        total_cost = (daysreturned - daystoreturn) * Cost;
+    }
+    else
+    {
+        total_cost = 0;
+    }
+    return total_cost;
+
+}
+

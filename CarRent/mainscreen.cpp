@@ -2,6 +2,7 @@
 #include "ui_mainscreen.h"
 #include "costumer.h"
 #include "car.h"
+#include "pdf.h"
 
 extern sql admin;
 extern bool isLoggedIn;
@@ -508,6 +509,7 @@ void MainScreen::on_pushButton_rent_clicked()
                 if(ThisCar.isAvailable){
 
                     /*store the given data in the object of class Car*/
+                    ThisCar.PlateNum = PlateNum;
                     ThisCar.phone_no = phone_no;
                     ThisCar.DateRented = ui->dateEdit_rentDate->date();
                     ThisCar.DateToReturn = ui->dateEdit_rentReturnDate->date();
@@ -531,7 +533,7 @@ void MainScreen::on_pushButton_rent_clicked()
                             QMessageBox::information(this, "Rented", "The car has been set as rented.");
 
                             /*display initial bill*/
-
+                            first_receipt(ThisCar);
                             /*clear home tab*/
                             initializeHomeTab();
                         }else{
@@ -562,13 +564,14 @@ void MainScreen::on_pushButton_rent_clicked()
  */
 void MainScreen::on_pushButton_carReturn_clicked()
 {
+    int daysRented;
+    int daystoRent;
     /*if the clicked car exists*/
     if (admin.carExists(carClicked.PlateNum)){
 
         /*if the clicked car is rented*/
         if(!carClicked.isAvailable){
             carClicked.DateReturned = QDate::currentDate();
-
             /*if deadline is crossed*/
             if(carClicked.DateReturned > carClicked.DateToReturn){
                 /*strike customer and return the car and give a message*/
@@ -581,7 +584,10 @@ void MainScreen::on_pushButton_carReturn_clicked()
                 QMessageBox::information(this, "Car Returned", "The car has been returned.");
             }
             /*display final bill*/
-
+            daysRented = Car::calculateDaysRented(carClicked.DateRented,carClicked.DateReturned);
+            daystoRent = Car::calculateDaysRented(carClicked.DateRented,carClicked.DateToReturn);
+            carClicked.final_Cost = carClicked.finalCost(daysRented,daystoRent);
+            final_receipt(carClicked);
             /*clear home tab*/
             initializeHomeTab();
         }
@@ -711,9 +717,20 @@ void MainScreen::on_pushButton_clicked()
     }
     DateofBirth = ui->dateEdit_DateoBirth->date();
     Thiscostumer.age = (DateofBirth.daysTo(QDate::currentDate()))/365;
-    qDebug() << "The age is: " <<Thiscostumer.age;
-    admin.exportCostumer(Thiscostumer);
-    QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
+    if (Thiscostumer.C_fname == ""|| Thiscostumer.C_lname=="" || Thiscostumer.gender == "" || Thiscostumer.lisence_no == "" || Thiscostumer.phone_no == "" )
+    {
+        QMessageBox::critical(this, "Incomplete Form", "Please fill up the forms");
+    }
+    else
+    {
+        admin.exportCostumer(Thiscostumer);
+        QMessageBox::information(this, "Data added", "Costumer has been added to the database.");
+    }
+    ui->lineEdit_fnameh->setText("");
+    ui->lineEdit_lname->setText("");
+    ui->lineEdit_address->setText("");
+    ui->lineEdit_lisence_no->setText("");
+    ui->lineEdit_phone_no->setText("");
 }
 
 
