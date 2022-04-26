@@ -54,7 +54,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <property name="iconSize">
      <size>
@@ -2221,19 +2221,6 @@ background-color: rgba(255, 255, 255, 0);</string>
              <string>Other</string>
             </property>
            </widget>
-           <widget class="QLabel" name="label_addcusphoto">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>1321</width>
-              <height>191</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
            <widget class="QLabel" name="label_DateoBirth">
             <property name="geometry">
              <rect>
@@ -2265,26 +2252,22 @@ background-color: rgba(255, 255, 255, 0);</string>
              <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
             </property>
            </widget>
-           <zorder>label_addcusphoto</zorder>
-           <zorder>label_fname</zorder>
-           <zorder>label_lname</zorder>
-           <zorder>label_phone_no</zorder>
-           <zorder>label_Lisence</zorder>
-           <zorder>label_Address</zorder>
-           <zorder>label_ADD_COSTUMER</zorder>
-           <zorder>lineEdit_fnameh</zorder>
-           <zorder>lineEdit_lname</zorder>
-           <zorder>lineEdit_phone_no</zorder>
-           <zorder>lineEdit_lisence_no</zorder>
-           <zorder>lineEdit_address</zorder>
-           <zorder>pushButton</zorder>
-           <zorder>radioButton_Male</zorder>
-           <zorder>radioButton_Female</zorder>
-           <zorder>label_71</zorder>
-           <zorder>radioButton_other</zorder>
-           <zorder>label_DateoBirth</zorder>
-           <zorder>dateEdit_DateoBirth</zorder>
           </widget>
+          <widget class="QLabel" name="label_addcusphoto">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>-30</y>
+             <width>1321</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <zorder>label_addcusphoto</zorder>
+          <zorder>groupBox_costumer</zorder>
          </widget>
         </widget>
        </item>
