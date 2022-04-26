@@ -98,8 +98,19 @@ void MainScreen::paintEvent(QPaintEvent *)
 
 }
 
+
+/**
+ * @brief clears the home tab
+ *
+ * initializes carClicked
+ * reloads search, filter and table
+ * initializes lineEdits
+ * resets dateEdits
+ * initailizes car display
+ */
 void MainScreen::initializeHomeTab()
 {
+    /*initialize carClicked*/
     carClicked = Car();
 
     /*reload search, filter and table*/
@@ -115,10 +126,17 @@ void MainScreen::initializeHomeTab()
     ui->dateEdit_rentReturnDate->setDate(QDate::currentDate().addDays(1));
     ui->lineEdit_rentDays->setText(QString::number(Car::calculateDaysRented(QDate::currentDate(), QDate::currentDate().addDays(1))));
 
+    /*initailize car display*/
     initializeCarDisplay();
 }
 
 
+/**
+ * @brief initializes car display
+ *
+ * disables return and delete button in display section in home tab
+ * intializes labels
+ */
 void MainScreen::initializeCarDisplay()
 {
     /*disable return and delete button in display section in home tab*/
@@ -134,9 +152,6 @@ void MainScreen::initializeCarDisplay()
     ui->label_showCustomer->setText("");
     ui->label_showDateRented->setText("");
     ui->label_showDateToReturn->setText("");
-
-    /*show defalult car icon*/
-
 }
 
 /**
@@ -147,6 +162,7 @@ void MainScreen::initializeCarDisplay()
  * initially sets isValid as true which represents the rate entered is valid
  * loops to check each character of the string entered by the user
  * if the string is not valid (is not a digit), isValid is changed to false and the loop is broken
+ * also checks if the number is not higher than 7 digits
  * then check if isValid is true or false
  * if isValid is false then disables the add button on the ui of add->car and warns the user
  * if isValid is true then enables the add button on the ui and removes the warning
@@ -164,11 +180,13 @@ void MainScreen::on_lineEdit_rate_textEdited(const QString &arg1)
             isValid = false;
             break;
         }else{
+            /*check if rate is greater 7 digits*/
             try {
                 int x = arg1.toInt();
                 if (x > 9999999)
                     throw (x);
             }  catch (int x) {
+                /*set isValid as false*/
                 isValid = false;
                 break;
             }
@@ -218,11 +236,9 @@ void MainScreen::on_pushButton_addCar_clicked()
             /*export the data to the database and inform the user*/
             admin.exportCarDetails(carToAdd);
 
-
-
             QMessageBox::information(this, "Data added", "Car has been added to the database.");
 
-            carToAdd=Car();
+            carToAdd = Car();
 
             /*clear the add cars form*/
             ui->lineEdit_plateNum->setText("");
@@ -242,10 +258,13 @@ void MainScreen::on_pushButton_addCar_clicked()
 }
 
 
-/*this button requests user to add picture of the car to be added
-*here, when button is pushed, option to choose the file is prompt
-*the path is saved in "image"
-*/
+/**
+ * @brief if add image button is clicked in add->Car
+ *
+ * this button requests user to add picture of the car to be added
+ * here, when button is pushed, option to choose the file is prompt
+ * the path is saved in "image"
+ */
 void MainScreen::on_pushButton_2_clicked()
 {
     QString file_path = QFileDialog::getOpenFileName(this,tr("Choose"),"",tr("Images(*.png *.jpg *.jpeg *bmp"));
@@ -272,7 +291,12 @@ void MainScreen::on_pushButton_2_clicked()
  * @brief shows data of the car clicked on the table and prepares the rent form
  * @param index
  *
- * INCOMPLETE
+ * takes the string of the element double clicked in table
+ * checks if the element clicked on the table is the plate number of the car
+ * imports all the information of the car
+ * displays them on the display section of the car tab
+ * initializes rent form
+ * shows cost of the car clicked
  */
 void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
 {
@@ -290,6 +314,7 @@ void MainScreen::on_tableView_Cars_activated(const QModelIndex &index)
         /*initialize rent form*/
         initializeRentCar(carClicked);
 
+        /*shows cost of the car clicked*/
         showCost(carClicked);
     }
 
@@ -306,8 +331,16 @@ void MainScreen::initializeRentCar(Car x)
 }
 
 
+/**
+ * @brief shows cost of the car in lineEdit_rentCost
+ * @param x
+ *
+ * gets number of days to rent from lineEdit_rentDays
+ * calculates and displays the cost in lineEdit_rentCost
+ */
 void MainScreen::showCost(Car x)
 {
+    /*get number of days to rent from lineEdit_rentDays and calculate and display the cost in lineEdit_rentCost*/
     int days = ui->lineEdit_rentDays->text().toInt();
     ui->lineEdit_rentCost->setText(QString::number(days * x.Rate));
 }
@@ -326,16 +359,21 @@ void MainScreen::displayCar(Car x)
     ui->label_showBrand->setText(x.Brand);
     ui->label_showModel->setText(x.Model);
     ui->label_showRate->setText(QString::number(x.Rate));
+
+    /*loads image*/
     QImage image;
     bool valid = image.load(x.PhotoPath);
 
+    /*is image is loaded*/
     if (valid)
     {
+        /*display photo in the path*/
         image = image.scaledToWidth(ui->label_carPhoto->width(), Qt::SmoothTransformation);
         ui->label_carPhoto->setPixmap(QPixmap::fromImage(image));
     }
     else
     {
+        /*display default photo*/
         image.load(":/resources/img/dummy car img-01.jpg");
         image = image.scaledToWidth(ui->label_carPhoto->width(), Qt::SmoothTransformation);
         ui->label_carPhoto->setPixmap(QPixmap::fromImage(image));
@@ -370,7 +408,10 @@ void MainScreen::displayCar(Car x)
  */
 void MainScreen::on_pushButton_carSearch_clicked()
 {
+    /*get plate number from the user*/
     QString platenumber = ui->lineEdit_carSearch->text();
+
+    /*shows result in the table*/
     ui->tableView_Cars->setModel(admin.searchTablecars(platenumber));
 }
 
@@ -388,6 +429,7 @@ void MainScreen::on_pushButton_carReload_clicked()
     ui->comboBox_sortCar->setCurrentIndex(0);
     ui->comboBox_range->setCurrentIndex(0);
 
+    /*reset search bar*/
     ui->lineEdit_carSearch->setText("");
 }
 
@@ -480,7 +522,11 @@ void MainScreen::on_pushButton_carFilter_clicked()
  * then, checks if the car is available to rent
  * if no, display error message
  * if yes, stores the given data in the object of class Car
- * rents the car and gives a message to user
+ * checks if the customer has already rented a car
+ * if yes, gives error message
+ * if no, checks if the customer is black listed
+ * if yes, gives error message
+ * if no, rents the car, gives a message to user, displays initial bill and resets the home tab
  */
 void MainScreen::on_pushButton_rent_clicked()
 {
@@ -534,6 +580,7 @@ void MainScreen::on_pushButton_rent_clicked()
 
                             /*display initial bill*/
                             first_receipt(ThisCar);
+
                             /*clear home tab*/
                             initializeHomeTab();
                         }else{
@@ -560,18 +607,29 @@ void MainScreen::on_pushButton_rent_clicked()
 
 
 /**
- * @brief INCOMPLETE
+ * @brief if returned button is clicked
+ *
+ * checks if the clicked car exists
+ * takes the current date as date returned
+ * checks if deadline is crossed
+ * if yes, strikes the customer and returns the car and gives a message
+ * if no, returns car and give message
+ * displays final bill
+ * clears home tab
  */
 void MainScreen::on_pushButton_carReturn_clicked()
 {
     int daysRented;
     int daystoRent;
+
     /*if the clicked car exists*/
     if (admin.carExists(carClicked.PlateNum)){
 
         /*if the clicked car is rented*/
         if(!carClicked.isAvailable){
+            /*take the current date as date returned*/
             carClicked.DateReturned = QDate::currentDate();
+
             /*if deadline is crossed*/
             if(carClicked.DateReturned > carClicked.DateToReturn){
                 /*strike customer and return the car and give a message*/
@@ -583,11 +641,13 @@ void MainScreen::on_pushButton_carReturn_clicked()
                 admin.returnCar(carClicked);
                 QMessageBox::information(this, "Car Returned", "The car has been returned.");
             }
+
             /*display final bill*/
             daysRented = Car::calculateDaysRented(carClicked.DateRented,carClicked.DateReturned);
             daystoRent = Car::calculateDaysRented(carClicked.DateRented,carClicked.DateToReturn);
             carClicked.final_Cost = carClicked.finalCost(daysRented,daystoRent);
             final_receipt(carClicked);
+
             /*clear home tab*/
             initializeHomeTab();
         }
@@ -640,6 +700,13 @@ void MainScreen::on_dateEdit_rentReturnDate_dateChanged(const QDate &date)
 /**
  * @brief if lineEdit_rentDays is changed, changes the date on dateEdit_rentReturnDate
  * @param arg1, text in lineEdit_rentDays
+ *
+ * initializes isValid as true
+ * loops to check each character of the string
+ * if not, changes isValid to false and break the loop
+ * else, checks if amount of days rented is greater than 30 and uses exception handling to set isValid as false
+ * if isValid is true, changes date on dateEdit_rentReturnDate by adding the number if days in lineEdit_rentDays, enables rent button and removes any warning
+ * if false, disables rent button and warns the user
  */
 void MainScreen::on_lineEdit_rentDays_textChanged(const QString &arg1)
 {
@@ -655,6 +722,7 @@ void MainScreen::on_lineEdit_rentDays_textChanged(const QString &arg1)
             isValid = false;
             break;
         }else{
+            /*if amount of days rented is greater than 30*/
             try {
                 int x = arg1.toInt();
                 if (x > 30)
@@ -670,10 +738,17 @@ void MainScreen::on_lineEdit_rentDays_textChanged(const QString &arg1)
         /*change date on dateEdit_rentReturnDate by adding the number if days in lineEdit_rentDays*/
         QDate date2 = date1.addDays(arg1.toInt());
         ui->dateEdit_rentReturnDate->setDate(date2);
+
+        /*enable rent button*/
         ui->pushButton_rent->setEnabled(true);
+
+        /*remove any warning*/
         ui->label_warnDaysRented->setText("");
     }else{
+        /*disable rent button*/
         ui->pushButton_rent->setEnabled(false);
+
+        /*warn the user*/
         ui->label_warnDaysRented->setText("<font color = 'red'>Enter a valid date.");
     }
     showCost(carClicked);

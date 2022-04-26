@@ -6,8 +6,8 @@
 void sql::createdbFile()
 {
     QSqlQuery query;
-    /*create a table 'accounts' in the database with column username(primary key), password and key and inserts default account info*/
 
+    /*create a tables*/
     query.exec("CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(10) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, key INT)");
     query.exec("INSERT INTO accounts VALUES('useradmin', 'password', 'default' , 'account' , 0)");
     query.exec("CREATE TABLE IF NOT EXISTS cars (PlateNumber VARCHAR(10) NOT NULL PRIMARY KEY, Brand VARCHAR(10) NOT NULL, Model VARCHAR(10) NOT NULL, Rate INT NOT NULL, isAvailable INT NOT NULL, PhotoPath VARCHAR(10))");
@@ -146,9 +146,6 @@ void sql::importAccountDetails(QString username, QString &password, int &key)
 
         /*store value of 3rd column(key) i.e. in position 2 in table accounts in key*/
         key = qry.value(4).toInt();
-        qDebug()<<"Encrypted password and key received...";
-        qDebug()<<"Encrypted password:"<<password;
-        qDebug()<<"Key:"<<key;
     }
 }
 
@@ -199,6 +196,10 @@ void sql::deleteDefault()
 /**
  * @brief checks if only account in the database is the default account
  * @return true if the account matches the details of the default account else false
+ *
+ * runs a sql query to increase count if default account is found
+ * returns true if count is increased
+ * else returns false
  */
 bool sql::isDefaultAccount()
 {
@@ -234,11 +235,21 @@ void sql::exportCarDetails(Car x)
 }
 
 
-
+/**
+ * @brief runs an sql to update isAvailable of car x to false and add the information of the rented car to table rentedcars
+ * @param x
+ *
+ * updates isAvailable of the car x
+ * inserts data of the rented car in the table rentedcars
+ */
 void sql::rentCar(Car x)
 {
     QSqlQuery qry;
+
+    /*update isAvailable of the car x*/
     qry.exec("UPDATE cars SET isAvailable = 0 WHERE PlateNumber = '"+x.PlateNum+"'");
+
+    /*insert data of the rented car in the table rentedcars*/
     qry.exec("INSERT INTO rentedcars (PlateNumber, phone_no, DateRented, DateToReturn, Cost) VALUES ('"+x.PlateNum+"', '"+x.phone_no+"', '"+x.DateRented.toString()+"', '"+x.DateToReturn.toString()+"', "+QString::number(x.Cost)+")");
 }
 
@@ -249,6 +260,10 @@ void sql::rentCar(Car x)
   * @param lowerRange
   * @param upperRange
   * @return address of the model of the sql query
+  *
+  * makes a static QSqlQueryModel to return its address
+  * selects only the PlateNumber, Brand, Model and Rate of the cars where parameters match
+  * returns the model according to the order
   */
  QSqlQueryModel* sql::filterTablecars(bool isAvailable, int lowerRange,int upperRange, bool isAscendingOrder)
  {
@@ -270,9 +285,13 @@ void sql::rentCar(Car x)
   * @brief imports the table cars based on the PlateNum searched from the database
   * @param PlateNum
   * @return address of the model of the sql query
+  *
+  * makes a sql query model that select the required data from the table cars with the given plate number
+  * returns the model
   */
  QSqlQueryModel* sql::searchTablecars(QString PlateNum)
  {
+     /*make a sql query model that select the required data from the table cars with the given plate number*/
      static QSqlQueryModel model;
 
      model.setQuery("SELECT PlateNumber, Brand, Model, Rate FROM cars WHERE PlateNumber = '"+PlateNum+"'");
@@ -280,19 +299,15 @@ void sql::rentCar(Car x)
      return &model;
  }
 
-/**
- Car sql::importCar(QString val)
- {
-     Car x;
-     QSqlQuery qry;
-     qry.exec("SELECT * FROM cars WHERE PlateNumber = '"+val+"'");
- }
- */
 
  /**
   * @brief checks if the car with the given plate number already exists
   * @param PlateNum
   * @return true if the car exists and false if doesn't
+  *
+  * runs a sql query to increase count if the car with given plate number is found
+  * returns true if count is increased
+  * else returns false
   */
  bool sql::carExists(QString PlateNum)
  {
@@ -364,14 +379,22 @@ void sql::rentCar(Car x)
   */
  void sql::returnCar(Car x)
  {
+     /*set isAvailable of car x as true in table cars*/
      QSqlQuery qry;
      qry.exec("UPDATE cars SET isAvailable = 1 WHERE PlateNumber = '"+x.PlateNum+"'");
+
+     /*delete car x from table rented cars*/
      qry.exec("DELETE FROM rentedcars WHERE PlateNumber = '"+x.PlateNum+"'");
  }
 
 
+ /**
+  * @brief deletes car x from the table cars
+  * @param x
+  */
  void sql::deleteCar(Car x)
  {
+     /*run sql query to delete car x from table cars*/
      QSqlQuery qry;
      qry.exec("DELETE FROM cars WHERE PlateNumber = '"+x.PlateNum+"'");
  }
@@ -483,7 +506,14 @@ void sql::rentCar(Car x)
  }
 
 
-
+ /**
+  * @brief increases the strike of the given customer
+  * @param phone_no
+  *
+  * runs a query to get strikes of customer
+  * increases strikes
+  * updates to database
+  */
  void sql::strikeCustomer(QString phone_no)
  {
      /*run a query to get strikes of customer*/
