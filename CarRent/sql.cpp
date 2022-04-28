@@ -27,7 +27,7 @@ void sql::createdbFile()
  */
 bool sql::connectionOpen()
 {
-    QDir dir("C:/Databases");     //directory for database
+    QDir dir("C:/RentaCar/Databases");     //directory for database
 
     /*if directory for the database does not exists*/
     if (!dir.exists()){
@@ -43,7 +43,7 @@ bool sql::connectionOpen()
     }else{
         /*else just open SQLite database through db in the given path*/
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("C:/Databases/carrent.db");
+        db.setDatabaseName("C:/RentaCar/Databases/carrent.db");
         db.open();
     }
 
