@@ -76,7 +76,7 @@ void first_receipt(Car ThisCar)
     QPrinter printer(QPrinter::PrinterResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPageSize(QPageSize::A6);
-    printer.setOutputFileName("C:/pdf/"+pdfName+".pdf");
+    printer.setOutputFileName("C:/RentaCar/pdf/"+pdfName+".pdf");
     printer.setPageMargins(QMarginsF(1, 1, 1, 1));
 
     document.print(&printer);
@@ -93,6 +93,9 @@ void final_receipt(Car ThisCar)
 
     qDebug() << temp;
     QString html =
+    "<table border =1>"
+     " <tr>"
+     "<td>"
     "<div align=left>"
         "Rent-a-Car"
     "</div>"
@@ -110,7 +113,9 @@ void final_receipt(Car ThisCar)
        "The final cost comes down to: "+QString::number(ThisCar.final_Cost)+""
        "<br>"
     "</p>"
-    "<div align=left>Verified by: "+user.username+"</div>";
+    "<div align=left>Verified by: "+user.username+"</div>"
+    "</td>"
+    "</tr>";
 
     QTextDocument document;
     document.setHtml(html);
