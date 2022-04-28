@@ -731,6 +731,7 @@ void MainScreen::on_pushButton_clicked()
     ui->lineEdit_address->setText("");
     ui->lineEdit_lisence_no->setText("");
     ui->lineEdit_phone_no->setText("");
+    ui->tableView_customer->setModel(admin.filterTableCostumer(0));
 }
 
 
