@@ -54,7 +54,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="iconSize">
      <size>
@@ -2333,7 +2333,7 @@ font: 500 12pt &quot;Gotham&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1366</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>
@@ -2359,6 +2359,50 @@ font: 500 12pt &quot;Gotham&quot;;</string>
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_carSearch</tabstop>
+  <tabstop>pushButton_carSearch</tabstop>
+  <tabstop>pushButton_carFilter</tabstop>
+  <tabstop>pushButton_carReload</tabstop>
+  <tabstop>comboBox_status</tabstop>
+  <tabstop>comboBox_range</tabstop>
+  <tabstop>comboBox_sortCar</tabstop>
+  <tabstop>tableView_Cars</tabstop>
+  <tabstop>lineEdit_rentPlateNum</tabstop>
+  <tabstop>lineEdit_rentPhoneNum</tabstop>
+  <tabstop>dateEdit_rentDate</tabstop>
+  <tabstop>dateEdit_rentReturnDate</tabstop>
+  <tabstop>lineEdit_rentDays</tabstop>
+  <tabstop>lineEdit_rentCost</tabstop>
+  <tabstop>pushButton_rent</tabstop>
+  <tabstop>pushButton_carReturn</tabstop>
+  <tabstop>pushButton_carDelete</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>lineEdit_searchbar</tabstop>
+  <tabstop>pushButton_Search</tabstop>
+  <tabstop>comboBox_costumer</tabstop>
+  <tabstop>comboBox_strikes</tabstop>
+  <tabstop>pushButton_Filter_costumer</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>lineEdit_lisence_no</tabstop>
+  <tabstop>dateEdit_DateoBirth</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_addCar</tabstop>
+  <tabstop>lineEdit_fnameh</tabstop>
+  <tabstop>lineEdit_lname</tabstop>
+  <tabstop>tableView_customer</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>lineEdit_brand</tabstop>
+  <tabstop>lineEdit_model</tabstop>
+  <tabstop>radioButton_Female</tabstop>
+  <tabstop>lineEdit_phone_no</tabstop>
+  <tabstop>radioButton_Male</tabstop>
+  <tabstop>lineEdit_rate</tabstop>
+  <tabstop>lineEdit_address</tabstop>
+  <tabstop>radioButton_other</tabstop>
+  <tabstop>pushButton_admin</tabstop>
+  <tabstop>lineEdit_plateNum</tabstop>
+ </tabstops>
  <resources>
   <include location="Resources.qrc"/>
  </resources>

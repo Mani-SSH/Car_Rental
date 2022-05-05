@@ -304,6 +304,15 @@ border-radius:10;
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_fname</tabstop>
+  <tabstop>lineEdit_Lname</tabstop>
+  <tabstop>lineEdit_username</tabstop>
+  <tabstop>lineEdit_password</tabstop>
+  <tabstop>lineEdit_confirm_password</tabstop>
+  <tabstop>checkBox</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
