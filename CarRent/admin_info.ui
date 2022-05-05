@@ -317,8 +317,9 @@ border-radius:10;
   <tabstop>checkBox</tabstop>
   <tabstop>pushButton</tabstop>
  </tabstops>
- <resources/>
-
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>checkBox</sender>

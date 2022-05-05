@@ -58,7 +58,7 @@ color: rgb(0, 0, 0);</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <property name="iconSize">
      <size>
@@ -2387,31 +2387,31 @@ font: 500 12pt &quot;Gotham&quot;;</string>
   <tabstop>pushButton_rent</tabstop>
   <tabstop>pushButton_carReturn</tabstop>
   <tabstop>pushButton_carDelete</tabstop>
-  <tabstop>tabWidget</tabstop>
   <tabstop>lineEdit_searchbar</tabstop>
   <tabstop>pushButton_Search</tabstop>
   <tabstop>comboBox_costumer</tabstop>
   <tabstop>comboBox_strikes</tabstop>
   <tabstop>pushButton_Filter_costumer</tabstop>
-  <tabstop>tabWidget_2</tabstop>
-  <tabstop>lineEdit_lisence_no</tabstop>
-  <tabstop>dateEdit_DateoBirth</tabstop>
+  <tabstop>tableView_customer</tabstop>
+  <tabstop>lineEdit_plateNum</tabstop>
+  <tabstop>lineEdit_brand</tabstop>
+  <tabstop>lineEdit_model</tabstop>
+  <tabstop>lineEdit_rate</tabstop>
   <tabstop>pushButton_2</tabstop>
   <tabstop>pushButton_addCar</tabstop>
   <tabstop>lineEdit_fnameh</tabstop>
   <tabstop>lineEdit_lname</tabstop>
-  <tabstop>tableView_customer</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>lineEdit_brand</tabstop>
-  <tabstop>lineEdit_model</tabstop>
-  <tabstop>radioButton_Female</tabstop>
+  <tabstop>dateEdit_DateoBirth</tabstop>
+  <tabstop>lineEdit_lisence_no</tabstop>
   <tabstop>lineEdit_phone_no</tabstop>
-  <tabstop>radioButton_Male</tabstop>
-  <tabstop>lineEdit_rate</tabstop>
   <tabstop>lineEdit_address</tabstop>
+  <tabstop>radioButton_Male</tabstop>
+  <tabstop>radioButton_Female</tabstop>
   <tabstop>radioButton_other</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>tabWidget_2</tabstop>
   <tabstop>pushButton_admin</tabstop>
-  <tabstop>lineEdit_plateNum</tabstop>
+  <tabstop>tabWidget</tabstop>
  </tabstops>
  <resources>
   <include location="Resources.qrc"/>
