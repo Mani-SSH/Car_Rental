@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/resources/img/window-icon.png</normaloff>:/resources/img/window-icon.png</iconset>
+  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
@@ -314,6 +318,7 @@ border-radius:10;
   <tabstop>pushButton</tabstop>
  </tabstops>
  <resources/>
+
  <connections>
   <connection>
    <sender>checkBox</sender>

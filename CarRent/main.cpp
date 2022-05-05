@@ -11,9 +11,25 @@ bool isLoggedIn = false;   //are account details are correct? (initially set to 
 bool isClose = false;      //is program closed
 account user;              //account entered bu the user
 
+/**
+ * @brief main program
+ * @param argc
+ * @param argv
+ * @return 0
+ *
+ * loops while program is not close
+ * ---------LOOP START--------
+ * opens login window
+ * check if isLoggedIn is true
+ * if true, open mainscreen
+ * if false, check if force exit was clicked, if it was clicked, use exception handling to set isClose as true
+ * check if force exit was clicked on mainscreen, use exception handling to set isLoggedIn as false
+ */
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    /*loop while program is not close*/
     while(!isClose)
     {
         LoginAdmin w;
@@ -22,14 +38,14 @@ int main(int argc, char *argv[])
         w.show();
         a.exec();
 
-        /*if login details are correct*/
+        /*if isLoggedIn is true*/
         if (isLoggedIn){
             /*open main screen*/
             MainScreen m;
             m.show();
             a.exec();
         }else{
-            /*if not correct, must be clicked force exit button*/
+            /*check if force exit button is clicked*/
             try{
                 if (!isClose){
                     throw isLoggedIn;
@@ -49,5 +65,6 @@ int main(int argc, char *argv[])
         }
 
     }
+    admin.connectionClose();
     return 0;
 }
