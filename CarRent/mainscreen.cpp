@@ -835,31 +835,32 @@ void MainScreen::on_tableView_customer_activated(const QModelIndex &index)
 {
     QString val = ui->tableView_customer->model()->data(index).toString();
     Costumer thisCostumer;
-    thisCostumer = admin.importCostumer(val,true);
-    ui->label_sql_fname->setText(thisCostumer.C_fname);
-    ui->label_sql_lname->setText(thisCostumer.C_lname);
-    ui->label_sql_age->setText(QString::number(thisCostumer.age));
-    ui->label_sql_gender->setText(thisCostumer.gender);
-    ui->label_sql_phone->setText(thisCostumer.phone_no);
-    ui->label_sql_lisence->setText(thisCostumer.lisence_no);
-    ui->label_sql_address->setText(thisCostumer.Address);
-    if (thisCostumer.strikes == 0)
-    {
-        ui->label_sql_Strike->setText("GREEN");
+    if(admin.costumerExists(val)){
+        thisCostumer = admin.importCostumer(val,true);
+        ui->label_sql_fname->setText(thisCostumer.C_fname);
+        ui->label_sql_lname->setText(thisCostumer.C_lname);
+        ui->label_sql_age->setText(QString::number(thisCostumer.age));
+        ui->label_sql_gender->setText(thisCostumer.gender);
+        ui->label_sql_phone->setText(thisCostumer.phone_no);
+        ui->label_sql_lisence->setText(thisCostumer.lisence_no);
+        ui->label_sql_address->setText(thisCostumer.Address);
+        if (thisCostumer.strikes == 0)
+        {
+            ui->label_sql_Strike->setText("GREEN");
+        }
+        else if (thisCostumer.strikes == 1)
+        {
+            ui->label_sql_Strike->setText("YELLOW");
+        }
+        else if (thisCostumer.strikes == 2)
+        {
+            ui->label_sql_Strike->setText("RED");
+        }
+        else
+        {
+            ui->label_sql_Strike->setText("BLACK LISTED");
+        }
     }
-    else if (thisCostumer.strikes == 1)
-    {
-        ui->label_sql_Strike->setText("YELLOW");
-    }
-    else if (thisCostumer.strikes == 2)
-    {
-        ui->label_sql_Strike->setText("RED");
-    }
-    else
-    {
-        ui->label_sql_Strike->setText("BLACK LISTED");
-    }
-
 
 }
 
