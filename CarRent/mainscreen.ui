@@ -1,0 +1,2420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainScreen</class>
+ <widget class="QMainWindow" name="MainScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1366</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/resources/img/window-icon.png</normaloff>:/resources/img/window-icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>791</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout"/>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1361</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::West</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <widget class="QWidget" name="tab_Home">
+     <attribute name="icon">
+      <iconset resource="Resources.qrc">
+       <normaloff>:/resources/img/home-white.png</normaloff>
+       <normalon>:/resources/img/home-black.png</normalon>:/resources/img/home-white.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string/>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>271</width>
+        <height>611</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	
+
+	background-color: rgb(27, 102, 165);
+	border-radius:10px;
+
+}
+</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="label_20">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>251</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(27, 102, 165);
+border-radius:10px;
+
+font: 700 20pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string>RENT</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_rent">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>460</y>
+         <width>83</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+background-color: rgb(101, 255, 66);
+color: rgb(255, 255, 255);
+font: 700 12pt &quot;Gotham&quot;;
+border-radius:10;
+}
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
+       </property>
+       <property name="text">
+        <string>Rent</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_warnDaysRented">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>360</y>
+         <width>231</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentCost">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>410</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_rentDate">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>210</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="displayFormat">
+        <string>d/M/yyyy</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentPhoneNum">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>150</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentDays">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>330</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_26">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>390</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Cost:</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_rentReturnDate">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>270</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="displayFormat">
+        <string>d/M/yyyy</string>
+       </property>
+       <property name="date">
+        <date>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_25">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>201</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Days Rented: (Max. 30)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>130</y>
+         <width>201</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Phone Number of Customer:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_rentPlateNum">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>90</y>
+         <width>240</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_24">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>250</y>
+         <width>161</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Date to Return: (d/m/y)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_23">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>190</y>
+         <width>131</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Rent Date: (d/m/y)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>70</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;Gotham&quot;;
+	background-color: rgb(27, 102, 165);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Plate Number:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_filterCar">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>60</y>
+        <width>701</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	border: 0px solid white;
+	background-color:#ffffff;
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>711</width>
+         <height>581</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView_Cars">
+          <property name="font">
+           <font>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QTableView {
+border: 1px solid rgba(118, 122, 142, 153);
+background: rgba(224, 222, 225, 51);
+selection-background-color: rgba(136, 132, 159, 204);
+selection-color: rgb(248, 246, 250);
+alternate-background-color: rgb(151, 177, 196);;
+}
+
+QHeaderView::section {
+border-radius: 30px;
+height: 30px;
+color: rgb(239, 238, 241);
+background: rgb(108, 104, 124);
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>170</number>
+          </attribute>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>60</y>
+        <width>311</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	
+
+	background: rgba(224, 222, 225, 51);
+	border-radius:10px;
+
+}
+</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>291</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(27, 102, 165);
+font: 700 15pt &quot;Gotham&quot;;
+border-radius:10px;</string>
+       </property>
+       <property name="text">
+        <string>DISPLAY</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_carPhoto">
+       <property name="geometry">
+        <rect>
+         <x>35</x>
+         <y>70</y>
+         <width>240</width>
+         <height>135</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius:10px;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>291</width>
+         <height>241</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="5" column="1">
+         <widget class="QLabel" name="label_showCustomer">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_showPlateNum">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_11">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+</string>
+          </property>
+          <property name="text">
+           <string>Plate Number:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="label_showDateRented">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="label_showRate">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="label_showModel">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_15">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Status:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_16">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string>Rented By:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_17">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Date Rented:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="label_showStatus">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_12">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string>Brand:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_13">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Model:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_14">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string>Rate:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_18">
+          <property name="styleSheet">
+           <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string>Date To Return:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_showBrand">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLabel" name="label_showDateToReturn">
+          <property name="styleSheet">
+           <string notr="true">font: 9pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carReturn">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>500</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+color: rgb(255, 255, 255);
+font: 700 10pt &quot;Gotham&quot;;
+border-radius:10;
+}
+
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
+       </property>
+       <property name="text">
+        <string>Return</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carDelete">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>500</y>
+         <width>83</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 10pt &quot;Gotham&quot;;
+border-radius:10;
+}
+
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
+       </property>
+       <property name="text">
+        <string>Delete</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>35</x>
+         <y>45</y>
+         <width>251</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 500 9pt &quot;Gotham&quot;;
+color: rgb(0, 0, 0);
+background: rgba(224, 222, 225, 51);
+</string>
+       </property>
+       <property name="text">
+        <string>Double click on plate number to see data</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>0</y>
+        <width>1031</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	border-color: rgb(255, 255, 255);
+	border: 0px solid white;
+	background-color: rgb(255, 255, 255);
+
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="lineEdit_carSearch">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>511</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Enter Plate Number of Car</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carSearch">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>20</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carFilter">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>20</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string>Filter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>10</y>
+         <width>63</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_status">
+       <property name="geometry">
+        <rect>
+         <x>710</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Available</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rented</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>820</x>
+         <y>10</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Price range</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_range">
+       <property name="geometry">
+        <rect>
+         <x>820</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>All</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>&lt; 1000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1000 - 2000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2000+</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton_carReload">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>20</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string>Reload</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>930</x>
+         <y>10</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Sort By Price</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_sortCar">
+       <property name="geometry">
+        <rect>
+         <x>930</x>
+         <y>30</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Descending</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ascending</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_Customers">
+     <attribute name="icon">
+      <iconset resource="Resources.qrc">
+       <normaloff>:/resources/img/customer-white.png</normaloff>
+       <normalon>:/resources/img/customer-black.png</normalon>:/resources/img/customer-white.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string/>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_costumer_table">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>270</y>
+        <width>951</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	border: 0px solid white;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QTableView" name="tableView_customer">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>931</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTableView {
+border: 1px solid rgba(118, 122, 142, 153);
+background: rgba(224, 222, 225, 51);
+selection-background-color: rgba(136, 132, 159, 204);
+selection-color: rgb(248, 246, 250);
+alternate-background-color: rgb(151, 177, 196);;
+}
+
+QHeaderView::section {
+border-radius: 30px;
+height: 30px;
+color: rgb(239, 238, 241);
+background: rgb(108, 104, 124);
+}
+</string>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>300</number>
+       </attribute>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_details">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>270</y>
+        <width>371</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+	
+
+	background: rgba(224, 222, 225, 51);
+	border-radius:10px;
+
+}
+</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="3" column="1">
+        <widget class="QLabel" name="label_sql_age">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_Address_2">
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Address</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLabel" name="label_sql_gender">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_Lisence_NO">
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Lisence Number</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLabel" name="label_sql_Strike">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_sql_fname">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_sql_lname">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_Age">
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Age</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLabel" name="label_sql_phone">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_Phone_number">
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Phone Number</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLabel" name="label_sql_address">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_gender">
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Gender</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_l_name">
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Last Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_f_name">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;</string>
+         </property>
+         <property name="text">
+          <string>First Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLabel" name="label_sql_lisence">
+         <property name="styleSheet">
+          <string notr="true">font: 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_Status">
+         <property name="styleSheet">
+          <string notr="true">font: 500 11pt &quot;Gotham&quot;;
+background-color: rgb(151, 177, 196);</string>
+         </property>
+         <property name="text">
+          <string>Status</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(27, 102, 165);
+font: 700 15pt &quot;Gotham&quot;;
+border-radius:10px;</string>
+         </property>
+         <property name="text">
+          <string>COSTUMER DETAILS</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="add_custo_bg">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1311</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_searchbar">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>180</y>
+        <width>711</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);
+border: 0px solid white;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="lineEdit_searchbar">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>441</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+font: 500 9pt &quot;Gotham&quot;;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Enter Phone Number or Lisence Number</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Search">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>30</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_costumer">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>40</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Phone Number</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Lisence Number</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_Search_by">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>20</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Search By:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>180</y>
+        <width>621</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);
+	border: 0px solid white;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="label_Costumer_status">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Costumer Status</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_strikes">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Available</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Black Listed</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Filter_costumer">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>30</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+
+    background-color: rgb(27, 102, 165);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+	color:white;
+	padding: 6px;
+}
+QPushButton:pressed {
+	color:white;
+    background-color: rgb(30, 108, 170);
+    border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string>Filter</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_Add">
+     <attribute name="icon">
+      <iconset resource="Resources.qrc">
+       <normaloff>:/resources/img/add-white.png</normaloff>
+       <normalon>:/resources/img/add-black.png</normalon>:/resources/img/add-white.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string/>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1321</width>
+        <height>611</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="tabWidget_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+border: 0px solid white;</string>
+         </property>
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="tab_addCar">
+          <attribute name="title">
+           <string>Car</string>
+          </attribute>
+          <widget class="QGroupBox" name="groupBox">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1321</width>
+             <height>571</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QGroupBox{
+	
+
+	background: rgba(224, 222, 225, 51);
+	border-radius:10px;
+
+}
+</string>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QPushButton" name="pushButton_addCar">
+            <property name="geometry">
+             <rect>
+              <x>600</x>
+              <y>470</y>
+              <width>111</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Gotham&quot;;
+border-radius:10;
+}
+QPushButton:disabled{
+background-color:rgb(72, 76, 83);
+}</string>
+            </property>
+            <property name="text">
+             <string>ADD</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_warnRate">
+            <property name="geometry">
+             <rect>
+              <x>520</x>
+              <y>420</y>
+              <width>331</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_9">
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>180</y>
+              <width>261</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(27, 102, 165);
+font: 700 30pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>ADD CAR</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="geometry">
+             <rect>
+              <x>940</x>
+              <y>410</y>
+              <width>131</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+color: rgb(255, 255, 255);
+font: 700 9pt &quot;Gotham&quot;;
+border-radius:10;</string>
+            </property>
+            <property name="text">
+             <string>Choose an image</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_image">
+            <property name="geometry">
+             <rect>
+              <x>880</x>
+              <y>260</y>
+              <width>240</width>
+              <height>135</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>l</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>271</y>
+              <width>161</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Plate Number</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_brand">
+            <property name="geometry">
+             <rect>
+              <x>520</x>
+              <y>301</y>
+              <width>280</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_2">
+            <property name="geometry">
+             <rect>
+              <x>520</x>
+              <y>271</y>
+              <width>61</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Brand</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_plateNum">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>301</y>
+              <width>280</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_3">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>360</y>
+              <width>71</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);
+</string>
+            </property>
+            <property name="text">
+             <string>Model</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_model">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>390</y>
+              <width>280</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_rate">
+            <property name="geometry">
+             <rect>
+              <x>520</x>
+              <y>390</y>
+              <width>280</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_4">
+            <property name="geometry">
+             <rect>
+              <x>520</x>
+              <y>360</y>
+              <width>81</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Rate</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_addCar_vector">
+           <property name="geometry">
+            <rect>
+             <x>-2</x>
+             <y>-25</y>
+             <width>1321</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <zorder>label_addCar_vector</zorder>
+          <zorder>groupBox</zorder>
+         </widget>
+         <widget class="QWidget" name="tab_addCustomer">
+          <attribute name="title">
+           <string>Customer</string>
+          </attribute>
+          <widget class="QGroupBox" name="groupBox_costumer">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>-30</y>
+             <width>1321</width>
+             <height>621</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QGroupBox{
+	
+
+	background: rgba(224, 222, 225, 51);
+
+
+}
+</string>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <widget class="QLabel" name="label_fname">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>295</y>
+              <width>131</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>First Name</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_lname">
+            <property name="geometry">
+             <rect>
+              <x>500</x>
+              <y>295</y>
+              <width>111</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Last Name</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_phone_no">
+            <property name="geometry">
+             <rect>
+              <x>500</x>
+              <y>370</y>
+              <width>161</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Phone Number</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_Lisence">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>370</y>
+              <width>181</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>License Number</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_Address">
+            <property name="geometry">
+             <rect>
+              <x>870</x>
+              <y>370</y>
+              <width>121</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Address</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_ADD_COSTUMER">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>220</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>30</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(27, 102, 165);
+font: 700 30pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>ADD CUSTOMER</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_fnameh">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>330</y>
+              <width>271</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_lname">
+            <property name="geometry">
+             <rect>
+              <x>500</x>
+              <y>330</y>
+              <width>271</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_phone_no">
+            <property name="geometry">
+             <rect>
+              <x>500</x>
+              <y>400</y>
+              <width>271</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_lisence_no">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>400</y>
+              <width>271</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_address">
+            <property name="geometry">
+             <rect>
+              <x>870</x>
+              <y>400</y>
+              <width>271</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>540</y>
+              <width>101</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Gotham&quot;;
+border-radius:10;</string>
+            </property>
+            <property name="text">
+             <string>ADD </string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="radioButton_Male">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>490</y>
+              <width>61</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 12pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Male</string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="radioButton_Female">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>490</y>
+              <width>91</width>
+              <height>18</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 12pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Female</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_71">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>450</y>
+              <width>91</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Gender</string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="radioButton_other">
+            <property name="geometry">
+             <rect>
+              <x>340</x>
+              <y>490</y>
+              <width>81</width>
+              <height>18</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 12pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Other</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_DateoBirth">
+            <property name="geometry">
+             <rect>
+              <x>870</x>
+              <y>300</y>
+              <width>241</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font: 500 16pt &quot;Gotham&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+            </property>
+            <property name="text">
+             <string>Date of Birth</string>
+            </property>
+           </widget>
+           <widget class="QDateEdit" name="dateEdit_DateoBirth">
+            <property name="geometry">
+             <rect>
+              <x>870</x>
+              <y>325</y>
+              <width>141</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Gotham&quot;;</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_addcusphoto">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>-30</y>
+             <width>1321</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <zorder>label_addcusphoto</zorder>
+          <zorder>groupBox_costumer</zorder>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_admin">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>630</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton {
+	background-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 25px;
+    border-color:solid white;
+	padding: 3px;
+}
+QPushButton:pressed {
+    background: rgb(151, 177, 196);
+    border-style: inset;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>35</width>
+      <height>35</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_welcomeUser">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>650</y>
+      <width>681</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 500 12pt &quot;Gotham&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1366</width>
+     <height>17</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAdd_car">
+   <property name="text">
+    <string>Add car</string>
+   </property>
+  </action>
+  <action name="actionAdd_Customer">
+   <property name="text">
+    <string>Add Customer</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
+  <action name="actionCreate_New_Account">
+   <property name="text">
+    <string>Create New Account</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>lineEdit_carSearch</tabstop>
+  <tabstop>pushButton_carSearch</tabstop>
+  <tabstop>pushButton_carFilter</tabstop>
+  <tabstop>pushButton_carReload</tabstop>
+  <tabstop>comboBox_status</tabstop>
+  <tabstop>comboBox_range</tabstop>
+  <tabstop>comboBox_sortCar</tabstop>
+  <tabstop>tableView_Cars</tabstop>
+  <tabstop>lineEdit_rentPlateNum</tabstop>
+  <tabstop>lineEdit_rentPhoneNum</tabstop>
+  <tabstop>dateEdit_rentDate</tabstop>
+  <tabstop>dateEdit_rentReturnDate</tabstop>
+  <tabstop>lineEdit_rentDays</tabstop>
+  <tabstop>lineEdit_rentCost</tabstop>
+  <tabstop>pushButton_rent</tabstop>
+  <tabstop>pushButton_carReturn</tabstop>
+  <tabstop>pushButton_carDelete</tabstop>
+  <tabstop>lineEdit_searchbar</tabstop>
+  <tabstop>pushButton_Search</tabstop>
+  <tabstop>comboBox_costumer</tabstop>
+  <tabstop>comboBox_strikes</tabstop>
+  <tabstop>pushButton_Filter_costumer</tabstop>
+  <tabstop>tableView_customer</tabstop>
+  <tabstop>lineEdit_plateNum</tabstop>
+  <tabstop>lineEdit_brand</tabstop>
+  <tabstop>lineEdit_model</tabstop>
+  <tabstop>lineEdit_rate</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_addCar</tabstop>
+  <tabstop>lineEdit_fnameh</tabstop>
+  <tabstop>lineEdit_lname</tabstop>
+  <tabstop>dateEdit_DateoBirth</tabstop>
+  <tabstop>lineEdit_lisence_no</tabstop>
+  <tabstop>lineEdit_phone_no</tabstop>
+  <tabstop>lineEdit_address</tabstop>
+  <tabstop>radioButton_Male</tabstop>
+  <tabstop>radioButton_Female</tabstop>
+  <tabstop>radioButton_other</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>pushButton_admin</tabstop>
+  <tabstop>tabWidget</tabstop>
+ </tabstops>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

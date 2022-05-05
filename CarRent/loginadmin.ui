@@ -10,13 +10,30 @@
     <height>700</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>600</width>
+    <height>700</height>
+   </size>
+  </property>
   <property name="font">
-   <font>
-    <family>Gotham</family>
-   </font>
+   <font/>
   </property>
   <property name="windowTitle">
    <string>LoginAdmin</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/resources/img/window-icon.png</normaloff>:/resources/img/window-icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>30</width>
+    <height>30</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox_Login">
@@ -27,6 +44,9 @@
       <width>351</width>
       <height>451</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="title">
      <string/>
@@ -42,7 +62,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>10</pointsize>
        <bold>true</bold>
        <strikeout>false</strikeout>
@@ -51,6 +70,12 @@
      </property>
      <property name="cursor">
       <cursorShape>IBeamCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;
+</string>
      </property>
      <property name="placeholderText">
       <string>Username</string>
@@ -67,10 +92,14 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(151, 177, 196);
+color: rgb(255, 255, 255);
+border-radius:10;</string>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
@@ -90,9 +119,11 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>8</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
       <string>Show Password</string>
@@ -109,12 +140,11 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>7</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Hint</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_hintPassword">
@@ -128,19 +158,18 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>7</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Hint</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_login">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>370</y>
+       <y>340</y>
        <width>291</width>
        <height>41</height>
       </rect>
@@ -158,12 +187,16 @@
          </brush>
         </colorrole>
         <colorrole role="Button">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>127</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Light">
@@ -230,21 +263,29 @@
          </brush>
         </colorrole>
         <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>255</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Window">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>240</red>
-           <green>240</green>
-           <blue>240</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Shadow">
@@ -349,12 +390,16 @@
          </brush>
         </colorrole>
         <colorrole role="Button">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>240</red>
-           <green>240</green>
-           <blue>240</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Light">
@@ -421,21 +466,29 @@
          </brush>
         </colorrole>
         <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>255</green>
-           <blue>255</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Window">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>240</red>
-           <green>240</green>
-           <blue>240</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Shadow">
@@ -540,12 +593,16 @@
          </brush>
         </colorrole>
         <colorrole role="Button">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>127</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Light">
@@ -612,21 +669,29 @@
          </brush>
         </colorrole>
         <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>240</red>
-           <green>240</green>
-           <blue>240</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Window">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>240</red>
-           <green>240</green>
-           <blue>240</blue>
-          </color>
+         <brush brushstyle="LinearGradientPattern">
+          <gradient startx="0.251000000000000" starty="0.216000000000000" endx="0.811000000000000" endy="0.898000000000000" type="LinearGradient" spread="ReflectSpread" coordinatemode="ObjectBoundingMode">
+           <gradientstop position="0.255556000000000">
+            <color alpha="255">
+             <red>0</red>
+             <green>128</green>
+             <blue>218</blue>
+            </color>
+           </gradientstop>
+          </gradient>
          </brush>
         </colorrole>
         <colorrole role="Shadow">
@@ -724,10 +789,13 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
        <pointsize>11</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.251, y1:0.216, x2:0.811, y2:0.898, stop:0.255556 rgba(0, 128, 218, 255));
+border-radius:10;</string>
      </property>
      <property name="text">
       <string>LOGIN</string>
@@ -744,9 +812,12 @@
      </property>
      <property name="font">
       <font>
-       <family>Gotham</family>
-       <pointsize>16</pointsize>
+       <pointsize>24</pointsize>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(27, 102, 165);</string>
      </property>
      <property name="text">
       <string>ADMIN LOGIN</string>
@@ -758,6 +829,35 @@
       <number>0</number>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_Exit">
+     <property name="geometry">
+      <rect>
+       <x>279</x>
+       <y>397</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_logo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>130</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -766,12 +866,14 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

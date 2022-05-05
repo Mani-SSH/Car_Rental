@@ -2,9 +2,11 @@
 #define LOGINADMIN_H
 
 #include <QMainWindow>
-#include <QtSql>
-#include <QtDebug>
-#include <QFileInfo>
+#include <QMessageBox>
+#include <QDebug>
+#include "sql.h"
+#include "account.h"
+#include "admin_info.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginAdmin; }
@@ -17,11 +19,16 @@ class LoginAdmin : public QMainWindow
 public:
     LoginAdmin(QWidget *parent = nullptr);
     ~LoginAdmin();
-    void createdbFile();
-    bool dbFileStatus();
+    void hintLoginDetails();
+
+private slots:
+    void on_checkBox_showPassword_stateChanged(int arg1);
+
+    void on_pushButton_login_clicked();
+
+    void on_pushButton_Exit_clicked();
 
 private:
     Ui::LoginAdmin *ui;
-    QSqlDatabase db;          //database for admin accouts
 };
 #endif // LOGINADMIN_H
