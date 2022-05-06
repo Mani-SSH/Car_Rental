@@ -520,7 +520,7 @@ void sql::rentCar(Car x)
      /*run a query to get strikes of customer*/
      int strikes = 0;
      QSqlQuery qry;
-     qry.exec("SELECT Strikes FROM costumers WHERE phone_no = '"+phone_no+"'");
+     qry.exec("SELECT * FROM costumers WHERE phone_no = '"+phone_no+"'");
      while (qry.next())
      {
          strikes = qry.value(7).toInt();
